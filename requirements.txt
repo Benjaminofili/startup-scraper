@@ -1,0 +1,6 @@
+requests
+beautifulsoup4
+google-play-scraper
+groq
+pandas
+python-dotenv
