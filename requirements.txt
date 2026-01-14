@@ -1,16 +1,15 @@
-# Web Scraping
+# ======================
+# STARTUP SCRAPER
+# Fixed Dependencies
+# ======================
+
+# Web Scraping (Core)
 requests>=2.31.0
 beautifulsoup4>=4.12.0
 lxml>=5.0.0
-selenium>=4.15.0
-webdriver-manager>=4.0.0
 
-# App Store Scrapers
+# Google Play Store Scraper
 google-play-scraper>=1.2.4
-app-store-scraper>=0.3.5
-
-# Reddit (backup method)
-praw>=7.7.1
 
 # AI Analysis
 groq>=0.4.0
@@ -24,3 +23,11 @@ pandas>=2.0.0
 
 # Utilities
 python-dotenv>=1.0.0
+
+# ======================
+# REMOVED (Conflict/Unnecessary):
+# - app-store-scraper (conflicts with requests, iOS not needed for Nigeria)
+# - selenium (heavy, not needed for our sources)
+# - webdriver-manager (only needed with selenium)
+# - praw (Reddit API too strict now, using PullPush instead)
+# ======================

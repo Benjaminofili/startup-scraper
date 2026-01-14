@@ -4,9 +4,9 @@ from google_play_scraper import reviews, Sort, search
 import time
 import hashlib
 
-# Nigerian fintech apps
+# Nigerian apps to analyze
 NIGERIAN_APPS = [
-    # Fintech
+    # Fintech (biggest opportunity)
     "com.opay.merchant",
     "com.palmpay.app",
     "team.monipoint.pos",
@@ -15,46 +15,39 @@ NIGERIAN_APPS = [
     "com.piggyvest.piggyvest",
     "com.carbon.android",
     "com.loanandfund.fairmoney",
-    "ng.gov.firs.tax",
     
-    # Logistics
-    "com.glotrack.app",
-    "com.gokada.android",
+    # Logistics/Transport
     "com.bolt.ng",
-    "com.max.maxng",
+    "com.ubercab",
+    "ng.max.app",
     
     # E-commerce
     "com.jumia.android",
     "com.konga.buyer",
     
-    # Betting (huge market)
+    # Betting (huge market in Nigeria)
     "com.sportybet.android.ng",
     "com.bet9ja.android",
+    
+    # Utilities
+    "com.buypower.app",
+    "ng.gov.firs.tax",
 ]
 
-# Global popular apps with problems
+# Global apps with common problems
 GLOBAL_APPS = [
-    # Productivity
     "com.notion.id",
     "com.todoist",
-    "com.ticktick.task",
-    
-    # Finance
-    "com.robinhood.android",
-    "com.coinbase.android",
-    
-    # SMB Tools
     "com.squareup.pos",
-    "com.intuit.quickbooks",
 ]
 
 
-def scrape_playstore_reviews(apps=None, country='ng', reviews_per_app=80):
+def scrape_playstore_reviews(apps=None, country='ng', reviews_per_app=60):
     """Scrape 1-star and 2-star reviews from Play Store"""
     
-    print("\n" + "="*50)
+    print("\n" + "=" * 50)
     print("📱 SCRAPING GOOGLE PLAY STORE...")
-    print("="*50)
+    print("=" * 50)
     
     if apps is None:
         apps = NIGERIAN_APPS + GLOBAL_APPS
@@ -63,7 +56,7 @@ def scrape_playstore_reviews(apps=None, country='ng', reviews_per_app=80):
     
     for app_id in apps:
         try:
-            # Get 1-star reviews
+            # Get 1-star reviews (most frustrated users)
             result_1star, _ = reviews(
                 app_id,
                 lang='en',
@@ -73,7 +66,7 @@ def scrape_playstore_reviews(apps=None, country='ng', reviews_per_app=80):
                 filter_score_with=1
             )
             
-            # Get 2-star reviews too (often more detailed)
+            # Also get 2-star reviews (detailed complaints)
             result_2star, _ = reviews(
                 app_id,
                 lang='en',
@@ -108,51 +101,11 @@ def scrape_playstore_reviews(apps=None, country='ng', reviews_per_app=80):
                         "date": str(review.get('at', ''))[:10],
                     })
             
-            time.sleep(1.2)
+            time.sleep(1.5)  # Be nice to Google
             
         except Exception as e:
-            print(f"   ❌ {app_id}: {type(e).__name__}")
+            print(f"   ❌ {app_id}: {type(e).__name__}: {e}")
             continue
     
     print(f"\n   ✅ Play Store Total: {len(problems)}")
     return problems
-
-
-def find_bad_apps_in_category(category, country='ng'):
-    """Find apps with high downloads but low ratings (opportunity!)"""
-    
-    print(f"\n   🔍 Searching bad apps in: {category}")
-    
-    opportunities = []
-    
-    try:
-        results = search(
-            category,
-            lang='en',
-            country=country,
-            n_hits=30
-        )
-        
-        for app in results:
-            # High downloads (>100k) but bad rating (<3.5)
-            installs = app.get('installs', '0').replace(',', '').replace('+', '')
-            try:
-                install_count = int(installs)
-            except:
-                install_count = 0
-                
-            rating = app.get('score', 5)
-            
-            if install_count > 100000 and rating and rating < 3.5:
-                opportunities.append({
-                    "app_id": app.get('appId'),
-                    "title": app.get('title'),
-                    "rating": rating,
-                    "installs": app.get('installs'),
-                    "opportunity": "High demand, poor execution"
-                })
-                
-    except Exception as e:
-        print(f"   ❌ Category search error: {e}")
-    
-    return opportunities

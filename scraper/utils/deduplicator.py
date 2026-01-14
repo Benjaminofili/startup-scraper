@@ -1,146 +1,87 @@
-# scraper/utils/deduplicator.py
+# scraper/analyzers/keyword_extractor.py
 
-import hashlib
 import re
-from typing import List, Dict
+from collections import Counter
+from typing import List, Dict, Tuple
+
+# Common words to ignore
+STOP_WORDS = {
+    'the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for',
+    'of', 'with', 'by', 'from', 'as', 'is', 'was', 'are', 'were', 'been',
+    'be', 'have', 'has', 'had', 'do', 'does', 'did', 'will', 'would',
+    'could', 'should', 'may', 'might', 'must', 'can', 'this', 'that',
+    'these', 'those', 'i', 'you', 'he', 'she', 'it', 'we', 'they', 'my',
+    'your', 'his', 'her', 'its', 'our', 'their', 'what', 'which', 'who',
+    'when', 'where', 'why', 'how', 'all', 'each', 'every', 'both', 'few',
+    'more', 'most', 'other', 'some', 'such', 'no', 'not', 'only', 'own',
+    'same', 'so', 'than', 'too', 'very', 'just', 'also', 'now', 'here',
+    'there', 'then', 'once', 'if', 'about', 'into', 'through', 'during',
+    'before', 'after', 'above', 'below', 'between', 'under', 'again',
+    'app', 'use', 'using', 'used', 'want', 'need', 'dont', 'cant', 'im',
+    'ive', 'thats', 'get', 'got', 'like', 'really', 'even', 'still',
+}
+
+# Category keywords
+CATEGORY_KEYWORDS = {
+    'fintech': ['payment', 'bank', 'money', 'transfer', 'wallet', 'loan',
+                'credit', 'pos', 'atm', 'opay', 'palmpay', 'kuda', 'moniepoint'],
+    'ecommerce': ['shop', 'buy', 'sell', 'order', 'delivery', 'shipping',
+                  'product', 'store', 'jumia', 'konga'],
+    'logistics': ['delivery', 'shipping', 'tracking', 'driver', 'rider',
+                  'dispatch', 'bolt', 'uber'],
+    'education': ['learn', 'course', 'student', 'school', 'study', 'exam',
+                  'jamb', 'waec'],
+    'jobs': ['job', 'work', 'hire', 'salary', 'career', 'remote', 'freelance'],
+}
 
 
-def normalize_text(text: str) -> str:
-    """Normalize text for comparison"""
+def tokenize(text: str) -> List[str]:
+    """Split text into words"""
     if not text:
-        return ""
-    
-    # Lowercase
-    text = text.lower()
-    
-    # Remove extra whitespace
-    text = re.sub(r'\s+', ' ', text)
-    
-    # Remove special characters
-    text = re.sub(r'[^\w\s]', '', text)
-    
-    return text.strip()
-
-
-def create_content_hash(problem: Dict) -> str:
-    """Create a unique hash for a problem based on content"""
-    
-    # Combine source + normalized content for uniqueness
-    source = problem.get('source', '')
-    title = normalize_text(problem.get('title', ''))
-    content = normalize_text(problem.get('content', ''))
-    
-    # Use first 150 chars of content to allow slight variations
-    combined = f"{source}:{title[:100]}:{content[:150]}"
-    
-    return hashlib.md5(combined.encode()).hexdigest()
-
-
-def calculate_similarity(text1: str, text2: str) -> float:
-    """Calculate simple similarity ratio between two texts"""
-    
-    if not text1 or not text2:
-        return 0.0
-    
-    text1 = normalize_text(text1)
-    text2 = normalize_text(text2)
-    
-    # Simple word overlap similarity
-    words1 = set(text1.split())
-    words2 = set(text2.split())
-    
-    if not words1 or not words2:
-        return 0.0
-    
-    intersection = words1 & words2
-    union = words1 | words2
-    
-    return len(intersection) / len(union)
-
-
-def deduplicate_problems(problems: List[Dict], similarity_threshold: float = 0.85) -> List[Dict]:
-    """
-    Remove duplicate problems using multiple strategies:
-    1. Exact unique_id match
-    2. Content hash match
-    3. High similarity match
-    """
-    
-    if not problems:
         return []
     
-    seen_ids = set()
-    seen_hashes = set()
-    unique_problems = []
+    text = text.lower()
+    text = re.sub(r'http\S+|www\S+', '', text)
+    text = re.sub(r"[^a-zA-Z0-9'\s]", ' ', text)
+    tokens = text.split()
+    tokens = [t.strip("'") for t in tokens if len(t) > 2]
+    
+    return tokens
+
+
+def extract_keywords(problems: List[Dict], top_n: int = 30) -> List[Tuple[str, int]]:
+    """Extract most common keywords"""
+    
+    all_tokens = []
     
     for problem in problems:
-        # Strategy 1: Check unique_id
-        uid = problem.get('unique_id')
-        if uid and uid in seen_ids:
-            continue
+        text = f"{problem.get('title', '')} {problem.get('content', '')}"
+        tokens = tokenize(text)
+        tokens = [t for t in tokens if t not in STOP_WORDS]
+        all_tokens.extend(tokens)
+    
+    counter = Counter(all_tokens)
+    
+    return counter.most_common(top_n)
+
+
+def categorize_problems(problems: List[Dict]) -> Dict[str, List[Dict]]:
+    """Categorize problems by industry"""
+    
+    categorized = {cat: [] for cat in CATEGORY_KEYWORDS}
+    categorized['other'] = []
+    
+    for problem in problems:
+        text = f"{problem.get('title', '')} {problem.get('content', '')}".lower()
         
-        # Strategy 2: Check content hash
-        content_hash = create_content_hash(problem)
-        if content_hash in seen_hashes:
-            continue
-        
-        # Strategy 3: Check similarity with recent items (expensive, limit scope)
-        is_similar = False
-        content = problem.get('content', problem.get('title', ''))
-        
-        # Only check against last 50 items for performance
-        for existing in unique_problems[-50:]:
-            existing_content = existing.get('content', existing.get('title', ''))
-            
-            if calculate_similarity(content, existing_content) > similarity_threshold:
-                is_similar = True
+        matched = False
+        for category, keywords in CATEGORY_KEYWORDS.items():
+            if any(kw in text for kw in keywords):
+                categorized[category].append(problem)
+                matched = True
                 break
         
-        if is_similar:
-            continue
-        
-        # Not a duplicate - add it
-        if uid:
-            seen_ids.add(uid)
-        seen_hashes.add(content_hash)
-        unique_problems.append(problem)
+        if not matched:
+            categorized['other'].append(problem)
     
-    return unique_problems
-
-
-def merge_duplicates(problems: List[Dict]) -> List[Dict]:
-    """
-    Instead of removing duplicates, merge them to show cross-platform validation.
-    If same problem appears on Reddit AND Nairaland, it's more validated.
-    """
-    
-    merged = {}
-    
-    for problem in problems:
-        content_hash = create_content_hash(problem)
-        
-        if content_hash in merged:
-            # Merge: combine sources, add scores
-            existing = merged[content_hash]
-            
-            # Track all sources
-            if 'all_sources' not in existing:
-                existing['all_sources'] = [existing['source']]
-            existing['all_sources'].append(problem['source'])
-            
-            # Add scores
-            existing['score'] = existing.get('score', 0) + problem.get('score', 0)
-            
-            # Mark as validated across platforms
-            existing['cross_validated'] = True
-            existing['validation_count'] = len(existing['all_sources'])
-        else:
-            problem['cross_validated'] = False
-            problem['validation_count'] = 1
-            merged[content_hash] = problem
-    
-    # Sort by validation count (cross-platform problems are more valuable)
-    result = list(merged.values())
-    result.sort(key=lambda x: (x.get('validation_count', 1), x.get('score', 0)), reverse=True)
-    
-    return result
+    return {k: v for k, v in categorized.items() if v}
