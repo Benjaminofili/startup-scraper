@@ -1,52 +1,46 @@
-# .github/workflows/scrape.yml
-
-name: Startup Problem Scraper
+name: Ultimate Startup Scraper
 
 on:
-  # Run on schedule
   schedule:
-    # Every 6 hours: minute hour * * *
-    - cron: '0 */6 * * *'
-    
-    # Other schedule options:
-    # Every 12 hours:  '0 */12 * * *'
-    # Once daily at 6am:  '0 6 * * *'
-    # Twice daily (6am and 6pm):  '0 6,18 * * *'
-  
-  # Also allow manual trigger
-  workflow_dispatch:
+    - cron: '0 */8 * * *'  # Every 8 hours
+  workflow_dispatch:  # Manual trigger
 
 permissions:
   contents: write
+
   
 jobs:
   scrape:
     runs-on: ubuntu-latest
-    
+    timeout-minutes: 30
+
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
-      
-      - name: Set up Python
+
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      
+          cache: 'pip'
+
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
+          pip install --upgrade pip
           pip install -r requirements.txt
-      
+
       - name: Run scraper
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          python scraper/main.py
-      
-      - name: Commit and push results
+          python -m scraper.main
+
+      - name: Commit results
         run: |
           git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+          git config --local user.name "GitHub Action Bot"
           git add data/
-          git diff --staged --quiet || git commit -m "🤖 Scrape results $(date +'%Y-%m-%d %H:%M')"
+          git diff --staged --quiet || git commit -m "🤖 Auto-scrape $(date +'%Y-%m-%d %H:%M')"
           git push
