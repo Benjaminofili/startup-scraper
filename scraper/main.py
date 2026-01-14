@@ -1,276 +1,178 @@
 # scraper/main.py
 
 import os
-import requests
-from bs4 import BeautifulSoup
-from google_play_scraper import reviews, Sort
-from groq import Groq
-import json
-import time
+import sys
 from datetime import datetime
 
-# Get API key from environment (GitHub Secrets)
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+# Add project root to path
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-# Nigerian apps to analyze
-NIGERIAN_APPS = [
-    "com.opay.merchant",
-    "com.palmpay.app",
-    "team.monipoint.pos",
-    "com.kuda.bank",
-    "com.cowrywise.android",
-]
+# Import scrapers
+from scraper.sources import (
+    scrape_playstore_reviews,
+    scrape_reddit_all,
+    scrape_hackernews,
+    scrape_github_issues,
+    scrape_nairaland,
+    scrape_all_trends,
+)
 
+# Import utilities
+from scraper.utils.deduplicator import deduplicate_problems, merge_duplicates
+from scraper.utils.storage import save_results, cleanup_old_files
 
-def scrape_reddit_pullpush():
-    """Scrape Reddit using Pullpush (no API key needed)"""
-    
-    print("\n🔍 SCRAPING REDDIT...")
-    
-    problems = []
-    base_url = "https://api.pullpush.io/reddit/search/submission/"
-    
-    subreddits = ["entrepreneur", "startups", "smallbusiness", "SaaS", "Nigeria"]
-    queries = ["need help", "frustrated", "looking for", "any recommendations"]
-    
-    for subreddit in subreddits:
-        for query in queries:
-            try:
-                params = {
-                    "subreddit": subreddit,
-                    "q": query,
-                    "size": 25,
-                    "sort_type": "score"
-                }
-                
-                response = requests.get(base_url, params=params, timeout=20)
-                data = response.json()
-                posts = data.get("data", [])
-                
-                for post in posts:
-                    if post.get("score", 0) >= 5:
-                        problems.append({
-                            "source": f"Reddit r/{subreddit}",
-                            "title": post.get("title", ""),
-                            "content": post.get("selftext", "")[:300],
-                            "score": post.get("score", 0),
-                            "url": f"https://reddit.com{post.get('permalink', '')}",
-                        })
-                
-                time.sleep(0.3)
-            except Exception as e:
-                print(f"   Error: {e}")
-                continue
-    
-    print(f"   ✅ Found {len(problems)} Reddit problems")
-    return problems
-
-
-def scrape_nairaland():
-    """Scrape Nairaland for Nigerian problems"""
-    
-    print("\n🇳🇬 SCRAPING NAIRALAND...")
-    
-    problems = []
-    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
-    
-    sections = [
-        ("business", "Business"),
-        ("investment", "Investment"),
-        ("jobs", "Jobs"),
-        ("technology-market", "Tech"),
-    ]
-    
-    problem_words = ['help', 'how', 'need', 'problem', 'issue', 'advice', 
-                     'pls', 'please', 'urgent', 'scam', 'wahala', 'abeg']
-    
-    for section_url, section_name in sections:
-        for page in range(2):
-            try:
-                url = f"https://www.nairaland.com/{section_url}/{page}"
-                response = requests.get(url, headers=headers, timeout=15)
-                soup = BeautifulSoup(response.text, 'html.parser')
-                
-                for td in soup.find_all('td', class_='featured') + soup.find_all('td', class_='bold'):
-                    link = td.find('a')
-                    if link:
-                        title = link.text.strip()
-                        href = link.get('href', '')
-                        
-                        if any(word in title.lower() for word in problem_words):
-                            problems.append({
-                                "source": f"Nairaland {section_name}",
-                                "title": title,
-                                "content": "",
-                                "score": 0,
-                                "url": f"https://www.nairaland.com{href}" if href.startswith('/') else href,
-                            })
-                
-                time.sleep(0.5)
-            except Exception as e:
-                print(f"   Error: {e}")
-                continue
-    
-    print(f"   ✅ Found {len(problems)} Nairaland problems")
-    return problems
-
-
-def scrape_playstore():
-    """Scrape 1-star reviews from Play Store"""
-    
-    print("\n📱 SCRAPING PLAY STORE...")
-    
-    problems = []
-    
-    for app_id in NIGERIAN_APPS:
-        try:
-            result, _ = reviews(
-                app_id,
-                lang='en',
-                country='ng',
-                sort=Sort.NEWEST,
-                count=50,
-                filter_score_with=1
-            )
-            
-            for review in result:
-                content = review.get('content', '')
-                if len(content) > 20:
-                    problems.append({
-                        "source": f"PlayStore {app_id.split('.')[-1]}",
-                        "title": "1-Star Review",
-                        "content": content[:300],
-                        "score": review.get('thumbsUpCount', 0),
-                        "url": f"https://play.google.com/store/apps/details?id={app_id}",
-                    })
-            
-            time.sleep(1)
-            
-        except Exception as e:
-            print(f"   Error with {app_id}: {e}")
-    
-    print(f"   ✅ Found {len(problems)} Play Store problems")
-    return problems
-
-
-def analyze_with_ai(problems):
-    """Use Groq to find best opportunities"""
-    
-    print("\n🤖 ANALYZING WITH AI...")
-    
-    if not GROQ_API_KEY:
-        print("   ⚠️ No Groq API key. Skipping AI analysis.")
-        return None
-    
-    try:
-        client = Groq(api_key=GROQ_API_KEY)
-        
-        problems_text = "\n".join([
-            f"- [{p['source']}] {p['title'][:80]}: {p['content'][:100]}"
-            for p in problems[:60]
-        ])
-        
-        prompt = f"""You are a startup advisor for Nigerian students.
-
-They have: 3 developers, 1 marketer, Play Store account, NO MONEY.
-
-Analyze these complaints/problems:
-
-{problems_text}
-
-Find TOP 5 STARTUP OPPORTUNITIES:
-
-For each:
-1. THE PROBLEM (one sentence)
-2. THE SOLUTION (simple app)
-3. WHO PAYS (customer)
-4. PRICE (in Naira)
-5. FIRST STEP (this week)
-
-Be practical for students with no funding."""
-
-        response = client.chat.completions.create(
-            model="llama-3.1-70b-versatile",
-            messages=[{"role": "user", "content": prompt}],
-            temperature=0.4,
-            max_tokens=2000
-        )
-        
-        return response.choices[0].message.content
-        
-    except Exception as e:
-        print(f"   ❌ AI error: {e}")
-        return None
+# Import analyzers
+from scraper.analyzers.ai_analyzer import analyze_with_groq, analyze_with_gemini
+from scraper.analyzers.keyword_extractor import (
+    extract_keywords,
+    categorize_problems,
+    rank_problems_by_opportunity,
+    generate_keyword_report,
+)
 
 
 def main():
-    """Main scraping function"""
+    """Main scraping orchestrator"""
     
-    print("=" * 60)
-    print(f"🚀 STARTUP SCRAPER - {datetime.now().strftime('%Y-%m-%d %H:%M')}")
-    print("=" * 60)
+    print("\n" + "="*70)
+    print(f"🚀 STARTUP PROBLEM SCRAPER")
+    print(f"   {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+    print("="*70)
     
     all_problems = []
+    source_stats = {}
     
-    # Run scrapers
-    all_problems.extend(scrape_reddit_pullpush())
-    all_problems.extend(scrape_nairaland())
-    all_problems.extend(scrape_playstore())
+    # ============================================
+    # 1. RUN SCRAPERS
+    # ============================================
     
-    # Remove duplicates
-    seen = set()
-    unique_problems = []
-    for p in all_problems:
-        if p['title'] not in seen:
-            seen.add(p['title'])
-            unique_problems.append(p)
+    scrapers = [
+        ("PlayStore", scrape_playstore_reviews),
+        ("Reddit", scrape_reddit_all),
+        ("HackerNews", scrape_hackernews),
+        ("GitHub", scrape_github_issues),
+        ("Nairaland", scrape_nairaland),
+        ("Trends", scrape_all_trends),
+    ]
     
-    # Sort by score
-    unique_problems.sort(key=lambda x: x.get('score', 0), reverse=True)
+    for name, scraper_func in scrapers:
+        try:
+            print(f"\n{'='*50}")
+            results = scraper_func()
+            all_problems.extend(results)
+            source_stats[name] = len(results)
+            print(f"   ✅ {name}: {len(results)} items")
+        except Exception as e:
+            print(f"   ❌ {name} failed: {type(e).__name__}: {e}")
+            source_stats[name] = 0
     
-    print(f"\n📊 TOTAL PROBLEMS: {len(unique_problems)}")
+    # ============================================
+    # 2. DEDUPLICATE
+    # ============================================
     
-    # AI Analysis
-    ai_analysis = analyze_with_ai(unique_problems)
+    print("\n" + "="*50)
+    print("🔄 PROCESSING DATA...")
+    print("="*50)
     
-    # Create results
-    timestamp = datetime.now().strftime('%Y%m%d_%H%M')
+    print(f"   Raw items: {len(all_problems)}")
     
-    results = {
-        "timestamp": timestamp,
-        "total_problems": len(unique_problems),
-        "problems": unique_problems[:100],  # Top 100
-        "ai_analysis": ai_analysis
+    # Deduplicate
+    unique_problems = deduplicate_problems(all_problems)
+    print(f"   After dedup: {len(unique_problems)}")
+    
+    # Merge duplicates to find cross-validated problems
+    merged_problems = merge_duplicates(all_problems)
+    cross_validated = [p for p in merged_problems if p.get('cross_validated')]
+    print(f"   Cross-validated: {len(cross_validated)}")
+    
+    # ============================================
+    # 3. LOCAL ANALYSIS (Free, No API)
+    # ============================================
+    
+    print("\n" + "="*50)
+    print("📊 LOCAL KEYWORD ANALYSIS...")
+    print("="*50)
+    
+    # Extract keywords
+    top_keywords = extract_keywords(unique_problems, top_n=30)
+    print("\n   Top Keywords:")
+    for word, count in top_keywords[:10]:
+        print(f"      {word}: {count}")
+    
+    # Categorize
+    categories = categorize_problems(unique_problems)
+    print("\n   Categories:")
+    for cat, items in sorted(categories.items(), key=lambda x: -len(x[1]))[:5]:
+        print(f"      {cat}: {len(items)}")
+    
+    # Rank by opportunity
+    ranked_problems = rank_problems_by_opportunity(unique_problems)
+    
+    # Generate keyword report
+    keyword_report = generate_keyword_report(unique_problems)
+    
+    # ============================================
+    # 4. AI ANALYSIS (if API key available)
+    # ============================================
+    
+    ai_analysis = None
+    
+    if os.getenv("GROQ_API_KEY"):
+        ai_analysis = analyze_with_groq(ranked_problems[:100])
+    
+    if not ai_analysis and os.getenv("GEMINI_API_KEY"):
+        ai_analysis = analyze_with_gemini(ranked_problems[:100])
+    
+    if not ai_analysis:
+        print("\n   ⚠️ No AI API key found - using local analysis only")
+        ai_analysis = keyword_report
+    
+    # ============================================
+    # 5. SAVE RESULTS
+    # ============================================
+    
+    print("\n" + "="*50)
+    print("💾 SAVING RESULTS...")
+    print("="*50)
+    
+    metadata = {
+        "sources": source_stats,
+        "cross_validated_count": len(cross_validated),
+        "top_keywords": top_keywords[:20],
+        "categories": {k: len(v) for k, v in categories.items()},
     }
     
-    # Save to data folder
-    os.makedirs("data", exist_ok=True)
+    saved_files = save_results(
+        problems=ranked_problems[:200],
+        ai_analysis=ai_analysis,
+        metadata=metadata
+    )
     
-    # Save JSON
-    with open(f"data/results_{timestamp}.json", "w", encoding="utf-8") as f:
-        json.dump(results, f, indent=2, ensure_ascii=False)
+    for file_type, path in saved_files.items():
+        print(f"   📁 {file_type}: {path}")
     
-    # Save latest (always overwritten)
-    with open("data/latest_results.json", "w", encoding="utf-8") as f:
-        json.dump(results, f, indent=2, ensure_ascii=False)
+    # Cleanup old files (keep last 30 days)
+    cleanup_old_files(keep_days=30)
     
-    # Save AI analysis as text
-    if ai_analysis:
-        with open(f"data/ideas_{timestamp}.txt", "w", encoding="utf-8") as f:
-            f.write(f"STARTUP IDEAS - {timestamp}\n")
-            f.write("=" * 60 + "\n\n")
-            f.write(ai_analysis)
-        
-        with open("data/latest_ideas.txt", "w", encoding="utf-8") as f:
-            f.write(f"STARTUP IDEAS - {timestamp}\n")
-            f.write("=" * 60 + "\n\n")
-            f.write(ai_analysis)
+    # ============================================
+    # 6. SUMMARY
+    # ============================================
     
-    print("\n✅ DONE!")
-    print(f"   Results: data/results_{timestamp}.json")
-    print(f"   Ideas: data/ideas_{timestamp}.txt")
+    print("\n" + "="*70)
+    print("✅ COMPLETE!")
+    print("="*70)
+    print(f"\n   📊 Total Problems: {len(unique_problems)}")
+    print(f"   🔥 Cross-Validated: {len(cross_validated)}")
+    print(f"   💡 Check data/latest_ideas.md for opportunities")
     
-    return results
+    # Show preview of top problems
+    print("\n   🎯 TOP 5 OPPORTUNITIES:")
+    for i, p in enumerate(ranked_problems[:5], 1):
+        score = p.get('opportunity_score', 0)
+        print(f"   {i}. [{p['source']}] (score: {score:.0f})")
+        print(f"      {p['title'][:70]}...")
+    
+    return ranked_problems
 
 
 if __name__ == "__main__":
