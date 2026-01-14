@@ -1,0 +1,14 @@
+{
+  "timestamp": "20260114_0208",
+  "total_problems": 1,
+  "problems": [
+    {
+      "source": "PlayStore android",
+      "title": "1-Star Review",
+      "content": "They are the worst when you want to withdraw your money the app will no longer function",
+      "score": 0,
+      "url": "https://play.google.com/store/apps/details?id=com.cowrywise.android"
+    }
+  ],
+  "ai_analysis": null
+}
