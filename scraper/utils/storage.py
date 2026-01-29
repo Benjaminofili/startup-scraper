@@ -24,6 +24,7 @@ def get_timestamp() -> str:
 def save_results(
     problems: List[Dict],
     ai_analysis: Optional[str] = None,
+    feasibility_report: Optional[str] = None,
     metadata: Optional[Dict] = None
 ) -> Dict[str, str]:
     """Save results to files"""
@@ -63,6 +64,18 @@ def save_results(
         
         with open(f"{DATA_DIR}/latest_ideas.md", "w", encoding="utf-8") as f:
             f.write(ai_analysis)
+    
+    # Feasibility report
+    if feasibility_report:
+        feasibility_path = f"{DATA_DIR}/ideas/feasible_{timestamp}.md"
+        with open(feasibility_path, "w", encoding="utf-8") as f:
+            f.write(f"# Feasible Startup Ideas - {timestamp}\n\n")
+            f.write(feasibility_report)
+        saved_files['feasibility'] = feasibility_path
+        
+        with open(f"{DATA_DIR}/feasible_ideas.md", "w", encoding="utf-8") as f:
+            f.write(f"# Feasible Startup Ideas - {timestamp}\n\n")
+            f.write(feasibility_report)
     
     return saved_files
 

@@ -58,16 +58,29 @@ PROBLEMS FROM REAL USERS:
 
 Find TOP 5 STARTUP OPPORTUNITIES.
 
-For each:
+For each idea, provide:
 
-1. **PROBLEM** (1 sentence)
-2. **SOLUTION** (simple app/service)
-3. **WHO PAYS** (specific customer)
-4. **PRICE** (in ₦ Naira)
-5. **FIRST WEEK** (3 concrete steps)
-6. **WHY NOW** (based on complaints)
+1. **[IDEA NAME]**
 
-Be specific. Nigerian market first. No capital required."""
+2. **PROBLEM** (1 sentence - what pain point this solves)
+
+3. **SOLUTION** (simple app/service description)
+
+4. **WHO PAYS** (specific customer segment)
+
+5. **PRICE** (in ₦ Naira - monthly/per transaction)
+
+6. **FIRST WEEK** (3 concrete steps to launch)
+
+7. **WHY NOW** (based on user complaints above)
+
+8. **FEASIBILITY SCORES** (Rate each 0-10):
+   - Investment: X/10 (10 = ₦0 needed, 0 = high capital)
+   - Passive Income: X/10 (10 = fully automated, 0 = manual work)
+   - Team Size: X/10 (10 = solo-friendly, 0 = large team needed)
+   - Time to Market: X/10 (10 = days to launch, 0 = months)
+
+Be specific. Nigerian market first. Focus on zero-capital, passive income opportunities."""
 
         print(f"   📤 Analyzing {len(problems)} problems...")
         

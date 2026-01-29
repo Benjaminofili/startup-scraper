@@ -22,6 +22,11 @@ from scraper.utils.storage import save_results
 # Import analyzers
 from scraper.analyzers.ai_analyzer import analyze_with_groq
 from scraper.analyzers.keyword_extractor import extract_keywords, categorize_problems
+from scraper.analyzers.feasibility_scorer import (
+    parse_feasibility_metrics,
+    rank_ideas_by_feasibility,
+    format_feasibility_report
+)
 
 
 def main():
@@ -97,7 +102,32 @@ def main():
     ai_analysis = analyze_with_groq(unique_problems)
     
     # ============================================
-    # 5. SAVE RESULTS
+    # 5. FEASIBILITY ANALYSIS
+    # ============================================
+    
+    feasibility_ideas = []
+    feasibility_report = None
+    
+    if ai_analysis:
+        print("\n" + "=" * 50)
+        print("🎯 FEASIBILITY ANALYSIS...")
+        print("=" * 50)
+        
+        feasibility_ideas = parse_feasibility_metrics(ai_analysis)
+        
+        if feasibility_ideas:
+            ranked_ideas = rank_ideas_by_feasibility(feasibility_ideas)
+            feasibility_report = format_feasibility_report(ranked_ideas, top_n=5)
+            
+            print(f"\n   📊 Analyzed {len(feasibility_ideas)} ideas")
+            print("\n   Top 3 Most Feasible:")
+            for i, idea in enumerate(ranked_ideas[:3], 1):
+                print(f"      {i}. {idea['title']} - Score: {idea['feasibility_score']}/100")
+        else:
+            print("   ⚠️ Could not parse feasibility metrics from AI output")
+    
+    # ============================================
+    # 6. SAVE RESULTS
     # ============================================
     
     print("\n" + "=" * 50)
@@ -107,11 +137,13 @@ def main():
     metadata = {
         "sources": source_stats,
         "top_keywords": keywords[:15],
+        "feasibility_ideas": feasibility_ideas
     }
     
     saved = save_results(
         problems=unique_problems[:150],
         ai_analysis=ai_analysis,
+        feasibility_report=feasibility_report,
         metadata=metadata
     )
     
@@ -119,7 +151,7 @@ def main():
         print(f"   📁 {name}: {path}")
     
     # ============================================
-    # 6. SUMMARY
+    # 7. SUMMARY
     # ============================================
     
     print("\n" + "=" * 70)
@@ -134,6 +166,9 @@ def main():
     
     if ai_analysis:
         print("\n   💡 Check data/latest_ideas.md for opportunities!")
+    
+    if feasibility_report:
+        print("   🎯 Check data/feasible_ideas.md for top feasible ideas!")
     
     return unique_problems
 
