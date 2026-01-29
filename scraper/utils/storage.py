@@ -65,3 +65,18 @@ def save_results(
             f.write(ai_analysis)
     
     return saved_files
+
+
+def load_latest_results() -> Optional[Dict]:
+    """Load the latest results from the data directory"""
+    latest_path = f"{DATA_DIR}/latest.json"
+    
+    if not os.path.exists(latest_path):
+        return None
+    
+    try:
+        with open(latest_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception as e:
+        print(f"Error loading latest results: {e}")
+        return None

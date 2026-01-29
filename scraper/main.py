@@ -41,11 +41,11 @@ def main():
     
     scrapers = [
         ("PlayStore", scrape_playstore_reviews),
-        ("Reddit", scrape_reddit_all),
         ("HackerNews", scrape_hackernews),
         ("GitHub", scrape_github_issues),
         ("Nairaland", scrape_nairaland),
         ("Trends", scrape_all_trends),
+        ("Reddit", scrape_reddit_all),
     ]
     
     for name, scraper_func in scrapers:

@@ -1,87 +1,85 @@
-# scraper/analyzers/keyword_extractor.py
+# scraper/utils/deduplicator.py
 
-import re
-from collections import Counter
-from typing import List, Dict, Tuple
-
-# Common words to ignore
-STOP_WORDS = {
-    'the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for',
-    'of', 'with', 'by', 'from', 'as', 'is', 'was', 'are', 'were', 'been',
-    'be', 'have', 'has', 'had', 'do', 'does', 'did', 'will', 'would',
-    'could', 'should', 'may', 'might', 'must', 'can', 'this', 'that',
-    'these', 'those', 'i', 'you', 'he', 'she', 'it', 'we', 'they', 'my',
-    'your', 'his', 'her', 'its', 'our', 'their', 'what', 'which', 'who',
-    'when', 'where', 'why', 'how', 'all', 'each', 'every', 'both', 'few',
-    'more', 'most', 'other', 'some', 'such', 'no', 'not', 'only', 'own',
-    'same', 'so', 'than', 'too', 'very', 'just', 'also', 'now', 'here',
-    'there', 'then', 'once', 'if', 'about', 'into', 'through', 'during',
-    'before', 'after', 'above', 'below', 'between', 'under', 'again',
-    'app', 'use', 'using', 'used', 'want', 'need', 'dont', 'cant', 'im',
-    'ive', 'thats', 'get', 'got', 'like', 'really', 'even', 'still',
-}
-
-# Category keywords
-CATEGORY_KEYWORDS = {
-    'fintech': ['payment', 'bank', 'money', 'transfer', 'wallet', 'loan',
-                'credit', 'pos', 'atm', 'opay', 'palmpay', 'kuda', 'moniepoint'],
-    'ecommerce': ['shop', 'buy', 'sell', 'order', 'delivery', 'shipping',
-                  'product', 'store', 'jumia', 'konga'],
-    'logistics': ['delivery', 'shipping', 'tracking', 'driver', 'rider',
-                  'dispatch', 'bolt', 'uber'],
-    'education': ['learn', 'course', 'student', 'school', 'study', 'exam',
-                  'jamb', 'waec'],
-    'jobs': ['job', 'work', 'hire', 'salary', 'career', 'remote', 'freelance'],
-}
+from typing import List, Dict, Set
+from difflib import SequenceMatcher
 
 
-def tokenize(text: str) -> List[str]:
-    """Split text into words"""
-    if not text:
+def similarity_ratio(text1: str, text2: str) -> float:
+    """Calculate similarity ratio between two texts"""
+    if not text1 or not text2:
+        return 0.0
+    return SequenceMatcher(None, text1.lower(), text2.lower()).ratio()
+
+
+def is_duplicate(problem1: Dict, problem2: Dict, threshold: float = 0.85) -> bool:
+    """
+    Check if two problems are duplicates based on title and content similarity
+    
+    Args:
+        problem1: First problem dict with 'title' and 'content' keys
+        problem2: Second problem dict with 'title' and 'content' keys
+        threshold: Similarity threshold (0.0 to 1.0)
+    
+    Returns:
+        True if problems are considered duplicates
+    """
+    title1 = problem1.get('title', '').strip()
+    title2 = problem2.get('title', '').strip()
+    
+    # Check title similarity
+    title_sim = similarity_ratio(title1, title2)
+    
+    if title_sim >= threshold:
+        return True
+    
+    # Check content similarity if titles are somewhat similar
+    if title_sim >= 0.6:
+        content1 = problem1.get('content', '').strip()
+        content2 = problem2.get('content', '').strip()
+        
+        content_sim = similarity_ratio(content1, content2)
+        
+        if content_sim >= threshold:
+            return True
+    
+    return False
+
+
+def deduplicate_problems(problems: List[Dict], threshold: float = 0.85) -> List[Dict]:
+    """
+    Remove duplicate problems from a list
+    
+    Args:
+        problems: List of problem dictionaries
+        threshold: Similarity threshold for considering duplicates (0.0 to 1.0)
+    
+    Returns:
+        List of unique problems, preserving the highest-scored version of duplicates
+    """
+    if not problems:
         return []
     
-    text = text.lower()
-    text = re.sub(r'http\S+|www\S+', '', text)
-    text = re.sub(r"[^a-zA-Z0-9'\s]", ' ', text)
-    tokens = text.split()
-    tokens = [t.strip("'") for t in tokens if len(t) > 2]
+    # Sort by score (highest first) to keep best versions
+    sorted_problems = sorted(
+        problems, 
+        key=lambda x: x.get('score', 0), 
+        reverse=True
+    )
     
-    return tokens
-
-
-def extract_keywords(problems: List[Dict], top_n: int = 30) -> List[Tuple[str, int]]:
-    """Extract most common keywords"""
+    unique_problems = []
+    seen_indices: Set[int] = set()
     
-    all_tokens = []
-    
-    for problem in problems:
-        text = f"{problem.get('title', '')} {problem.get('content', '')}"
-        tokens = tokenize(text)
-        tokens = [t for t in tokens if t not in STOP_WORDS]
-        all_tokens.extend(tokens)
-    
-    counter = Counter(all_tokens)
-    
-    return counter.most_common(top_n)
-
-
-def categorize_problems(problems: List[Dict]) -> Dict[str, List[Dict]]:
-    """Categorize problems by industry"""
-    
-    categorized = {cat: [] for cat in CATEGORY_KEYWORDS}
-    categorized['other'] = []
-    
-    for problem in problems:
-        text = f"{problem.get('title', '')} {problem.get('content', '')}".lower()
+    for i, problem in enumerate(sorted_problems):
+        if i in seen_indices:
+            continue
         
-        matched = False
-        for category, keywords in CATEGORY_KEYWORDS.items():
-            if any(kw in text for kw in keywords):
-                categorized[category].append(problem)
-                matched = True
-                break
+        # Add this problem to unique list
+        unique_problems.append(problem)
         
-        if not matched:
-            categorized['other'].append(problem)
+        # Mark similar problems as seen
+        for j in range(i + 1, len(sorted_problems)):
+            if j not in seen_indices:
+                if is_duplicate(problem, sorted_problems[j], threshold):
+                    seen_indices.add(j)
     
-    return {k: v for k, v in categorized.items() if v}
+    return unique_problems
