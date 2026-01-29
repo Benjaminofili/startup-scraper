@@ -1,0 +1,74 @@
+# Feasible Startup Ideas - 20260129_0954
+
+# 🎯 FEASIBILITY ANALYSIS
+
+**Total Ideas Analyzed:** 40
+**Showing Top 5 Most Feasible**
+
+---
+
+## 1. FEASIBILITY SCORES
+
+**Overall Feasibility: 81.0/100** 🟢 *Excellent*
+
+### Scores Breakdown
+
+- 💰 **Investment Required:** 9/10
+- 💵 **Passive Income Potential:** 9/10
+- 👥 **Team Size (Solo-Friendly):** 6/10
+- ⚡ **Time to Market:** 7/10
+
+---
+
+## 2. FEASIBILITY SCORES
+
+**Overall Feasibility: 81.0/100** 🟢 *Excellent*
+
+### Scores Breakdown
+
+- 💰 **Investment Required:** 9/10
+- 💵 **Passive Income Potential:** 9/10
+- 👥 **Team Size (Solo-Friendly):** 6/10
+- ⚡ **Time to Market:** 7/10
+
+---
+
+## 3. FEASIBILITY SCORES
+
+**Overall Feasibility: 77.5/100** 🟡 *Good*
+
+### Scores Breakdown
+
+- 💰 **Investment Required:** 8/10
+- 💵 **Passive Income Potential:** 9/10
+- 👥 **Team Size (Solo-Friendly):** 6/10
+- ⚡ **Time to Market:** 7/10
+
+---
+
+## 4. FEASIBILITY SCORES
+
+**Overall Feasibility: 74.5/100** 🟡 *Good*
+
+### Scores Breakdown
+
+- 💰 **Investment Required:** 9/10
+- 💵 **Passive Income Potential:** 8/10
+- 👥 **Team Size (Solo-Friendly):** 5/10
+- ⚡ **Time to Market:** 6/10
+
+---
+
+## 5. FEASIBILITY SCORES
+
+**Overall Feasibility: 74.5/100** 🟡 *Good*
+
+### Scores Breakdown
+
+- 💰 **Investment Required:** 8/10
+- 💵 **Passive Income Potential:** 8/10
+- 👥 **Team Size (Solo-Friendly):** 6/10
+- ⚡ **Time to Market:** 7/10
+
+---
+
