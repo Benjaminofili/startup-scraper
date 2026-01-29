@@ -1,0 +1,1638 @@
+{
+  "metadata": {
+    "timestamp": "20260129_1013",
+    "total_problems": 150,
+    "sources": {
+      "PlayStore": 299,
+      "Reddit": 456,
+      "HackerNews": 134,
+      "GitHub": 87,
+      "Nairaland": 0,
+      "Trends": 0
+    },
+    "top_keywords": [
+      [
+        "time",
+        283
+      ],
+      [
+        "i'm",
+        250
+      ],
+      [
+        "money",
+        213
+      ],
+      [
+        "any",
+        210
+      ],
+      [
+        "out",
+        186
+      ],
+      [
+        "one",
+        182
+      ],
+      [
+        "work",
+        175
+      ],
+      [
+        "looking",
+        170
+      ],
+      [
+        "them",
+        162
+      ],
+      [
+        "because",
+        153
+      ],
+      [
+        "people",
+        152
+      ],
+      [
+        "it's",
+        152
+      ],
+      [
+        "good",
+        150
+      ],
+      [
+        "don't",
+        146
+      ],
+      [
+        "make",
+        143
+      ]
+    ]
+  },
+  "ai_analysis": null,
+  "problems": [
+    {
+      "source": "Reddit",
+      "subsource": "r/povertyfinance",
+      "category": "money",
+      "title": "$224 at the local salvage grocery store",
+      "content": "$224 at the local salvage grocery store\n\nSharing for others looking for an alternative to grocery stores.  If you have a local Amish population, drive around to see what stores they have.  We have a couple \"bent and dent\" groceries near us where the Amish buy dented, recently expired, or overstock groceries from the local stores dirt cheap, put a 10% mark up on it, and sell it to everyone.  They also have bulk food stores where they sell eggs, cheese, and baking supplies cheaper then the main stores.  You can find some great steals, this whole lot cost me $224.  The dog food alone sells for $110 a bag on chewy, I bought them for $13.",
+      "score": 4953,
+      "comments": 406,
+      "url": "https://reddit.com/r/povertyfinance/comments/1fpa1br/224_at_the_local_salvage_grocery_store/",
+      "unique_id": "rd_1fpa1br"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/smallbusiness",
+      "category": "small_biz",
+      "title": "Well, I didn't see this coming.",
+      "content": "Well, I didn't see this coming.\n\nJust got an e-mail from one of our Chinese distributors saying they will no longer distribute their products in the U.S. with the reason offered as, effectively, the U.S. has become too difficult of a market to continue selling to, and they make more money elsewhere.\n\nNo one in the U.S. makes comparable products.\n\nI planned for so many different things over the past few months which should allow us to weather the storm for the next year or so, but I didn't expect our largest supplier to back out of the U.S. market entirely.\n\nNot sure what to do at this point. This completely guts our business and leaves us with no alternatives or hopes for alternatives.\n\nI'm looking into importing them ourselves but I'm already hitting walls and the added expense is enormou",
+      "score": 2413,
+      "comments": 524,
+      "url": "https://reddit.com/r/smallbusiness/comments/1jrghnh/well_i_didnt_see_this_coming/",
+      "unique_id": "rd_1jrghnh"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Docs – Open source alternative to Notion or Outline",
+      "content": "Docs – Open source alternative to Notion or Outline",
+      "score": 1952,
+      "comments": 454,
+      "url": "https://news.ycombinator.com/item?id=43378239",
+      "unique_id": "hns_43378239"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "Microsoft forced me to switch to Linux",
+      "content": "Microsoft forced me to switch to Linux\n\n",
+      "score": 1728,
+      "comments": 1336,
+      "url": "https://www.himthe.dev/blog/microsoft-to-linux",
+      "unique_id": "hn_46795864"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Show HN: I'm an airline pilot – I built interactive graphs/globes of my flights",
+      "content": "Show HN: I'm an airline pilot – I built interactive graphs/globes of my flights",
+      "score": 1539,
+      "comments": 197,
+      "url": "https://news.ycombinator.com/item?id=44396518",
+      "unique_id": "hns_44396518"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "I've built my first successful side project, and I hate it",
+      "content": "I've built my first successful side project, and I hate it",
+      "score": 1492,
+      "comments": 419,
+      "url": "https://news.ycombinator.com/item?id=41308599",
+      "unique_id": "hns_41308599"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Show HN: Can’t afford Bloomberg Terminal? No prob, I built the next best thing",
+      "content": "Show HN: Can’t afford Bloomberg Terminal? No prob, I built the next best thing",
+      "score": 1422,
+      "comments": 289,
+      "url": "https://news.ycombinator.com/item?id=26258773",
+      "unique_id": "hns_26258773"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Show HN: I built a Rotten Tomatoes-style platform for durable products",
+      "content": "Show HN: I built a Rotten Tomatoes-style platform for durable products",
+      "score": 1392,
+      "comments": 398,
+      "url": "https://news.ycombinator.com/item?id=24707407",
+      "unique_id": "hns_24707407"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Firefox is the alternative to a Chrome hegemony",
+      "content": "Firefox is the alternative to a Chrome hegemony",
+      "score": 1360,
+      "comments": 651,
+      "url": "https://news.ycombinator.com/item?id=29378307",
+      "unique_id": "hns_29378307"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "My toddler loves planes, so I built her a radar",
+      "content": "My toddler loves planes, so I built her a radar",
+      "score": 1304,
+      "comments": 245,
+      "url": "https://news.ycombinator.com/item?id=38435908",
+      "unique_id": "hns_38435908"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Show HN: I built a synth for my daughter",
+      "content": "Show HN: I built a synth for my daughter",
+      "score": 1278,
+      "comments": 209,
+      "url": "https://news.ycombinator.com/item?id=45900425",
+      "unique_id": "hns_45900425"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "LibreTaxi – A free and open source alternative to Uber and Lyft",
+      "content": "LibreTaxi – A free and open source alternative to Uber and Lyft",
+      "score": 1275,
+      "comments": 382,
+      "url": "https://news.ycombinator.com/item?id=13529213",
+      "unique_id": "hns_13529213"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Startup idea checklist",
+      "content": "Startup idea checklist",
+      "score": 1251,
+      "comments": 194,
+      "url": "https://news.ycombinator.com/item?id=20254057",
+      "unique_id": "hns_20254057"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Show HN: I built an app to stop me doomscrolling by touching grass",
+      "content": "Show HN: I built an app to stop me doomscrolling by touching grass",
+      "score": 1203,
+      "comments": 268,
+      "url": "https://news.ycombinator.com/item?id=43158660",
+      "unique_id": "hns_43158660"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "I built an ROV to solve missing person cases",
+      "content": "I built an ROV to solve missing person cases",
+      "score": 1183,
+      "comments": 162,
+      "url": "https://news.ycombinator.com/item?id=40623864",
+      "unique_id": "hns_40623864"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Show HN: We built an end-to-end encrypted alternative to Google Photos",
+      "content": "Show HN: We built an end-to-end encrypted alternative to Google Photos",
+      "score": 1180,
+      "comments": 405,
+      "url": "https://news.ycombinator.com/item?id=28347439",
+      "unique_id": "hns_28347439"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Alternatives to Google Products",
+      "content": "Alternatives to Google Products",
+      "score": 1169,
+      "comments": 504,
+      "url": "https://news.ycombinator.com/item?id=17280558",
+      "unique_id": "hns_17280558"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Show HN: I built a(nother) house optimized for LAN parties",
+      "content": "Show HN: I built a(nother) house optimized for LAN parties",
+      "score": 1117,
+      "comments": 381,
+      "url": "https://news.ycombinator.com/item?id=42156977",
+      "unique_id": "hns_42156977"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Show HN: Open Hunt – an open and community-run alternative to Product Hunt",
+      "content": "Show HN: Open Hunt – an open and community-run alternative to Product Hunt",
+      "score": 1093,
+      "comments": 180,
+      "url": "https://news.ycombinator.com/item?id=10759879",
+      "unique_id": "hns_10759879"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Frighteningly Ambitious Startup Ideas",
+      "content": "Frighteningly Ambitious Startup Ideas",
+      "score": 1032,
+      "comments": 430,
+      "url": "https://news.ycombinator.com/item?id=3686840",
+      "unique_id": "hns_3686840"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Show HN: I built a hardware processor that runs Python",
+      "content": "Show HN: I built a hardware processor that runs Python",
+      "score": 983,
+      "comments": 265,
+      "url": "https://news.ycombinator.com/item?id=43820228",
+      "unique_id": "hns_43820228"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Show HN: I built an AI that turns GitHub codebases into easy tutorials",
+      "content": "Show HN: I built an AI that turns GitHub codebases into easy tutorials",
+      "score": 923,
+      "comments": 172,
+      "url": "https://news.ycombinator.com/item?id=43739456",
+      "unique_id": "hns_43739456"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "How to Get Startup Ideas",
+      "content": "How to Get Startup Ideas",
+      "score": 914,
+      "comments": 231,
+      "url": "https://news.ycombinator.com/item?id=4806852",
+      "unique_id": "hns_4806852"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Launch HN: Promise (YC W18) – Cost-effective, more humane alternative to jail",
+      "content": "Launch HN: Promise (YC W18) – Cost-effective, more humane alternative to jail",
+      "score": 912,
+      "comments": 410,
+      "url": "https://news.ycombinator.com/item?id=16630971",
+      "unique_id": "hns_16630971"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Jitsi Meet: An open source alternative to Zoom",
+      "content": "Jitsi Meet: An open source alternative to Zoom",
+      "score": 897,
+      "comments": 285,
+      "url": "https://news.ycombinator.com/item?id=22669968",
+      "unique_id": "hns_22669968"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/personalfinance",
+      "category": "money",
+      "title": "Backdoor Roth at Fidelity took less than 5 minutes. If you've been putting it off like me, don't.",
+      "content": "Backdoor Roth at Fidelity took less than 5 minutes. If you've been putting it off like me, don't.\n\nI hate worrying about bumping up against the income limit and knew that doing a backdoor Roth would eliminate the need to worry, but I avoided learning how to do it correctly and kept procrastinating. I shouldn't have.\n\nOnce I learned what I needed to learn, it took less than 5 minutes on the Fidelity site.\n\n* Get money into your Fidelity cash management account or the cash portion of your brokerage account. I sent a wire from my HYSA. It was free and done same day instead of using ACH and waiting for funds to clear.\n* Open a traditional IRA and a Roth IRA at Fidelity if you don't already have them. I had a  Roth, but no traditional. Setting up the traditional took seconds.\n* Once funds from ",
+      "score": 883,
+      "comments": 121,
+      "url": "https://reddit.com/r/personalfinance/comments/1juty5w/backdoor_roth_at_fidelity_took_less_than_5/",
+      "unique_id": "rd_1juty5w"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Show HN: I built an After Effects for dummies",
+      "content": "Show HN: I built an After Effects for dummies",
+      "score": 868,
+      "comments": 291,
+      "url": "https://news.ycombinator.com/item?id=24054382",
+      "unique_id": "hns_24054382"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Ask HN: Best alternative to Gmail?",
+      "content": "Ask HN: Best alternative to Gmail?",
+      "score": 867,
+      "comments": 568,
+      "url": "https://news.ycombinator.com/item?id=18054574",
+      "unique_id": "hns_18054574"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Radicle: A peer-to-peer alternative to GitHub",
+      "content": "Radicle: A peer-to-peer alternative to GitHub",
+      "score": 864,
+      "comments": 255,
+      "url": "https://news.ycombinator.com/item?id=25313010",
+      "unique_id": "hns_25313010"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "I wasted $40k on a fantastic startup idea",
+      "content": "I wasted $40k on a fantastic startup idea",
+      "score": 851,
+      "comments": 385,
+      "url": "https://news.ycombinator.com/item?id=25825917",
+      "unique_id": "hns_25825917"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "I was rejected by Codecademy three times, so I built my own",
+      "content": "I was rejected by Codecademy three times, so I built my own",
+      "score": 832,
+      "comments": 250,
+      "url": "https://news.ycombinator.com/item?id=29025401",
+      "unique_id": "hns_29025401"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Show HN: I built the most over-engineered Deal With It emoji generator",
+      "content": "Show HN: I built the most over-engineered Deal With It emoji generator",
+      "score": 832,
+      "comments": 148,
+      "url": "https://news.ycombinator.com/item?id=41848150",
+      "unique_id": "hns_41848150"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Podman Desktop: A Free OSS Alternative to Docker Desktop",
+      "content": "Podman Desktop: A Free OSS Alternative to Docker Desktop",
+      "score": 830,
+      "comments": 191,
+      "url": "https://news.ycombinator.com/item?id=33536978",
+      "unique_id": "hns_33536978"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Teenager Finds Classical Alternative to Quantum Recommendation Algorithm",
+      "content": "Teenager Finds Classical Alternative to Quantum Recommendation Algorithm",
+      "score": 824,
+      "comments": 216,
+      "url": "https://news.ycombinator.com/item?id=17654220",
+      "unique_id": "hns_17654220"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Umami: Self-hosted open-source alternative to Google Analytics",
+      "content": "Umami: Self-hosted open-source alternative to Google Analytics",
+      "score": 820,
+      "comments": 227,
+      "url": "https://news.ycombinator.com/item?id=24198329",
+      "unique_id": "hns_24198329"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "I built a receipt printer for GitHub issues",
+      "content": "I built a receipt printer for GitHub issues",
+      "score": 811,
+      "comments": 169,
+      "url": "https://news.ycombinator.com/item?id=30803589",
+      "unique_id": "hns_30803589"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "LibreLingo – FOSS Alternative to Duolingo",
+      "content": "LibreLingo – FOSS Alternative to Duolingo",
+      "score": 804,
+      "comments": 363,
+      "url": "https://news.ycombinator.com/item?id=43829035",
+      "unique_id": "hns_43829035"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "The LLama Effect: Leak Sparked a Series of Open Source Alternatives to ChatGPT",
+      "content": "The LLama Effect: Leak Sparked a Series of Open Source Alternatives to ChatGPT",
+      "score": 791,
+      "comments": 504,
+      "url": "https://news.ycombinator.com/item?id=35504428",
+      "unique_id": "hns_35504428"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "Amazon cuts 16k jobs",
+      "content": "Amazon cuts 16k jobs\n\n",
+      "score": 634,
+      "comments": 869,
+      "url": "https://www.reuters.com/legal/litigation/amazon-cuts-16000-jobs-globally-broader-restructuring-2026-01-28/",
+      "unique_id": "hn_46796745"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Startup Ideas",
+      "content": "Startup Ideas",
+      "score": 614,
+      "comments": 453,
+      "url": "https://news.ycombinator.com/item?id=15714318",
+      "unique_id": "hns_15714318"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "How to Kill a Startup Idea with Google Keyword Planner and AdWords: A Case Study",
+      "content": "How to Kill a Startup Idea with Google Keyword Planner and AdWords: A Case Study",
+      "score": 568,
+      "comments": 188,
+      "url": "https://news.ycombinator.com/item?id=22110004",
+      "unique_id": "hns_22110004"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Startup Ideas We'd Like to Fund",
+      "content": "Startup Ideas We'd Like to Fund",
+      "score": 532,
+      "comments": 381,
+      "url": "https://news.ycombinator.com/item?id=250704",
+      "unique_id": "hns_250704"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "Somebody used spoofed ADSB signals to raster the meme of JD Vance",
+      "content": "Somebody used spoofed ADSB signals to raster the meme of JD Vance\n\n<a href=\"https:&#x2F;&#x2F;archive.ph&#x2F;VrEtg\" rel=\"nofollow\">https:&#x2F;&#x2F;archive.ph&#x2F;VrEtg</a><p><a href=\"https:&#x2F;&#x2F;globe.adsbexchange.com&#x2F;?icao=adfdf9&amp;lat=26.678&amp;lon=-80.030&amp;zoom=14.4&amp;showTrace=2026-01-28\" rel=\"nofollow\">https:&#x2F;&#x2F;globe.adsbexchange.com&#x2F;?icao=adfdf9&amp;lat=26.678&amp;lon=-...</a>",
+      "score": 481,
+      "comments": 120,
+      "url": "https://alecmuffett.com/article/143548",
+      "unique_id": "hn_46802067"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/beermoney",
+      "category": "side_hustle",
+      "title": "If you're thinking of selling your old devices for money, think twice before using Decluttr",
+      "content": "If you're thinking of selling your old devices for money, think twice before using Decluttr\n\nThis was also reported [here](https://www.reddit.com/r/beermoney/comments/6pq1h3/be_careful_with_decluttr/), but I just wanted to share my experience with you all. TL;DR Decluttr will refuse to purchase your devices once you've already sent them, blame other companies, and when those other companies call them on their BS, they'll suddenly offer you half price for your device.\n\nI recently purchased a new phone and wanted to sell my 64GB iPhone 6s Plus. I originally purchased it unlocked at full price, and, as well all phones I buy, it was in a case with a screen protector the entire time I had it, so it was in impeccable condition. I was thinking about Gazelle or somewhere else, but Decluttr offered",
+      "score": 480,
+      "comments": 51,
+      "url": "https://reddit.com/r/beermoney/comments/7rsaao/if_youre_thinking_of_selling_your_old_devices_for/",
+      "unique_id": "rd_7rsaao"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "20,000 Startup Ideas",
+      "content": "20,000 Startup Ideas",
+      "score": 461,
+      "comments": 178,
+      "url": "https://news.ycombinator.com/item?id=21112345",
+      "unique_id": "hns_21112345"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "Airfoil (2024)",
+      "content": "Airfoil (2024)\n\n",
+      "score": 451,
+      "comments": 51,
+      "url": "https://ciechanow.ski/airfoil/",
+      "unique_id": "hn_46795908"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Ask HN: Does anyone else find the AWS Lambda developer experience frustrating?",
+      "content": "Ask HN: Does anyone else find the AWS Lambda developer experience frustrating?",
+      "score": 422,
+      "comments": 278,
+      "url": "https://news.ycombinator.com/item?id=26855037",
+      "unique_id": "hns_26855037"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/beermoney",
+      "category": "side_hustle",
+      "title": "Who Paid You For/In April. Here is My List. And some thoughts about that oft mentioned website im attempting.",
+      "content": "Who Paid You For/In April. Here is My List. And some thoughts about that oft mentioned website im attempting.\n\n**DISCLAIMER**  \n*Some people have objected to this monthly post for various reasons. So Im starting with this disclaimer. I do this full time. Its technically not* **beermoney** *for me. So this is NOT typical of most people. But it does show each month what programs are paying and whats working. And it also shows that those that are unemployed, disabled or have other special circumstances, who may come across this subreddit,  that extra money can be made with some time and effort.*   \n&amp;nbsp;  \n \n&amp;nbsp;  \nAs you can see April crashed back down to reality in terms of earnings. Kinda what I expected. After a huge month things normally teeter the other way and a little bit o",
+      "score": 381,
+      "comments": 264,
+      "url": "https://reddit.com/r/beermoney/comments/blbbkr/who_paid_you_forin_april_here_is_my_list_and_some/",
+      "unique_id": "rd_blbbkr"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "How to pick startup ideas (2015)",
+      "content": "How to pick startup ideas (2015)",
+      "score": 373,
+      "comments": 103,
+      "url": "https://news.ycombinator.com/item?id=12894897",
+      "unique_id": "hns_12894897"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Startup Ideas 2020",
+      "content": "Startup Ideas 2020",
+      "score": 359,
+      "comments": 165,
+      "url": "https://news.ycombinator.com/item?id=22076787",
+      "unique_id": "hns_22076787"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "UK Government’s ‘AI Skills Hub’ was delivered by PwC for £4.1M",
+      "content": "UK Government’s ‘AI Skills Hub’ was delivered by PwC for £4.1M\n\n",
+      "score": 346,
+      "comments": 116,
+      "url": "https://mahadk.com/posts/ai-skills-hub",
+      "unique_id": "hn_46803119"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Tell HN: Interview take home assessments without feedback are frustrating",
+      "content": "Tell HN: Interview take home assessments without feedback are frustrating",
+      "score": 338,
+      "comments": 479,
+      "url": "https://news.ycombinator.com/item?id=36446770",
+      "unique_id": "hns_36446770"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "We can't send mail farther than 500 miles (2002)",
+      "content": "We can't send mail farther than 500 miles (2002)\n\nSee also <a href=\"https:&#x2F;&#x2F;ibiblio.org&#x2F;harris&#x2F;500milemail-faq.html\" rel=\"nofollow\">https:&#x2F;&#x2F;ibiblio.org&#x2F;harris&#x2F;500milemail-faq.html</a>",
+      "score": 333,
+      "comments": 36,
+      "url": "https://web.mit.edu/jemorris/humor/500-miles",
+      "unique_id": "hn_46805665"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/beermoney",
+      "category": "side_hustle",
+      "title": "16 Apps That Will Earn You Passive Cash Back (Best Passive Saving Apps 2020)",
+      "content": "16 Apps That Will Earn You Passive Cash Back (Best Passive Saving Apps 2020)\n\nThis is the updated 2020 Q1/Q2 version of [this post](https://www.reddit.com/r/beermoney/comments/c9xs2n/15_apps_that_will_earn_you_passive_cash_back_best/). If you remember reading the previous iteration of this post, there are several changes to the list this time around. Some new additions, and some removals.\n\n\nNote: Most of these apps will be US only, with a minimum age requirement of 18.\n\nHaving said that, let's get right into it.\n\n# 16 Passive Cash Back Apps 2020\n\n# [Pei](https://getpei.com/) ([Ref](https://www.reddit.com/r/beermoney/comments/ab0dyv/most_common_beer_money_sites_do_not_create/))\n\nPei is an automatic cash back app. When you sign up, you'll link a debit/credit card and you'll then automaticall",
+      "score": 331,
+      "comments": 41,
+      "url": "https://reddit.com/r/beermoney/comments/fnpd0i/16_apps_that_will_earn_you_passive_cash_back_best/",
+      "unique_id": "rd_fnpd0i"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "showstories",
+      "title": "Show HN: The HN Arcade",
+      "content": "Show HN: The HN Arcade\n\nI love seeing all the small games that people build and post to this site.<p>I don&#x27;t want to forget any, so I have built a directory&#x2F;arcade for the games here that I maintain.<p>Feel free to check it out, add your game if its missing and let me know what you think. Thanks!",
+      "score": 320,
+      "comments": 85,
+      "url": "https://andrewgy8.github.io/hnarcade/",
+      "unique_id": "hn_46793693"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "Apple to soon take up to 30% cut from all Patreon creators in iOS app",
+      "content": "Apple to soon take up to 30% cut from all Patreon creators in iOS app\n\n",
+      "score": 319,
+      "comments": 246,
+      "url": "https://www.macrumors.com/2026/01/28/patreon-apple-tax/",
+      "unique_id": "hn_46801419"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "“Is your startup idea taken?” and why we love X for Y startups",
+      "content": "“Is your startup idea taken?” and why we love X for Y startups",
+      "score": 317,
+      "comments": 223,
+      "url": "https://news.ycombinator.com/item?id=21464971",
+      "unique_id": "hns_21464971"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/beermoney",
+      "category": "side_hustle",
+      "title": "Who Paid You For/In August? Here Is My List",
+      "content": "Who Paid You For/In August? Here Is My List\n\nWell another month has passed and that means we are already in september. Time to look back at August to see how earnings were   \n&amp;nbsp;  \nFirst things first. Many people ask every month how I make what I make on Swagbucks. This month I kept a daily diary of everything I earned from. I still need to finalize it and get it coded for reddit, but on Monday I will be posting what I do on Swagbucks to earn what I do. Watch for it.  \n \n&amp;nbsp;  \nMturk was insanely good this month.. Started off incredibly well and slowed toward the end. Same with Prolific. Some of that may have just been me slowing down.  Especially because Ebay started taking more time. My ebay sales have increased a bunch and that takes more time then one realizes. Its been ve",
+      "score": 313,
+      "comments": 254,
+      "url": "https://reddit.com/r/beermoney/comments/d00riv/who_paid_you_forin_august_here_is_my_list/",
+      "unique_id": "rd_d00riv"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Startup Ideas Every Nerd Has (That Never Work)",
+      "content": "Startup Ideas Every Nerd Has (That Never Work)",
+      "score": 313,
+      "comments": 209,
+      "url": "https://news.ycombinator.com/item?id=1954852",
+      "unique_id": "hns_1954852"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "showstories",
+      "title": "Show HN: One Human + One Agent = One Browser From Scratch in 20K LOC",
+      "content": "Show HN: One Human + One Agent = One Browser From Scratch in 20K LOC\n\nRelated: <a href=\"https:&#x2F;&#x2F;simonwillison.net&#x2F;2026&#x2F;Jan&#x2F;27&#x2F;one-human-one-agent-one-browser&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;simonwillison.net&#x2F;2026&#x2F;Jan&#x2F;27&#x2F;one-human-one-agent-on...</a>",
+      "score": 310,
+      "comments": 147,
+      "url": "https://emsh.cat/one-human-one-agent-one-browser/",
+      "unique_id": "hn_46779522"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "How to find startup ideas that make money",
+      "content": "How to find startup ideas that make money",
+      "score": 305,
+      "comments": 44,
+      "url": "https://news.ycombinator.com/item?id=2405829",
+      "unique_id": "hns_2405829"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Rust can be difficult to learn and frustrating, but it's also very exciting",
+      "content": "Rust can be difficult to learn and frustrating, but it's also very exciting",
+      "score": 287,
+      "comments": 274,
+      "url": "https://news.ycombinator.com/item?id=18277450",
+      "unique_id": "hns_18277450"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "Tesla ending Models S and X production",
+      "content": "Tesla ending Models S and X production\n\n",
+      "score": 281,
+      "comments": 485,
+      "url": "https://www.cnbc.com/2026/01/28/tesla-ending-model-s-x-production.html",
+      "unique_id": "hn_46802867"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/SaaS",
+      "category": "startup",
+      "title": "I fixed 6  SaaS landing pages this month, all of them were garbage 🤮. If yours looks like this, you're not making money anytime soon.",
+      "content": "I fixed 6  SaaS landing pages this month, all of them were garbage 🤮. If yours looks like this, you're not making money anytime soon.\n\nMost SaaS landing pages don’t fail because of bad design.  \nThey fail because no one *feels* anything when they land there.\n\n**I know you will hate me for this but Let’s be real. Most of you are indie devs, and broke.**\n\nEven if you’ve got some a day job, you *act* broke.  \nYou hold off on investing in things you know you need, not because they’re too expensive, but because deep down, you don’t trust your product.\n\nAnd the truth is, it’s not even about the product.  \nIt’s about you.  \nIf you feel worthless, then yeah, everything you make feels worthless too. Right?\n\nMeanwhile, people have made **millions** selling fart apps.  \nAnd here you are, sitting on s",
+      "score": 264,
+      "comments": 204,
+      "url": "https://reddit.com/r/SaaS/comments/1k6paz3/i_fixed_6_saas_landing_pages_this_month_all_of/",
+      "unique_id": "rd_1k6paz3"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "askstories",
+      "title": "Ask HN: What's the current best local/open speech-to-speech setup?",
+      "content": "Ask HN: What's the current best local/open speech-to-speech setup?\n\nI’m trying to do the “voice assistant” thing fully locally: mic → model → speaker, low latency, ideally streaming + interruptible (barge-in).<p>Qwen3 Omni looks perfect on paper (“real-time”, speech-to-speech, etc). But I’ve been poking around and I can’t find a single reproducible “here’s how I got the open weights doing real speech-to-speech locally” writeup. Lots of “speech in → text out” or “audio out after the model finishes”, but not a usable realtime voice loop. Feels like either (a) the tooling isn’t there yet, or (b) ",
+      "score": 256,
+      "comments": 61,
+      "url": "https://news.ycombinator.com/item?id=46731068",
+      "unique_id": "hn_46731068"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/beermoney",
+      "category": "side_hustle",
+      "title": "This week's grocery haul: I got paid $15 to take $157 worth of Laundry Soap, Crackers, Meat, Apples, Medicine, Milk, Snacks, and More!",
+      "content": "This week's grocery haul: I got paid $15 to take $157 worth of Laundry Soap, Crackers, Meat, Apples, Medicine, Milk, Snacks, and More!\n\n###[Here are the goodies.](https://imgur.com/a/YKVu0uo)\n\nI got a good variety of things this week. I spent quite a bit on more expensive things that I usually use, so this certainly could have been a better money maker without them. \n\n&amp;nbsp;\n\n####Total: $156.97\n\n####Coupons: $17.00\n\n####Total Cash Back: $155.14\n\n####Final Cost: **-$15.17 - Money Maker!**\n\n[^(Photo of the haul.)](https://imgur.com/a/YKVu0uo)\n\n----\n\n&amp;nbsp;\n\n[Here is the complete break down and sites used.](https://imgur.com/XkypMwH) If the image looks fuzzy, please zoom in or right click and open the image in a new tab. Imgur is being weird. I don't include sites that take any receip",
+      "score": 252,
+      "comments": 25,
+      "url": "https://reddit.com/r/beermoney/comments/vurvf5/this_weeks_grocery_haul_i_got_paid_15_to_take_157/",
+      "unique_id": "rd_vurvf5"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/beermoney",
+      "category": "side_hustle",
+      "title": "10 Ways to Save Money Passively (Best Passive Money Saving Apps/Sites 2018)",
+      "content": "10 Ways to Save Money Passively (Best Passive Money Saving Apps/Sites 2018)\n\nOh boy do I have a post for you today...\n\nLast year (just over 6 months ago) I made [the first version of this post](https://www.reddit.com/r/beermoney/comments/6q02j3/5_ways_to_save_money_passively_best_passive_money/), which listed 5 ways for you to save money passively. \n\nSince that post I have found quite a few additions and I feel like it's already time for an update.\n\nJust to clarify, this post is mainly just an update to the original post last year. Some points made here will be exactly the same from last year, but there are a *lot* of additions and clarifications this time around.\n\nWithout further ado, let's get right into it.\n\n# 10 Ways to Save Money Passively 2018\n\n***\n\n# [Drop](https://www.earnwithdrop.",
+      "score": 252,
+      "comments": 78,
+      "url": "https://reddit.com/r/beermoney/comments/7umepd/10_ways_to_save_money_passively_best_passive/",
+      "unique_id": "rd_7umepd"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "A Lufthansa A350's frustrating Oakland diversion",
+      "content": "A Lufthansa A350's frustrating Oakland diversion",
+      "score": 248,
+      "comments": 398,
+      "url": "https://news.ycombinator.com/item?id=38699343",
+      "unique_id": "hns_38699343"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/beermoney",
+      "category": "side_hustle",
+      "title": "[PSA] FlavorWiki is no longer allowed to be posted on our subreddit",
+      "content": "[PSA] FlavorWiki is no longer allowed to be posted on our subreddit\n\nHey everyone,\n\nI hate to have to make this post, but we will now be blacklisting FlavorWiki from being shared on our subreddit. As many of you know, [I made a post about a few of their opportunities the other day](https://www.reddit.com/r/beermoney/comments/r7z2l0/flavorwiki_has_product_tests_for_waffles_12/). Multiple users reported being kicked out mid study, and my fellow moderator has been in contact with their CEO to try and figure out what happened, and to see if their team wanted to make an account to explain the situation better to everyone here.\n\nTurns out, the reason people were getting kicked out is because the tests went over quota. I'm sorry guys, I posted this study 3 days after they invited me via email, an",
+      "score": 238,
+      "comments": 42,
+      "url": "https://reddit.com/r/beermoney/comments/re2gp9/psa_flavorwiki_is_no_longer_allowed_to_be_posted/",
+      "unique_id": "rd_re2gp9"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/freelance",
+      "category": "side_hustle",
+      "title": "WTF is up with companies (esp. startups) expecting people to work for free?",
+      "content": "WTF is up with companies (esp. startups) expecting people to work for free?\n\nHi folks,\n\nPart rant - part question.\n\nI'm currently doing some sales prospecting.\n\nHad a call with a startup this evening. Pretty intensive 20 minutes of questioning my understanding of their value prop / asking about my experience / asking what I could offer them. I shared my rate chart before the call, by the way.\n\nThen the guy nonchalantly drops this:\n\n\"Would you be open to an ***alternative mechanism*** ***for compensation on this project?\"***\n\nIn non-BS language the guy was asking whether, because they were pre-seed, I would be open to working for free.\n\nKind of pissed off about that experience, I decided to quality the next prospect on my call list a little more intensively.\n\nThe guy asks whether I am only ",
+      "score": 233,
+      "comments": 114,
+      "url": "https://reddit.com/r/freelance/comments/eo7lfa/wtf_is_up_with_companies_esp_startups_expecting/",
+      "unique_id": "rd_eo7lfa"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/beermoney",
+      "category": "side_hustle",
+      "title": "This week's grocery haul: I got paid $6 to take $92 worth of Shampoo, Clorox Wipes, Candy Bars, Pop, Snacks, and more!",
+      "content": "This week's grocery haul: I got paid $6 to take $92 worth of Shampoo, Clorox Wipes, Candy Bars, Pop, Snacks, and more!\n\n###[Here are the goodies.](https://imgur.com/a/MFjNG7l)\n\nEdit: Just realized I forgot to mark down the $2.25 from Brandclub for the Kraft Shreds, it's actually a $8.65 money maker.\n\n&amp;nbsp;\n\nI went to quite a few stores again this week. My Wal-Mart haul wasn't amazing (~$5 for $58 worth of stuff not counting the $5/15 bonus), but the other stores were pretty good. I needed to make progress towards my Ibotta goal though. I'm cutting it a bit too close for my liking.\n\nThe Baby Ruth deals come and go quick, so make sure to jump on those as soon as you see them.\n\n&amp;nbsp;\n\n----\n\n####Total: $91.78\n\n####Coupons: $1.00\n\n####CVS ECB Earned: $9.00\n\n####Total Cash Back: $99.43",
+      "score": 231,
+      "comments": 26,
+      "url": "https://reddit.com/r/beermoney/comments/u9eo25/this_weeks_grocery_haul_i_got_paid_6_to_take_92/",
+      "unique_id": "rd_u9eo25"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "Android's desktop interface leaks",
+      "content": "Android's desktop interface leaks\n\n",
+      "score": 231,
+      "comments": 312,
+      "url": "https://9to5google.com/2026/01/27/android-desktop-leak/",
+      "unique_id": "hn_46790740"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/beermoney",
+      "category": "side_hustle",
+      "title": "Started using beer money sites about 2 weeks ago as a teen, here's what works for me!",
+      "content": "Started using beer money sites about 2 weeks ago as a teen, here's what works for me!\n\nI only have tried survey sites/apps and research study sites/apps. I know everyone's success rate is different based on demographic, so for slight context I am 19, doing 19 year old things. That's about as much information on my demographic as I am willing to give on reddit haha. I just got back from Europe for my study abroad year and don't start my new job for another week so I have had a LOT of free time to explore side hustles, and really put in some effort to get some extra income due to my expenses.\n\n**2 weeks isn't a long time to rack up a ton of income, but ill list the sites I am currently using and whether or not I have made income + a little review.**\n\n\\- **Crowdtap Mobile:** Currently just be",
+      "score": 229,
+      "comments": 79,
+      "url": "https://reddit.com/r/beermoney/comments/13w1xe6/started_using_beer_money_sites_about_2_weeks_ago/",
+      "unique_id": "rd_13w1xe6"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "Oban, the job processing framework from Elixir, has come to Python",
+      "content": "Oban, the job processing framework from Elixir, has come to Python\n\n",
+      "score": 228,
+      "comments": 89,
+      "url": "https://www.dimamik.com/posts/oban_py/",
+      "unique_id": "hn_46797594"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/beermoney",
+      "category": "side_hustle",
+      "title": "Who Paid You For/In April 2023? Here Is My List",
+      "content": "Who Paid You For/In April 2023? Here Is My List\n\nSpring has sprung and we are heading toward the unofficial start of summer (which often means a slow down in beermoney) but lets see how April treated us.  \n&amp;nbsp;  \n&amp;nbsp;  \nIf you have been reading my posts here for months you know im trying to get away from beermoney and transistion to trading. Its taken way longer than I thought it would. Because im my own worst enemy and trading is very psychological. But Im finally starting to get over the hump (I think) but for now still putting in a lot of effort into beermoney.  \n&amp;nbsp;  \nIf you have any interest in learning to trade and/or getting funded check out my subreddit r/oxmarkettrading.  \n&amp;nbsp;  \n##April summary   \n\nProlific again topped my last month. I havent looked but ",
+      "score": 221,
+      "comments": 278,
+      "url": "https://reddit.com/r/beermoney/comments/134bk4c/who_paid_you_forin_april_2023_here_is_my_list/",
+      "unique_id": "rd_134bk4c"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "Render Mermaid diagrams as SVGs or ASCII art",
+      "content": "Render Mermaid diagrams as SVGs or ASCII art\n\n",
+      "score": 221,
+      "comments": 31,
+      "url": "https://github.com/lukilabs/beautiful-mermaid",
+      "unique_id": "hn_46804828"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/beermoney",
+      "category": "side_hustle",
+      "title": "This week's grocery haul: I got paid $5 to take $130 worth of Laundry Detergent, Razors, Makeup, Snacks, and more!",
+      "content": "This week's grocery haul: I got paid $5 to take $130 worth of Laundry Detergent, Razors, Makeup, Snacks, and more!\n\n###[Here are the goodies.](https://imgur.com/a/a7DShXN)\n\nNot a lot of items today, but a deceivingly high total thanks to CVS's stupidly high prices ($75.52). My Wal-mart haul wasn't particularly great thanks to a cruddy mid week bonus, but I needed to make progress towards my $35 bonus which is going to expire at the end of the month. I'll be finishing that up this weekend.\n\n&amp;nbsp;\n\n----\n\n####Total: $130.02\n\n####Coupons: $8.98\n\n####CVS Digital Coupons: $51.00\n\n####CVS ECB Earned: $20.00\n\n####Total Cash Back: $55.01\n\n####Final Cost: **-$4.97 - Money Maker!**\n\n[^(Photo of the haul.)](https://imgur.com/a/a7DShXN)\n\n----\n\n&amp;nbsp;\n\n[Here is the complete break down and sites",
+      "score": 214,
+      "comments": 41,
+      "url": "https://reddit.com/r/beermoney/comments/ubz0cs/this_weeks_grocery_haul_i_got_paid_5_to_take_130/",
+      "unique_id": "rd_ubz0cs"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Ask HN: As a CTO, what is your most frustrating problem with technical debt?",
+      "content": "Ask HN: As a CTO, what is your most frustrating problem with technical debt?",
+      "score": 212,
+      "comments": 221,
+      "url": "https://news.ycombinator.com/item?id=17600503",
+      "unique_id": "hns_17600503"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/beermoney",
+      "category": "side_hustle",
+      "title": "Who Paid You For/In December? Here is my list and some 2019 thoughts.",
+      "content": "Who Paid You For/In December? Here is my list and some 2019 thoughts.\n\n**DISCLAIMER**  \n*Some people have objected to this monthly post for various reasons. So Im starting with this disclaimer. I do this full time. Its technically not* **beermoney** *for me. So this is NOT typical of most people. But it does show each month what programs are paying and whats working. And it also shows that those that are unemployed, disabled or have other special circumstances, who may come across this subreddit,  that extra money can be made with some time and effort.*   \n&amp;nbsp;  \n \n&amp;nbsp;  \nWas Decemeber bad? Probably not. I did something that I havent done in over 3 years.. I took a mini vacation. From Dec 21st through Dec 27th I did barely anything outside of a few surveys and my daily swagbuck",
+      "score": 211,
+      "comments": 95,
+      "url": "https://reddit.com/r/beermoney/comments/adhqao/who_paid_you_forin_december_here_is_my_list_and/",
+      "unique_id": "rd_adhqao"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/beermoney",
+      "category": "side_hustle",
+      "title": "Receipt scanning apps",
+      "content": "Receipt scanning apps\n\n \n\nThere were some questions and interest in receipt scanning apps in a different thread so I wrote a breakdown on a bunch of them. I’ve been using most of them since 2019 or more recently as I’ve found more. I find many of them are individually not worth the time and effort but collectively they are worth it as I do all of them at once. I typically scan all my receipts at one time each week unless there is a specific offer for an item on the receipt. So, here’s my take on receipt scanning apps and I’d love to hear recommendations on others.\n\n1. Amazon shopper panel -One of the easiest and highest paying apps. Scan any 10 receipts per month and get $10 in Amazon gift card directly to your Amazon account. Easiest to take pictures of physical receipts but there is an o",
+      "score": 210,
+      "comments": 70,
+      "url": "https://reddit.com/r/beermoney/comments/ugpysn/receipt_scanning_apps/",
+      "unique_id": "rd_ugpysn"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "askstories",
+      "title": "Ask HN: Gmail spam filtering suddenly marking everything as spam?",
+      "content": "Ask HN: Gmail spam filtering suddenly marking everything as spam?\n\nAlmost all transactional emails are being marked as suspicious even when their SPF&#x2F;DKIM records are fine and they’ve been whitelisted before. Did Google break something in gmail&#x2F;spam filtering?",
+      "score": 210,
+      "comments": 122,
+      "url": "https://news.ycombinator.com/item?id=46744807",
+      "unique_id": "hn_46744807"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/beermoney",
+      "category": "side_hustle",
+      "title": "Who Paid You For/In November? Here is my List (and a few thoughts)",
+      "content": "Who Paid You For/In November? Here is my List (and a few thoughts)\n\n**DISCLAIMER**  \n*Some people have objected to this monthly post for various reasons. So Im starting with this disclaimer. I do this full time. Its technically not* **beermoney** *for me. So this is NOT typical of most people. But it does show each month what programs are paying and whats working. And it also shows that those that are unemployed, disabled or have other special circumstances, who may come across this subreddit,  that extra money can be made with some time and effort.*   \n&amp;nbsp;  \n \n&amp;nbsp;  \nFirst, lets talk about November. It was a down month but mostly my fault. My brain has been scattered in many different directions and its caused a downturn in earnings, the website development and a couple other",
+      "score": 205,
+      "comments": 184,
+      "url": "https://reddit.com/r/beermoney/comments/a4vogi/who_paid_you_forin_november_here_is_my_list_and_a/",
+      "unique_id": "rd_a4vogi"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "Mousefood – Build embedded terminal UIs for microcontrollers",
+      "content": "Mousefood – Build embedded terminal UIs for microcontrollers\n\n",
+      "score": 203,
+      "comments": 44,
+      "url": "https://github.com/ratatui/mousefood",
+      "unique_id": "hn_46798402"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/beermoney",
+      "category": "side_hustle",
+      "title": "Who Paid You For/In March? Here is my List and some notes.",
+      "content": "Who Paid You For/In March? Here is my List and some notes.\n\n**DISCLAIMER**  \n*Some people have objected to this monthly post for various reasons. So Im starting with this disclaimer. I do this full time. Its technically not* **beermoney** *for me. So this is NOT typical of most people. But it does show each month what programs are paying and whats working. And it also shows that those that are unemployed, disabled or have other special circumstances, who may come across this subreddit,  that extra money can be made with some time and effort.*   \n&amp;nbsp;  \n \n&amp;nbsp;  \nMarch was your normal average month........... NO IT WASNT! Its a new fricken personal record. It was a fun month with Mturk popping, some new things added, some programs cashed out after a long time and a couple of one ",
+      "score": 202,
+      "comments": 150,
+      "url": "https://reddit.com/r/beermoney/comments/b9r5kc/who_paid_you_forin_march_here_is_my_list_and_some/",
+      "unique_id": "rd_b9r5kc"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/beermoney",
+      "category": "side_hustle",
+      "title": "Games I’ve completed on swagbucks recently and tips for completion.",
+      "content": "Games I’ve completed on swagbucks recently and tips for completion.\n\n1. Diableros $10\n\nThis one is easy. The game is actually a very fun little bullet hell…except you will watch so many ads doing this one.  It’s painful. I don’t recommend airplane mode to block them as I worry about my swagbucks account being banned. All in all this is easily done all once. Just watch a movie. \n\nMy advice for the gameplay is do it. Watch ads for power ups and possibly rerolls. The ABSOLUTE BEST power ups are ice, piercing rounds, and fire rate. Defensive stats are ignorable. Positioning properly you shouldn’t take much damage.  Use your gems to buy consumables. Coffee(fire rate steroid) and healing pots are wonderful. Always have a fat stack of them. The best special power up in the levels are quad damage ",
+      "score": 201,
+      "comments": 45,
+      "url": "https://reddit.com/r/beermoney/comments/pbr9j1/games_ive_completed_on_swagbucks_recently_and/",
+      "unique_id": "rd_pbr9j1"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Enterprise, IT architecture and strategy is getting more and more frustrating",
+      "content": "Enterprise, IT architecture and strategy is getting more and more frustrating",
+      "score": 195,
+      "comments": 131,
+      "url": "https://news.ycombinator.com/item?id=28016754",
+      "unique_id": "hns_28016754"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/beermoney",
+      "category": "side_hustle",
+      "title": "Who Paid you For/In February? Here is my list! and a Bunch of announcements",
+      "content": "Who Paid you For/In February? Here is my list! and a Bunch of announcements\n\n**DISCLAIMER**  \n*Some people have objected to this monthly post for various reasons. So Im starting with this disclaimer. I do this full time. Its technically not* **beermoney** *for me. So this is NOT typical of most people. But it does show each month what programs are paying and whats working. And it also shows that those that are unemployed, disabled or have other special circumstances, who may come across this subreddit,  that extra money can be made with some time and effort.*   \n&amp;nbsp;  \n \n&amp;nbsp;  \nFebruary saw a nice uptick especially to Mturk. Ive felt re-energized and my new computer is humming along nicely. SO lets talk about the announcements. Plan on getting a bunch more things up and running",
+      "score": 191,
+      "comments": 157,
+      "url": "https://reddit.com/r/beermoney/comments/axlqqo/who_paid_you_forin_february_here_is_my_list_and_a/",
+      "unique_id": "rd_axlqqo"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/freelance",
+      "category": "side_hustle",
+      "title": "I've failed as a freelancer.",
+      "content": "I've failed as a freelancer.\n\nJust wanted to get it out of my shoulders.  \n  \nApproximately year and a half ago I quit my day job where I was explored and abused by a narcissistic boss, who grabbed me almost out of school so I guess I was an easy target.  \n  \nI learnt a lot during that time and during the 1.5 year I've been trying to land a freelance gig.  \n  \nI've tried everything, cold calling/emailing, networking, social media, being referred to or referring my colleagues in exchange of later favours, going personally to some of the companies. Anything you might be able to come up with to grab a job, I've probably tried it.  \n  \nAnd I failed. I failed hard. My area is 3D, assets models for games, animation, archviz, etc.\nI don't think it's a niche market, and it is probably overwhelmed ",
+      "score": 182,
+      "comments": 87,
+      "url": "https://reddit.com/r/freelance/comments/snnncu/ive_failed_as_a_freelancer/",
+      "unique_id": "rd_snnncu"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "Trinity large: An open 400B sparse MoE model",
+      "content": "Trinity large: An open 400B sparse MoE model\n\n",
+      "score": 182,
+      "comments": 58,
+      "url": "https://www.arcee.ai/blog/trinity-large",
+      "unique_id": "hn_46789561"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/freelance",
+      "category": "side_hustle",
+      "title": "My experience getting my first few clients, and 5 tips",
+      "content": "My experience getting my first few clients, and 5 tips\n\nI’ve lurked around this subreddit for a while but just recently landed my first handful of freelance clients (web &amp; graphic design). Wanted to share what worked for me and try to keep the advice as unique as possible so I can help out those just starting in the freelance world.\n\n1. Stop doing what isn’t working\n\nI know this sounds obvious...I’m a health &amp; fitness web designer, so I spent endless hours sending out cold emails to prospective clients...and didn’t land a single client after nearly a month.\nMy greatest advice is to try out all of the “client acquisition” methods you come across, but set yourself boundaries, ex. “I’ll try sending 20 cold emails every day for a month, and then I’ll reassess.”\nIf you get a ton of clie",
+      "score": 180,
+      "comments": 37,
+      "url": "https://reddit.com/r/freelance/comments/i07keu/my_experience_getting_my_first_few_clients_and_5/",
+      "unique_id": "rd_i07keu"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/beermoney",
+      "category": "side_hustle",
+      "title": "Who Paid you For/In June? Here is my list plus a warning",
+      "content": "Who Paid you For/In June? Here is my list plus a warning\n\nGreetings once and all and welcome to June's Earnings Report. I hope you all had a great month and choose to share with the community what programs you earned from and were paid from in the month of June.  \n&amp;nbsp;  \nI dont usually include a warning in my monthly posts but felt this was important enough to get some more exposure. \n##IF YOU ARE USING PACKETSTREAM YOU SHOULD STOP.  \nDuring the month, Earnably suspended my account because my IP logged into multiple accounts on their site, Eloot flagged my IP temporary as a proxy, Your Surveys blocked me from doing surveys because my IP was detected as a proxy. Im blocked from another survey provider with a hope they will answer my ticket,  And last but not least, I was told by a GPT",
+      "score": 178,
+      "comments": 183,
+      "url": "https://reddit.com/r/beermoney/comments/c9fs3k/who_paid_you_forin_june_here_is_my_list_plus_a/",
+      "unique_id": "rd_c9fs3k"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "showstories",
+      "title": "Show HN: Only 1 LLM can fly a drone",
+      "content": "Show HN: Only 1 LLM can fly a drone\n\n",
+      "score": 178,
+      "comments": 92,
+      "url": "https://github.com/kxzk/snapbench",
+      "unique_id": "hn_46764170"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/beermoney",
+      "category": "side_hustle",
+      "title": "Testable Mind- A Great Beer-money Site with High Payment",
+      "content": "Testable Mind- A Great Beer-money Site with High Payment\n\n# It's a global site and Indians are allowed too!\n\nProlific doesn't approve Indian users; Testable Mind does. Although the frequency of studies is nowhere near Prolific, still it's a good choice. Let's discuss in detail\n\n**Research Study vs Survey**\n\nBased on your profile, you'll get study notifications. Act fast as soon as you get notification else it'll be gone in seconds. Once you complete a study, it goes to the researcher for approval. Here, the rejection rate is almost negligible. They pay anywhere between $1-$15 per study. No survey can match their pay/study. With surveys, one can't be sure of getting money because termination in the middle of a survey SUCKS big time period.\n\n**Time is Money**\n\nIt pays for the time and effort",
+      "score": 171,
+      "comments": 66,
+      "url": "https://reddit.com/r/beermoney/comments/h84phs/testable_mind_a_great_beermoney_site_with_high/",
+      "unique_id": "rd_h84phs"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Testing is a separate skill and that’s why it can be frustrating",
+      "content": "Testing is a separate skill and that’s why it can be frustrating",
+      "score": 167,
+      "comments": 78,
+      "url": "https://news.ycombinator.com/item?id=13837860",
+      "unique_id": "hns_13837860"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "showstories",
+      "title": "Show HN: A MitM proxy to see what your LLM tools are sending",
+      "content": "Show HN: A MitM proxy to see what your LLM tools are sending\n\nI built this out of curiosity about what Claude Code was actually sending to the API. Turns out, watching your tokens tick up in real-time is oddly satisfying.<p>Sherlock sits between your LLM tools and the API, showing you every request with a live dashboard, and auto-saved copies of every prompt as markdown and json.",
+      "score": 165,
+      "comments": 84,
+      "url": "https://github.com/jmuncor/sherlock",
+      "unique_id": "hn_46799898"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/sidehustle",
+      "category": "side_hustle",
+      "title": "I need a side hustle to make money now",
+      "content": "I need a side hustle to make money now\n\nI am spending $300 dollars on car repairs today, and need to spend more on groceries and gas and am very frustrated. \n\nI need side hustle ideas quick to regain the money I spent.  \n\nI tried selling my belongings on eBay/ Mercari/ next door/ FBMP/ offer up and nothing is selling, not even a good condition laptop\n\nI don’t weigh enough to be eligible for plasma donation \n\nRetail stores and coffee shops aren’t hiring me, and temp agencies haven’t proved fruitful.",
+      "score": 153,
+      "comments": 200,
+      "url": "https://reddit.com/r/sidehustle/comments/1k0riid/i_need_a_side_hustle_to_make_money_now/",
+      "unique_id": "rd_1k0riid"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/beermoney",
+      "category": "side_hustle",
+      "title": "This week's grocery haul: I got paid $34 to take $114 worth of Makeup, Soap, Deodorant, Snacks, and more!",
+      "content": "This week's grocery haul: I got paid $34 to take $114 worth of Makeup, Soap, Deodorant, Snacks, and more!\n\n###[Here are the goodies.](https://imgur.com/a/SxQTpEd)\n\nToday's haul was pretty good, and it certainly could have been even better. I messed up a bit on the Axe Deodorant deal, and the Culturelle was particularly \"expensive\" but it was something I needed. I also noticed the Talenti deal came back and had to grab some. Overall though, I'd say I'm pretty pleased with this haul. I think it's one of the highest amounts of cash back I've gotten.\n\n&amp;nbsp;\n\n----\n\n####Total: $114.41\n\n####Coupons: $14.00\n\n####Total Cash Back: $134.15\n\n####Final Cost: **-$33.74 - Money Maker!**\n\n[^(Photo of the haul.)](https://imgur.com/a/SxQTpEd)\n\n----\n\n&amp;nbsp;\n\n[Here is the complete break down and site",
+      "score": 148,
+      "comments": 42,
+      "url": "https://reddit.com/r/beermoney/comments/uodld9/this_weeks_grocery_haul_i_got_paid_34_to_take_114/",
+      "unique_id": "rd_uodld9"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "Computer History Museum Launches Digital Portal to Its Collection",
+      "content": "Computer History Museum Launches Digital Portal to Its Collection\n\n",
+      "score": 148,
+      "comments": 26,
+      "url": "https://computerhistory.org/press-releases/computer-history-museum-launches-digital-portal-to-its-vast-collection/",
+      "unique_id": "hn_46798994"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "LM Studio 0.4",
+      "content": "LM Studio 0.4\n\n",
+      "score": 147,
+      "comments": 74,
+      "url": "https://lmstudio.ai/blog/0.4.0",
+      "unique_id": "hn_46799477"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/beermoney",
+      "category": "side_hustle",
+      "title": "This week's grocery haul: I got paid $0.82 to take $21 worth of Laundry Soap, Softener, Marshmallows, Tuna, Water Chestnuts, and More!",
+      "content": "This week's grocery haul: I got paid $0.82 to take $21 worth of Laundry Soap, Softener, Marshmallows, Tuna, Water Chestnuts, and More!\n\n###[Here are the goodies.](https://imgur.com/a/gUoW1nE)\n\nSmall hauls seems to be the theme this month.\n\n&amp;nbsp;\n\n####Total: $21.47\t\n\n####Coupons: None\t\t\n\n####Total Cash Back: $22.29\t\t\n\n####Final Cost: -$0.82\t\t\t\t\t - **Money Maker!**\n\n[^(Photo of the haul.)](https://imgur.com/a/gUoW1nE)\n\n----\n\n&amp;nbsp;\n\n[Here is the complete break down and sites used.](https://imgur.com/B6Tm4m9) The stores are listed in the breakdown image. I don't include sites that take any receipt such as Coinout, ReceiptPal, etc on my breakdown. Brandclub takes a while to credit, so the amounts listed are what I expect to get once it finishes pending.\n\n*Note: Individual deals vary b",
+      "score": 146,
+      "comments": 13,
+      "url": "https://reddit.com/r/beermoney/comments/126z2u7/this_weeks_grocery_haul_i_got_paid_082_to_take_21/",
+      "unique_id": "rd_126z2u7"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "Did a celebrated researcher obscure a baby's poisoning?",
+      "content": "Did a celebrated researcher obscure a baby's poisoning?\n\n<a href=\"https:&#x2F;&#x2F;web.archive.org&#x2F;web&#x2F;20260126132426&#x2F;https:&#x2F;&#x2F;www.newyorker.com&#x2F;magazine&#x2F;2026&#x2F;02&#x2F;02&#x2F;did-a-celebrated-researcher-obscure-a-fatal-poisoning\" rel=\"nofollow\">https:&#x2F;&#x2F;web.archive.org&#x2F;web&#x2F;20260126132426&#x2F;https:&#x2F;&#x2F;www.newyo...</a><p><a href=\"https:&#x2F;&#x2F;archive.ph&#x2F;GA6XV\" rel=\"nofollow\">https:&#x2F;&#x2F;archive.ph&#x2F;GA6XV</a>",
+      "score": 145,
+      "comments": 52,
+      "url": "https://www.newyorker.com/magazine/2026/02/02/did-a-celebrated-researcher-obscure-a-fatal-poisoning",
+      "unique_id": "hn_46789205"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/beermoney",
+      "category": "side_hustle",
+      "title": "Something like UserTesting that doesn’t require talking?",
+      "content": "Something like UserTesting that doesn’t require talking?\n\nThe reason I ask is that I was very socially anxious already, but after the covid pandemic I became essentially agoraphobic (nowadays I leave the house only to exercise, grocery shop, just the necessary stuff) and I just hate hearing myself talk.\n\nI need some extra money and UserTesting was a pretty solid source of income when I did it a few years ago. Is there anything similar where I wouldn’t have to talk about it and I could type/write my review? And it really doesn’t even have to be website reviewing, just anything I could do that involves typing or something, rather than speaking and pays somewhat consistently.\n\nThanks in advance :)",
+      "score": 144,
+      "comments": 87,
+      "url": "https://reddit.com/r/beermoney/comments/wg9lqj/something_like_usertesting_that_doesnt_require/",
+      "unique_id": "rd_wg9lqj"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "I overengineered a spinning top [video]",
+      "content": "I overengineered a spinning top [video]\n\n",
+      "score": 143,
+      "comments": 42,
+      "url": "https://www.youtube.com/watch?v=Wp5NodfvvF4",
+      "unique_id": "hn_46728070"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Why I find IEEE 754 frustrating",
+      "content": "Why I find IEEE 754 frustrating",
+      "score": 140,
+      "comments": 58,
+      "url": "https://news.ycombinator.com/item?id=8576837",
+      "unique_id": "hns_8576837"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/beermoney",
+      "category": "side_hustle",
+      "title": "Making money with a Raspberry Pi?",
+      "content": "Making money with a Raspberry Pi?\n\nAs the title suggests, I want to make a passive income of maybe 30$/mo using my Raspberry Pi.\n\nSadly, I'm from Sweden so Mysterium won't work, but that seems awesome.\n\nAny other recommendations? Mining is a no go, unless there is some way to magically get coins without powerful hardware (PoS is not an option, don't want to invest shit in it tbh).",
+      "score": 139,
+      "comments": 54,
+      "url": "https://reddit.com/r/beermoney/comments/f6z4tt/making_money_with_a_raspberry_pi/",
+      "unique_id": "rd_f6z4tt"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Why interruptions are frustrating to developers",
+      "content": "Why interruptions are frustrating to developers",
+      "score": 138,
+      "comments": 164,
+      "url": "https://news.ycombinator.com/item?id=27315383",
+      "unique_id": "hns_27315383"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "showstories",
+      "title": "Show HN: I built a small browser engine from scratch in C++",
+      "content": "Show HN: I built a small browser engine from scratch in C++\n\nHi HN! Korean high school senior here, about to start CS in college.<p>I built a browser engine from scratch in C++ to understand how browsers work. First time using C++, 8 weeks of development, lots of debugging—but it works!<p>Features:<p>- HTML parsing with error correction<p>- CSS cascade and inheritance<p>- Block&#x2F;inline layout engine<p>- Async image loading + caching<p>- Link navigation + history<p>Hardest parts:<p>- String parsing(html, css)<p>- Rendering<p>- Image Caching &amp; Layout Reflowing<p>What I learned (beyond co",
+      "score": 134,
+      "comments": 44,
+      "url": "https://github.com/beginner-jhj/mini_browser",
+      "unique_id": "hn_46795540"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "Maine’s ‘Lobster Lady’ who fished for nearly a century dies aged 105",
+      "content": "Maine’s ‘Lobster Lady’ who fished for nearly a century dies aged 105\n\n",
+      "score": 131,
+      "comments": 12,
+      "url": "https://www.theguardian.com/us-news/2026/jan/28/maine-lobster-lady-dies-aged-105",
+      "unique_id": "hn_46804854"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/beermoney",
+      "category": "side_hustle",
+      "title": "[Guide] The Grand Mafia - Mansion Level 17",
+      "content": "[Guide] The Grand Mafia - Mansion Level 17\n\n#Overview\n\nThis game is another city builder clone. It surprisingly doesn't take long to complete due to being able to stack a lot of building speed boosts. By the time I was done, I had +154.8% and I'm sure I could have gotten it higher if I tried to. This game is a breeze to complete compared to some other ones, and you really only have to check on it once in a while after the first day. I ended the game with 20-40 million extra of each resource, and the final mansion upgrade needed less than 1 million each. The only real downside to this game is that there is almost no online resources about it. Even the wiki is pitiful. The game itself is pretty dead, so you shouldn't need to worry much about being attacked. This can make it hard to find a us",
+      "score": 127,
+      "comments": 54,
+      "url": "https://reddit.com/r/beermoney/comments/law7aq/guide_the_grand_mafia_mansion_level_17/",
+      "unique_id": "rd_law7aq"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "Mecha Comet – Open Modular Linux Handheld Computer",
+      "content": "Mecha Comet – Open Modular Linux Handheld Computer\n\n",
+      "score": 126,
+      "comments": 41,
+      "url": "https://mecha.so/comet",
+      "unique_id": "hn_46758652"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "Spinning around: Please don’t – Common problems with spin locks",
+      "content": "Spinning around: Please don’t – Common problems with spin locks\n\n",
+      "score": 121,
+      "comments": 48,
+      "url": "https://www.siliceum.com/en/blog/post/spinning-around/",
+      "unique_id": "hn_46797868"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/beermoney",
+      "category": "side_hustle",
+      "title": "This week's grocery haul: I got paid $2 to take $46 worth of Supplements, Candy, Spinach Gnocchi, Drinks, and More!",
+      "content": "This week's grocery haul: I got paid $2 to take $46 worth of Supplements, Candy, Spinach Gnocchi, Drinks, and More!\n\n###[Here are the goodies.](https://imgur.com/a/N90lGaM)\n\nJust a small haul this week for reasons mentioned in the afterthoughts below.\n\n&amp;nbsp;\n\n####Total: $45.54\t\n\n####Coupons: None\t\t\n\n####Total Cash Back: $47.75\t\n\n####Final Cost: -$2.21\t\t\t\t\t - **Money Maker!**\n\n[^(Photo of the haul.)](https://imgur.com/a/N90lGaM)\n\n----\n\n&amp;nbsp;\n\n[Here is the complete break down and sites used.](https://imgur.com/464Px6u) The stores are listed in the breakdown image. I don't include sites that take any receipt such as Coinout, ReceiptPal, etc on my breakdown. Brandclub takes a while to credit, so the amounts listed are what I expect to get once it finishes pending. The \"Extra\" column ",
+      "score": 118,
+      "comments": 26,
+      "url": "https://reddit.com/r/beermoney/comments/11tcsj5/this_weeks_grocery_haul_i_got_paid_2_to_take_46/",
+      "unique_id": "rd_11tcsj5"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "showstories",
+      "title": "Show HN: LemonSlice – Upgrade your voice agents to real-time video",
+      "content": "Show HN: LemonSlice – Upgrade your voice agents to real-time video\n\nHey HN, we&#x27;re the co-founders of LemonSlice (try our HN playground here: <a href=\"https:&#x2F;&#x2F;lemonslice.com&#x2F;hn\">https:&#x2F;&#x2F;lemonslice.com&#x2F;hn</a>). We train interactive avatar video models. Our API lets you upload a photo and immediately jump into a FaceTime-style call with that character. Here&#x27;s a demo: <a href=\"https:&#x2F;&#x2F;www.loom.com&#x2F;share&#x2F;941577113141418e80d2834c83a5a0a9\" rel=\"nofollow\">https:&#x2F;&#x2F;www.loom.com&#x2F;share&#x2F;941577113141418e80d2834c83a5a0a9</a><p>Ch",
+      "score": 118,
+      "comments": 125,
+      "url": "https://news.ycombinator.com/item?id=46783600",
+      "unique_id": "hn_46783600"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/sidehustle",
+      "category": "side_hustle",
+      "title": "I Make $600+ A Week Officiating Sports",
+      "content": "I Make $600+ A Week Officiating Sports\n\nA few years ago I read a story detailing the aging demographic of sports officials and how many sports/states throughout the United States were struggling to schedule games due to the lack of officials. I always had an interest in football and living in Dallas, Texas I googled \"local football officiating chapter\" and was led to the Dallas Football Officials Association (www.DFOA.com). This chapter falls under the Texas Association of Sports Officials ( www.taso.org )  that requires a yearly fee of $65 to become an official.\n\nAfter joining the chapter I attended their training and paid the necessary fees for membership and gear:\n- Dallas Chapter Fee - $65 (Yearly)\n- TASO Fee - $65 (Yearly)\n- Official Uniform - ~$200 (Free for veterans - [Battlefields ",
+      "score": 115,
+      "comments": 19,
+      "url": "https://reddit.com/r/sidehustle/comments/1hf6gya/i_make_600_a_week_officiating_sports/",
+      "unique_id": "rd_1hf6gya"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/beermoney",
+      "category": "side_hustle",
+      "title": "This week's grocery haul: I got paid $19 to take $141 worth of Cereal, Yogurt, Black Bean Burgers, Fly Ribbon, Paper Towels, Mac n Cheese, and More!",
+      "content": "This week's grocery haul: I got paid $19 to take $141 worth of Cereal, Yogurt, Black Bean Burgers, Fly Ribbon, Paper Towels, Mac n Cheese, and More!\n\n###[Here are the goodies.](https://imgur.com/a/sfO5SbE)\n\nSo many stores this week. Too many. Thankfully this doesn't happen often.\n\n####Total: $140.75\t\t\n\n####Coupons: None!\n\n####Total Cash Back: $159.63\t\t\t\n\n####Final Cost: -$18.88\t\t- **Money Maker!**\n\n[^(Photo of the haul.)](https://imgur.com/a/sfO5SbE)\n\n----\n\n&amp;nbsp;\n\n[https://imgur.com/JyMDVf0.](https://imgur.com/LGWLFax) The stores are listed in the breakdown image. I don't include sites that take any receipt such as Coinout, ReceiptPal, etc on my breakdown. The digital coupons were loaded to my account. Wegman's were $5 off a $5 purchase of paper towels / Laundry soap.\n\n*Note: Individu",
+      "score": 114,
+      "comments": 20,
+      "url": "https://reddit.com/r/beermoney/comments/15hkmq4/this_weeks_grocery_haul_i_got_paid_19_to_take_141/",
+      "unique_id": "rd_15hkmq4"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "Europe's next-generation weather satellite sends back first images",
+      "content": "Europe's next-generation weather satellite sends back first images\n\n",
+      "score": 113,
+      "comments": 13,
+      "url": "https://www.esa.int/Applications/Observing_the_Earth/Meteorological_missions/meteosat_third_generation/Europe_s_next-generation_weather_satellite_sends_back_first_images",
+      "unique_id": "hn_46806773"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "showstories",
+      "title": "Show HN: TetrisBench – Gemini Flash reaches 66% win rate on Tetris against Opus",
+      "content": "Show HN: TetrisBench – Gemini Flash reaches 66% win rate on Tetris against Opus\n\n",
+      "score": 109,
+      "comments": 40,
+      "url": "https://tetrisbench.com/tetrisbench/",
+      "unique_id": "hn_46769752"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "When Every Network is 192.168.1.x",
+      "content": "When Every Network is 192.168.1.x\n\n",
+      "score": 109,
+      "comments": 88,
+      "url": "https://netrinos.com/blog/conflicting-subnets",
+      "unique_id": "hn_46795582"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "showstories",
+      "title": "Show HN: I wrapped the Zorks with an LLM",
+      "content": "Show HN: I wrapped the Zorks with an LLM\n\nI grew up on the Infocom games and when microsoft actually open-sourced Zork 1&#x2F;2&#x2F;3 I really wanted to figure out how to use LLMs to let you type whatever you want, I always found the amount language that the games &quot;understood&quot; to be so limiting - even if it was pretty state of the art at the time.<p>So I figured out how to wrap it with Tambo.. (and run the game engine in the browser) basically whatever you type gets &quot;translated&quot; into zork-speak and passed to the game - and then the LLM takes the game&#x27;s output and opti",
+      "score": 107,
+      "comments": 57,
+      "url": "https://infocom.tambo.co/",
+      "unique_id": "hn_46786618"
+    },
+    {
+      "source": "PlayStore",
+      "subsource": "Todoist",
+      "title": "This app has great features and usability and it's awesome that it's cross-platform. however, one of",
+      "content": "This app has great features and usability and it's awesome that it's cross-platform. however, one of the major issues that I've run into is that on my Android pixel devices, it seems to crash. every time I attempt to open it it starts to load and then immediately force crashes on its own. please fix for Android and I would once again highly rate this app.",
+      "score": 104,
+      "rating": 2,
+      "url": "https://play.google.com/store/apps/details?id=com.todoist",
+      "unique_id": "ps_b32179e3-4962-445a-a4d6-0fa59d5fdb77",
+      "app_id": "com.todoist",
+      "date": "2025-09-05"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Google Analytics 4 was frustrating, so we built our own analytics service",
+      "content": "Google Analytics 4 was frustrating, so we built our own analytics service",
+      "score": 103,
+      "comments": 99,
+      "url": "https://news.ycombinator.com/item?id=35978445",
+      "unique_id": "hns_35978445"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "showstories",
+      "title": "Show HN: We Built the 1. EU-Sovereignty Audit for Websites",
+      "content": "Show HN: We Built the 1. EU-Sovereignty Audit for Websites\n\n",
+      "score": 102,
+      "comments": 80,
+      "url": "https://lightwaves.io/en/eu-audit/",
+      "unique_id": "hn_46779994"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "The rich, weird, and frustrating world of Depression-era travel guides",
+      "content": "The rich, weird, and frustrating world of Depression-era travel guides",
+      "score": 101,
+      "comments": 26,
+      "url": "https://news.ycombinator.com/item?id=27603228",
+      "unique_id": "hns_27603228"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "showstories",
+      "title": "Show HN: An interactive map of US lighthouses and navigational aids",
+      "content": "Show HN: An interactive map of US lighthouses and navigational aids\n\nThis is an interactive map of US navigational aids and lighthouses, which indicates their location, color, characteristic and any remarks the Coast Guard has attached.<p>I was sick at home with the flu this weekend, and went on a bit of a Wikipedia deep dive about active American lighthouses. Searching around a bit, it was very hard to find a single source or interactive map of active beacons, and a description of what the &quot;characteristic&quot; meant. The Coast Guard maintains a list of active lights though, that they pu",
+      "score": 100,
+      "comments": 22,
+      "url": "https://www.lighthouses.app/",
+      "unique_id": "hn_46756427"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "How London became the rest of the world’s startup capital",
+      "content": "How London became the rest of the world’s startup capital\n\n<a href=\"https:&#x2F;&#x2F;archive.ph&#x2F;ebA1T\" rel=\"nofollow\">https:&#x2F;&#x2F;archive.ph&#x2F;ebA1T</a>",
+      "score": 100,
+      "comments": 99,
+      "url": "https://www.economist.com/britain/2026/01/26/how-london-became-the-rest-of-the-worlds-startup-capital",
+      "unique_id": "hn_46789180"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "askstories",
+      "title": "Ask HN: Books to learn 6502 ASM and the Apple II",
+      "content": "Ask HN: Books to learn 6502 ASM and the Apple II\n\nI want to learn Assembly to make games on the Apple II. What are the old books to learn 6502 Assembly and the Apple II itself (memory, screen management) ? And is it absolutely necessary to learn BASIC before Assembly ?",
+      "score": 96,
+      "comments": 67,
+      "url": "https://news.ycombinator.com/item?id=46778461",
+      "unique_id": "hn_46778461"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Ask HN: What's the best 'non-frustrating' search/directory UI/UX you've seen?",
+      "content": "Ask HN: What's the best 'non-frustrating' search/directory UI/UX you've seen?",
+      "score": 96,
+      "comments": 48,
+      "url": "https://news.ycombinator.com/item?id=12713604",
+      "unique_id": "hns_12713604"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/Nigeria",
+      "category": "africa",
+      "title": "Re: I hate it here.",
+      "content": "Re: I hate it here.\n\nThe events if the last couple of days have just strengthened my resolve to leave this country by any [legal] means for good. After this is over, I honestly just want to leave and further my education in a sane climate, get a job there, work, contribute to a meaningful society and actually live life because existing in Nigeria is not actually living, you’re just trying to survive till the next day and everything is designed to kill you or frustrate you till you die, which is basically still killing you anyway. \n\nI can’t even begin to explain my emotions right now. My head hurts, my heart is full of sorrow and all the negative emotions are having a party in my mind. I’m angry and sad and frustrated and sad again and upset and disgusted, I can’t cry even if I wanted to, a",
+      "score": 94,
+      "comments": 49,
+      "url": "https://reddit.com/r/Nigeria/comments/jfwihw/re_i_hate_it_here/",
+      "unique_id": "rd_jfwihw"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "showstories",
+      "title": "Show HN: Dwm.tmux – a dwm-inspired window manager for tmux",
+      "content": "Show HN: Dwm.tmux – a dwm-inspired window manager for tmux\n\nHey, HN! With all recent agentic workflows being primarily terminal- and tmux-based, I wanted to share a little project I created about decade ago.<p>I&#x27;ve continued to use this as my primary terminal &quot;window manager&quot; and wanted to share in case others might find it useful.<p>I would love to hear about other&#x27;s terminal-based workflows and any other tools you may use with similar functionality.",
+      "score": 91,
+      "comments": 17,
+      "url": "https://github.com/saysjonathan/dwm.tmux",
+      "unique_id": "hn_46739704"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/sidehustle",
+      "category": "side_hustle",
+      "title": "I just turned 21 and have no idea what I’m doing with my life",
+      "content": "I just turned 21 and have no idea what I’m doing with my life\n\nHi, I’m stressed. Nice to meet you. \nNo seriously. I turned 21 a few days ago and I’m literally running circles in my head because I’m juggling so much and don’t know where I’m going. I went to college for two years, hated it. I’m not a 9-5 girl. I want to work for myself. How? I’m not sure yet. That’s TBD. But in the mean time, I’ll say I lack a lot of faith in myself, and I hate it. I’m a “why would that work for me” but slowly transitioning into “why not me?” Person. I want to work for myself and I’ve been doing constant research and I’ve found some things I’m going to work on, but I’m really in my own head about it all because people say such conflicted things about different types of work (anywhere from affiliate marketing",
+      "score": 90,
+      "comments": 147,
+      "url": "https://reddit.com/r/sidehustle/comments/1546oii/i_just_turned_21_and_have_no_idea_what_im_doing/",
+      "unique_id": "rd_1546oii"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/Nigeria",
+      "category": "africa",
+      "title": "We need to destigmatize hair Culture in Nigeria",
+      "content": "We need to destigmatize hair Culture in Nigeria\n\nNigeria is the country with the largest population of black people. and we stigmatize black hair so much. why do secondary school girls need to shave their head those will argue \"distraction, a hassle \" and all that. but no one cares to argue colonialism. Most nigerian girls end up wearing wigs in the future nothing wrong with that but why? theres npthing wring with our hair. our hair is menat to grow up and out. our hair is menat to be fluffy not relaxed. This is a subject that really upsets me as the nigerian woman is taught to hate and relax her hair. and dreadlocks are also badly associated why? the white man has had such an effect on us we see black hair as bad or somethign needed to be tamed . Every time i go on socials and see South a",
+      "score": 89,
+      "comments": 27,
+      "url": "https://reddit.com/r/Nigeria/comments/1k9f0ws/we_need_to_destigmatize_hair_culture_in_nigeria/",
+      "unique_id": "rd_1k9f0ws"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "GDPR Hasn’t Shown Its Teeth, Frustrating Advocates",
+      "content": "GDPR Hasn’t Shown Its Teeth, Frustrating Advocates",
+      "score": 88,
+      "comments": 144,
+      "url": "https://news.ycombinator.com/item?id=22994670",
+      "unique_id": "hns_22994670"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "The Lack of Historic Knowledge Is Frustrating",
+      "content": "The Lack of Historic Knowledge Is Frustrating",
+      "score": 87,
+      "comments": 76,
+      "url": "https://news.ycombinator.com/item?id=10415460",
+      "unique_id": "hns_10415460"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/freelance",
+      "category": "side_hustle",
+      "title": "Just \"fired\" potential client - rant/should I contact the client who referred them?",
+      "content": "Just \"fired\" potential client - rant/should I contact the client who referred them?\n\nI'm a freelance web designer/developer and I've never turned down work before, but I felt like I really had to this time. I will call this client Captain Red Flag.\n\nCaptain Red Flag called and said he was was referred to me by a very good client (always pays on time, provides all content quickly, very easy to please), who he said was his business partner. This call was FULL of red flags:\n\n* his site would be selling \"edgy\" merch in support of a very controversial political figure who I personally despise\n* said he \"had to\" fire his last developer/designer\n* said he was 6 months behind schedule and \"very frustrated\"\n* contacted me on a ***Thursday*** and said he needed the site up and running by the followi",
+      "score": 85,
+      "comments": 25,
+      "url": "https://reddit.com/r/freelance/comments/eb2jfj/just_fired_potential_client_rantshould_i_contact/",
+      "unique_id": "rd_eb2jfj"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "The long, complicated, and extremely frustrating history of Medium",
+      "content": "The long, complicated, and extremely frustrating history of Medium",
+      "score": 85,
+      "comments": 31,
+      "url": "https://news.ycombinator.com/item?id=19485779",
+      "unique_id": "hns_19485779"
+    },
+    {
+      "source": "GitHub",
+      "subsource": "AppFlowy",
+      "title": "[FR] Neovim/Vim Support",
+      "content": "[FR] Neovim/Vim Support\n\nAs a Neovim/Vim user , I want to use Neovim to write and edit my notes/pages.\r\n\r\n1. Using Neovim Modes (cmd,insert,visual,etc) and capabilities (find, replace, move, macros, marks) are awesome.\r\n2. Extended features with plugins are awesome as well.\r\n3. Don't break Vim users workflow. (no mouse needed)\r\n\r\n* I'm using NerdTREE with notes folders instead of Notion because this.",
+      "score": 84,
+      "comments": 1,
+      "url": "https://github.com/AppFlowy-IO/AppFlowy/issues/284",
+      "unique_id": "gh_1118299679",
+      "labels": [
+        "duplicate",
+        "new feature",
+        "plugins"
+      ]
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "Bf-Tree: modern read-write-optimized concurrent larger-than-memory range index",
+      "content": "Bf-Tree: modern read-write-optimized concurrent larger-than-memory range index\n\n",
+      "score": 82,
+      "comments": 16,
+      "url": "https://github.com/microsoft/bf-tree",
+      "unique_id": "hn_46802210"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/entrepreneur",
+      "category": "startup",
+      "title": "Started a restaurant, my partner bailed and now I’m drowning – what the hell do I do?",
+      "content": "Started a restaurant, my partner bailed and now I’m drowning – what the hell do I do?\n\nHey,\n\nlast year, I started a restaurant in a Czech city (Ostrava) with someone who was still my friend back then and now I don’t know what to do anymore—I’m completely drained... My ex-friend was the chef and was supposed to be the cornerstone of our whole idea, but unfortunately, before we even managed to open, he bailed on me. I was suddenly facing a tough decision: either go through with it alone or give up... I decided to push forward and honestly, looking back now, I’m not sure if I made the right call... But I didn’t really have much of a choice—I had already rented the place, had all the equipment, suppliers, and staff lined up...\n\nThe first month looked promising, it worked fairly well because pe",
+      "score": 81,
+      "comments": 55,
+      "url": "https://reddit.com/r/Entrepreneur/comments/1k8nhn5/started_a_restaurant_my_partner_bailed_and_now_im/",
+      "unique_id": "rd_1k8nhn5"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/povertyfinance",
+      "category": "money",
+      "title": "Misplaced anger",
+      "content": "Misplaced anger\n\nThis may not be the place for this, but I’m not sure where else would have people that maybe understand. \n\nI tend to steer clear of social media for many reasons, but I had to check Facebook the other day. In my three minutes on the app, I saw two posts — one of a person my age buying a new car, and one of someone three years younger than me getting an Hermès bag. \n\nIt’s so stupid to be jealous, but here I am. \n\nI’m not angry at these people; I’m happy they’re successful and doing well and they have the means to buy things that benefit them and bring them joy. \n\nI don’t know *what* exactly I’m angry about, but I keep getting stuck in this thought of “$5,000 would erase 100% of my debt and would be the key to an entirely different life for me, and someone’s going to spend t",
+      "score": 80,
+      "comments": 44,
+      "url": "https://reddit.com/r/povertyfinance/comments/1gs1kc9/misplaced_anger/",
+      "unique_id": "rd_1gs1kc9"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/beermoney",
+      "category": "side_hustle",
+      "title": "This week's grocery haul: I got paid $11 to take $89 worth of Ice Cream, Cat Food, Pork, Yogurt , and More!",
+      "content": "This week's grocery haul: I got paid $11 to take $89 worth of Ice Cream, Cat Food, Pork, Yogurt , and More!\n\n###[Here are the goodies.](https://imgur.com/a/PvW3ifZ)\n\n'Tis the season for ice cream and cat food.\n\n####Total: $88.99\t\n\n####Coupons: $5.81\t\n\n####Total Cash Back: $94.83\t\t\n\n####Final Cost: -$11.65\t\t- **Money Maker!**\n\n[^(Photo of the haul.)](https://imgur.com/a/PvW3ifZ)\n\n----\n\n&amp;nbsp;\n\n[https://imgur.com/JyMDVf0.](https://imgur.com/jiAnJIQ) The stores are listed in the breakdown image. I don't include sites that take any receipt such as Coinout, ReceiptPal, etc on my breakdown. The Ice Cream Coupons printed out at the register. The Cereal coupons were from Kellogg's website. I got them back in March after making a few purchases.\n\n*Note: Individual deals vary by user for most app",
+      "score": 79,
+      "comments": 19,
+      "url": "https://reddit.com/r/beermoney/comments/14zw9hy/this_weeks_grocery_haul_i_got_paid_11_to_take_89/",
+      "unique_id": "rd_14zw9hy"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/beermoney",
+      "category": "side_hustle",
+      "title": "Wall of text about transcription and how to make decent money doing it.",
+      "content": "Wall of text about transcription and how to make decent money doing it.\n\ntl;dr\n\nUse a mic, headphones, foot pedal and Express Scribe software to speak the audio onto a Google Docs page with their free Voice Typing, then become a reviewer and make money for more than just beer.\n-----------------------\n\n \n\nI see many posts in this sub pertaining to transcription. one of the most common perceptions about transcription work is that the pay is so low, typically below minimum wage, that the work can't possibly be worth the time you spend doing it.\n\nI would like to say that I agree. The wages are extremely low, usually somewhere around $0.20 for every minute of recorded audio that you transcribe. Some sites will pay you more per minute, and some made in pay less. For a lot of people, this is unac",
+      "score": 78,
+      "comments": 11,
+      "url": "https://reddit.com/r/beermoney/comments/51ky0r/wall_of_text_about_transcription_and_how_to_make/",
+      "unique_id": "rd_51ky0r"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/freelance",
+      "category": "side_hustle",
+      "title": "Are there any smaller but better freelance sites than Upwork?",
+      "content": "Are there any smaller but better freelance sites than Upwork?\n\nUpwork is the behemoth when it comes to freelancing, but there are many things about them which I don't like:\n\n1. Fees are too high - 20% is like literally exploiting the freelancer when you consider that there are added costs on the payment methods too, be it bank transfers or paypal.\n2. No quality control - Quality is rapidly diminishing from that site. They allow $5 gigs to be posted even for tasks like serious web projects and android applications.\n3. Website is slow and bloated - Its even down due to upgrades or heavy traffic sometimes. Besides, the don't even allow a JSON API access or something, so that the programmers can browse the jobs themselves and figure out which ones to apply.\n\nAll in all, I'm fed up of Upwork an",
+      "score": 78,
+      "comments": 28,
+      "url": "https://reddit.com/r/freelance/comments/8wi4aa/are_there_any_smaller_but_better_freelance_sites/",
+      "unique_id": "rd_8wi4aa"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/beermoney",
+      "category": "side_hustle",
+      "title": "Tips for contacting support",
+      "content": "Tips for contacting support\n\n#Introduction\n\nSince the start of this pandemic, we have been flooded with users who are new to working online and seem to have unrealistic expectations from support. They often expect support to reply within hours or they expect them to beg them to keep working. Unlike when contacting support as a customer, when you contact support for a r/beermoney site you can't just throw a fit and expect everything to go your way. Even if the issue could have been easily resolved, being rude to support may result in your request being thrown out. Support is often run by either a small team, or it's outsourced to a company that handles a lot of similar sites.\n\n[There is a short section in our FAQ about this](https://www.reddit.com/r/beermoney/wiki/faq/support), but I wanted",
+      "score": 76,
+      "comments": 10,
+      "url": "https://reddit.com/r/beermoney/comments/mt2108/tips_for_contacting_support/",
+      "unique_id": "rd_mt2108"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/beermoney",
+      "category": "side_hustle",
+      "title": "Google User Research",
+      "content": "Google User Research\n\nI recently signed up for Google User Research after seeing it mentioned on this sub. I got approved immediately and got an email basically right away inviting me to a study. I made $75 for only 45 minutes of my time. The study was actually really fun, and I even agreed to stay on an extra few minutes because we didn't finish since I was having such a good time!\n\nI was wondering if any of you are a part of the program, how often do you receive invites to studies? This was my first study and I really enjoyed it, so I'd love to do more. If anyone has other recommendations similar to Google User Research as well, please let me know.",
+      "score": 76,
+      "comments": 31,
+      "url": "https://reddit.com/r/beermoney/comments/13yvkuv/google_user_research/",
+      "unique_id": "rd_13yvkuv"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/beermoney",
+      "category": "side_hustle",
+      "title": "Watch ads/videos for money",
+      "content": "Watch ads/videos for money\n\nI just want to make a little extra money and websites like swag bucks aren't working for me, any recommendations?",
+      "score": 75,
+      "comments": 86,
+      "url": "https://reddit.com/r/beermoney/comments/nqqhfr/watch_adsvideos_for_money/",
+      "unique_id": "rd_nqqhfr"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/povertyfinance",
+      "category": "money",
+      "title": "Heard a coworker saying that Im pretty but I smell and wear tacky clothes. It really hurts my feelings. How can I stay motivated.",
+      "content": "Heard a coworker saying that Im pretty but I smell and wear tacky clothes. It really hurts my feelings. How can I stay motivated.\n\n\n\nFelt demotivated today. Just suck hearing that Im smelly and my clothes look like shit. I can’t do anything about it, not because Im too lazy but I just literally cannot afford to get new clothes and had to get my office attire at thrift stores which are mostly baggy and looked worn out. I used all my\nmoney to get clothes to follow “dress code”.\n\nI wanna stay optimistic and keep on trying coz I know that its the right thing to do but it just felt like shit and I dont know how Ill show up to work tomorrow because I literally don’t have a choice but to wear the clothes that I have. \n\nI walk to work for almost an hour every day so I tend to sweat and I cant affo",
+      "score": 73,
+      "comments": 63,
+      "url": "https://reddit.com/r/povertyfinance/comments/1kfcc1s/heard_a_coworker_saying_that_im_pretty_but_i/",
+      "unique_id": "rd_1kfcc1s"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/sidehustle",
+      "category": "side_hustle",
+      "title": "How to Start a Million Dollar Business this Weekend (according to Noah Kagan)",
+      "content": "How to Start a Million Dollar Business this Weekend (according to Noah Kagan)\n\nThese are my notes on Noah Kagens youtube video, how to make a million dollar business this weekend. I found it to be a really useful guide so thought it may be useful here too!\n\n# How to Start a Million Dollar Business this Weekend (according to Noah Kagan)\n\nIn[ this video](https://www.youtube.com/watch?v=kcikCLINuVg)., Noah Kagan teaches how to quickly establish whether your million dollar business idea will likely generate a million dollars or not.\n\nBefore proceeding from business ideas to business planning, this five-step process is essential in ensuring your million dollar business idea isn't a dud.\n\nLearn these essential steps below.\n\n# Prerequisites: Business Mindsets for the Early Days\n\nAs they say, an i",
+      "score": 73,
+      "comments": 25,
+      "url": "https://reddit.com/r/sidehustle/comments/tni25q/how_to_start_a_million_dollar_business_this/",
+      "unique_id": "rd_tni25q"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/Africa",
+      "category": "africa",
+      "title": "Frustrated Nigerians 'flee' abroad in punishing pre-election brain drain",
+      "content": "Frustrated Nigerians 'flee' abroad in punishing pre-election brain drain\n\n",
+      "score": 71,
+      "comments": 36,
+      "url": "https://reddit.com/r/Africa/comments/y7yyh4/frustrated_nigerians_flee_abroad_in_punishing/",
+      "unique_id": "rd_y7yyh4"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/ecommerce",
+      "category": "small_biz",
+      "title": "5 Questions To Fix 💩 Sales ... you must be honest with yourself",
+      "content": "5 Questions To Fix 💩 Sales ... you must be honest with yourself\n\nHello,\n\nI see a ton of store owners in this subreddit asking why their store isn't making any sales or why their Facebook ads aren't creating a positive ROI.\n\nSo I made this guide to help answer those questions.\n\n(I've worked with several 8 figure stores, a few low 9 figure stores, and 50+ 7 figure stores.\n\nI've personally spent \\~$5 million in ads spend, creating \\~$50 million in revenue.\n\nI'm still learning, but I've seen a lot of what works and what doesn't.)\n\nHere are the 5 questions I urge struggling store owners to ask themselves:\n\n1. Am I selling 💩 no one wants?\n2. Is my customer experience 💩?\n3. Am I selling 💩 people can get somewhere else?\n4. Is my brand 💩?\n5. Is my marketing 💩?\n\n**Are you selling 💩 no one wants?**\n\n",
+      "score": 70,
+      "comments": 27,
+      "url": "https://reddit.com/r/ecommerce/comments/pz9dgc/5_questions_to_fix_sales_you_must_be_honest_with/",
+      "unique_id": "rd_pz9dgc"
+    },
+    {
+      "source": "Reddit",
+      "subsource": "r/beermoney",
+      "category": "side_hustle",
+      "title": "Is it a waste of time trying to spend more then 2 hours a day on beer money websites?",
+      "content": "Is it a waste of time trying to spend more then 2 hours a day on beer money websites?\n\nIt seems like the people who just put in 1-2hrs a day on beer money websites are more satisfied then the people who put in 5-10hrs a day. On average what I have seen is people can make $6-$10hr online.\n\nI'm still trying to get a system going for myself with different websites but based on what I have been reading it seems much more worthwhile to just do whatever work you can in 2hrs then spend all day on the computer waiting for opportunities to pop up.\n\nAlso I know some people just check in periodically throughout the day to see if they can pick up any work and that seems more reasonable to. \n\nIt's kind of like Uber drivers, the happiest ones seem to be the people who drive for 1-2hrs a day and are just",
+      "score": 70,
+      "comments": 47,
+      "url": "https://reddit.com/r/beermoney/comments/cabjpo/is_it_a_waste_of_time_trying_to_spend_more_then_2/",
+      "unique_id": "rd_cabjpo"
+    }
+  ]
+}
