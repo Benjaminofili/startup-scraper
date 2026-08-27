@@ -33,6 +33,9 @@ def parse_feasibility_metrics(ai_analysis: str) -> List[Dict]:
             'passive_income_score': 5,
             'team_size_score': 5,
             'time_to_market_score': 5,
+            'competition_score': 5,
+            'monetization_fit_score': 5,
+            'regulatory_risk_score': 5,
             'feasibility_score': 5.0
         }
         
@@ -46,7 +49,10 @@ def parse_feasibility_metrics(ai_analysis: str) -> List[Dict]:
             'investment_score': r'Investment(?:\s+Score)?:\s*(\d+)(?:/10)?',
             'passive_income_score': r'Passive\s+Income(?:\s+Score)?:\s*(\d+)(?:/10)?',
             'team_size_score': r'Team(?:\s+Size)?(?:\s+Score)?:\s*(\d+)(?:/10)?',
-            'time_to_market_score': r'Time\s+to\s+Market(?:\s+Score)?:\s*(\d+)(?:/10)?'
+            'time_to_market_score': r'Time\s+to\s+Market(?:\s+Score)?:\s*(\d+)(?:/10)?',
+            'competition_score': r'Competition(?:\s+Score)?:\s*(\d+)(?:/10)?',
+            'monetization_fit_score': r'Monetization\s+Fit(?:\s+Score)?:\s*(\d+)(?:/10)?',
+            'regulatory_risk_score': r'Regulatory\s+Risk(?:\s+Score)?:\s*(\d+)(?:/10)?',
         }
         
         for key, pattern in patterns.items():
@@ -61,7 +67,10 @@ def parse_feasibility_metrics(ai_analysis: str) -> List[Dict]:
             idea['investment_score'],
             idea['passive_income_score'],
             idea['team_size_score'],
-            idea['time_to_market_score']
+            idea['time_to_market_score'],
+            idea['competition_score'],
+            idea['monetization_fit_score'],
+            idea['regulatory_risk_score']
         )
         
         if idea['title']:  # Only add if we found a title
@@ -75,37 +84,66 @@ def calculate_feasibility_score(
     passive_income: int,
     team_size: int,
     time_to_market: int,
+    competition: int = 5,
+    monetization_fit: int = 5,
+    regulatory_risk: int = 5,
     weights: Optional[Dict[str, float]] = None
 ) -> float:
     """
-    Calculate weighted feasibility score
-    
+    Calculate weighted feasibility score.
+
+    "Cheap and fast to build" (investment/team_size/time_to_market) is no
+    longer the majority of the score — it's roughly matched by market-reality
+    checks (competition, monetization fit, regulatory risk), because a ₦0
+    idea nobody can monetize in a saturated, risky market isn't actually
+    feasible just because it's cheap.
+
     Args:
         investment: Score 0-10 (10 = zero cost)
         passive_income: Score 0-10 (10 = fully automated)
         team_size: Score 0-10 (10 = solo-friendly)
         time_to_market: Score 0-10 (10 = launch in days)
+        competition: Score 0-10 (10 = no meaningful existing competitor)
+        monetization_fit: Score 0-10 (10 = audience reliably pays for this)
+        regulatory_risk: Score 0-10 (10 = no legal/safety/licensing exposure)
         weights: Optional custom weights for each criterion
-    
+
     Returns:
-        Weighted average score (0-10)
+        Weighted average score (0-100), gated down hard for regulatory risk
     """
     if weights is None:
-        # Default weights - prioritize low investment and passive income
         weights = {
-            'investment': 0.35,      # 35% - Most important
-            'passive_income': 0.30,  # 30% - Very important
-            'team_size': 0.20,       # 20% - Important
-            'time_to_market': 0.15   # 15% - Nice to have
+            'investment': 0.15,
+            'passive_income': 0.15,
+            'team_size': 0.10,
+            'time_to_market': 0.10,
+            'competition': 0.20,
+            'monetization_fit': 0.20,
+            'regulatory_risk': 0.10,
         }
-    
+
     score = (
         investment * weights['investment'] +
         passive_income * weights['passive_income'] +
         team_size * weights['team_size'] +
-        time_to_market * weights['time_to_market']
+        time_to_market * weights['time_to_market'] +
+        competition * weights['competition'] +
+        monetization_fit * weights['monetization_fit'] +
+        regulatory_risk * weights['regulatory_risk']
     ) * 10  # Scale to 0-100
-    
+
+    # Hard gate: severe legal/safety/licensing exposure (e.g. transportation,
+    # money transmission, healthcare) shouldn't be masked by a good score on
+    # cheap-and-fast dimensions. Cap the ceiling instead of just weighting it.
+    if regulatory_risk <= 3:
+        score = min(score, 40.0)
+
+    # Hard gate: near-zero monetization fit (audience structurally won't pay,
+    # e.g. self-hosting open-source crowd) caps the ceiling too, since this
+    # was the exact NoteHub-style trap in the original report.
+    if monetization_fit <= 2:
+        score = min(score, 45.0)
+
     return round(score, 1)
 
 
@@ -156,7 +194,10 @@ def format_feasibility_report(ideas: List[Dict], top_n: int = 5) -> str:
         report += f"- 💰 **Investment Required:** {idea['investment_score']}/10\n"
         report += f"- 💵 **Passive Income Potential:** {idea['passive_income_score']}/10\n"
         report += f"- 👥 **Team Size (Solo-Friendly):** {idea['team_size_score']}/10\n"
-        report += f"- ⚡ **Time to Market:** {idea['time_to_market_score']}/10\n\n"
+        report += f"- ⚡ **Time to Market:** {idea['time_to_market_score']}/10\n"
+        report += f"- 🥊 **Competition (10=blue ocean):** {idea.get('competition_score', 5)}/10\n"
+        report += f"- 💳 **Monetization Fit:** {idea.get('monetization_fit_score', 5)}/10\n"
+        report += f"- ⚖️ **Regulatory/Legal Risk (10=none):** {idea.get('regulatory_risk_score', 5)}/10\n\n"
         report += "---\n\n"
     
     return report

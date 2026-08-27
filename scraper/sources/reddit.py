@@ -6,17 +6,29 @@ import hashlib
 from bs4 import BeautifulSoup
 
 
-def scrape_reddit_pullpush():
-    """Scrape Reddit via PullPush.io (archive, no API key needed)"""
-    
+def scrape_reddit_search():
+    """
+    Scrape Reddit via Reddit's own public search.json endpoint.
+
+    Replaces the old PullPush.io scraper: PullPush now returns a paid-only
+    rate-limit error for any automated/agent traffic ("This website does
+    not provide free scraping resources for agents"), so it was
+    contributing nothing for however long it's been that way. Reddit's own
+    old.reddit.com search.json endpoint is still free and unauthenticated,
+    it just needs a real User-Agent and slower pacing to avoid 429s.
+    """
+
     print("\n" + "=" * 50)
-    print("🔍 SCRAPING REDDIT (PullPush)...")
+    print("🔍 SCRAPING REDDIT (search.json)...")
     print("=" * 50)
-    
+
     problems = []
-    base_url = "https://api.pullpush.io/reddit/search/submission/"
-    
-    # Subreddits by category
+    base_url = "https://old.reddit.com/r/{subreddit}/search.json"
+
+    headers = {
+        "User-Agent": "StartupScraper/1.0 (by /u/your_reddit_username)"
+    }
+
     subreddit_groups = {
         "startup": ["entrepreneur", "startups", "SaaS", "indiehackers"],
         "small_biz": ["smallbusiness", "ecommerce", "Shopify"],
@@ -24,8 +36,7 @@ def scrape_reddit_pullpush():
         "money": ["personalfinance", "povertyfinance"],
         "side_hustle": ["sidehustle", "beermoney", "freelance"],
     }
-    
-    # Pain-indicating search queries
+
     queries = [
         "frustrated",
         "I hate",
@@ -35,50 +46,64 @@ def scrape_reddit_pullpush():
         "waste of money",
         "terrible",
     ]
-    
+
     for category, subreddits in subreddit_groups.items():
         for subreddit in subreddits:
             for query in queries[:4]:  # Limit queries per sub
                 try:
                     params = {
-                        "subreddit": subreddit,
                         "q": query,
-                        "size": 15,
-                        "sort_type": "score",
+                        "restrict_sr": 1,
+                        "sort": "top",
+                        "t": "year",
+                        "limit": 15,
                     }
-                    
-                    response = requests.get(base_url, params=params, timeout=15)
-                    
-                    if response.status_code != 200:
+
+                    response = requests.get(
+                        base_url.format(subreddit=subreddit),
+                        headers=headers,
+                        params=params,
+                        timeout=15,
+                    )
+
+                    if response.status_code == 429:
+                        print(f"   ⏳ Rate limited on r/{subreddit}, backing off")
+                        time.sleep(5)
                         continue
-                    
+
+                    if response.status_code != 200:
+                        print(f"   ⚠️ r/{subreddit} '{query}': HTTP {response.status_code}")
+                        continue
+
                     data = response.json()
-                    posts = data.get("data", [])
-                    
+                    posts = data.get("data", {}).get("children", [])
+
                     for post in posts:
-                        if post.get("score", 0) >= 2:
-                            title = post.get("title", "")
-                            selftext = post.get("selftext", "")
-                            post_id = post.get("id", "")
-                            
+                        p = post.get("data", {})
+                        if p.get("score", 0) >= 2:
+                            title = p.get("title", "")
+                            selftext = p.get("selftext", "")
+                            post_id = p.get("id", "")
+
                             problems.append({
                                 "source": "Reddit",
                                 "subsource": f"r/{subreddit}",
                                 "category": category,
                                 "title": title[:150],
                                 "content": f"{title}\n\n{selftext}"[:800],
-                                "score": post.get("score", 0),
-                                "comments": post.get("num_comments", 0),
-                                "url": f"https://reddit.com{post.get('permalink', '')}",
+                                "score": p.get("score", 0),
+                                "comments": p.get("num_comments", 0),
+                                "url": f"https://reddit.com{p.get('permalink', '')}",
                                 "unique_id": f"rd_{post_id}",
                             })
-                    
-                    time.sleep(0.4)
-                    
+
+                    time.sleep(1.2)  # Reddit rate-limits harder than PullPush did
+
                 except Exception as e:
+                    print(f"   ⚠️ r/{subreddit} '{query}': {type(e).__name__}: {e}")
                     continue
-    
-    print(f"   ✅ PullPush: {len(problems)} posts")
+
+    print(f"   ✅ Reddit search: {len(problems)} posts")
     return problems
 
 
@@ -151,7 +176,7 @@ def scrape_reddit_all():
     
     all_problems = []
     
-    all_problems.extend(scrape_reddit_pullpush())
+    all_problems.extend(scrape_reddit_search())
     all_problems.extend(scrape_reddit_rss())
     
     print(f"\n   ✅ Reddit Total: {len(all_problems)}")

@@ -44,7 +44,10 @@ def analyze_with_groq(problems, max_items=80):
                     formatted += f": {item['content'][:80]}"
                 formatted += "\n"
         
-        prompt = f"""You are a startup advisor for Nigerian university students.
+        prompt = f"""You are a skeptical startup due-diligence analyst reviewing ideas for a
+Nigerian university team, not a hype generator. Your job is to find ideas that
+would survive scrutiny from a professional investor, not just ideas that are
+cheap to build.
 
 TEAM:
 - 3 developers (Android, web, APIs)
@@ -56,13 +59,17 @@ TEAM:
 PROBLEMS FROM REAL USERS:
 {formatted}
 
-Find TOP 5 STARTUP OPPORTUNITIES.
+Find TOP 5 STARTUP OPPORTUNITIES. Favor ideas with real evidence of unmet
+demand over ideas that are merely cheap or fast to build — a ₦0-capital idea
+in an oversaturated market is worse than a slightly harder idea nobody else
+is doing well.
 
 For each idea, provide:
 
 1. **[IDEA NAME]**
 
-2. **PROBLEM** (1 sentence - what pain point this solves)
+2. **PROBLEM** (1 sentence - what pain point this solves, citing the specific
+   complaint/source it came from)
 
 3. **SOLUTION** (simple app/service description)
 
@@ -70,17 +77,38 @@ For each idea, provide:
 
 5. **PRICE** (in ₦ Naira - monthly/per transaction)
 
-6. **FIRST WEEK** (3 concrete steps to launch)
+6. **EXISTING COMPETITORS** (name specific real alternatives already serving
+   this need, even free/open-source/informal ones. If you cannot think of
+   any, say "None identified" rather than assuming a blue ocean.)
 
-7. **WHY NOW** (based on user complaints above)
+7. **MONETIZATION FIT** (1-2 sentences: is this specific audience segment
+   actually known to pay for this category of product, or are they typically
+   price-sensitive / expect free tools? Be honest even if it hurts the idea.)
 
-8. **FEASIBILITY SCORES** (Rate each 0-10):
-   - Investment: X/10 (10 = ₦0 needed, 0 = high capital)
-   - Passive Income: X/10 (10 = fully automated, 0 = manual work)
-   - Team Size: X/10 (10 = solo-friendly, 0 = large team needed)
-   - Time to Market: X/10 (10 = days to launch, 0 = months)
+8. **FIRST WEEK** (3 concrete steps to launch)
 
-Be specific. Nigerian market first. Focus on zero-capital, passive income opportunities."""
+9. **WHY NOW** (based on user complaints above)
+
+10. **FEASIBILITY SCORES** (Rate each 0-10):
+    - Investment: X/10 (10 = ₦0 needed, 0 = high capital)
+    - Passive Income: X/10 (10 = fully automated, 0 = manual work)
+    - Team Size: X/10 (10 = solo-friendly, 0 = large team needed)
+    - Time to Market: X/10 (10 = days to launch, 0 = months)
+    - Competition: X/10 (10 = no meaningful existing competitor, 0 = many
+      strong well-funded competitors already serve this exact need — score
+      based on what you named in EXISTING COMPETITORS above, don't just
+      default to a high number)
+    - Monetization Fit: X/10 (10 = this exact audience segment reliably pays
+      for this type of product, 0 = this audience is known to expect free
+      tools or self-host / pirate alternatives — base this on MONETIZATION
+      FIT above)
+    - Regulatory Risk: X/10 (10 = no licensing, safety, or legal liability
+      concerns, 0 = requires licenses, involves physical safety, money
+      transmission, healthcare, or transportation liability)
+
+Be specific and skeptical. Do not inflate scores to make an idea look better
+than the evidence supports. If competitors clearly already dominate a space,
+say so plainly even if it makes the idea look weak."""
 
         print(f"   📤 Analyzing {len(problems)} problems...")
         
