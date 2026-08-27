@@ -20,6 +20,7 @@ from scraper.sources.nigerian_tech_blogs import scrape_nigerian_tech_blogs
 # Import utilities
 from scraper.utils.deduplicator import deduplicate_problems
 from scraper.utils.storage import save_results
+from scraper.utils.state_tracker import load_seen_ids, save_seen_ids, filter_new
 
 # Import analyzers
 from scraper.analyzers.ai_analyzer import analyze_with_groq
@@ -76,10 +77,37 @@ def main():
     
     print(f"   Raw: {len(all_problems)}")
     unique_problems = deduplicate_problems(all_problems)
-    print(f"   Unique: {len(unique_problems)}")
-    
+    print(f"   Unique (this run): {len(unique_problems)}")
+
+    # ============================================
+    # 2b. FILTER OUT CONTENT SEEN IN PRIOR RUNS
+    # ============================================
+    # This is the fix for the "closed feedback loop" problem: without this,
+    # every run re-feeds the same recurring HN/Reddit threads into the AI
+    # analyzer, which is why weeks of "fresh" ideas turned out to be the
+    # same 5 concepts repackaged under different names.
+
+    print("\n" + "=" * 50)
+    print("🆕 FILTERING PREVIOUSLY-SEEN CONTENT...")
+    print("=" * 50)
+
+    seen_ids = load_seen_ids()
+    print(f"   Known from prior runs: {len(seen_ids)} unique_ids")
+
+    new_problems = filter_new(unique_problems, seen_ids)
+    print(f"   New this run: {len(new_problems)} / {len(unique_problems)}")
+
+    if len(new_problems) < 5:
+        print("   ⚠️ Very little new content this run - sources may need")
+        print("      wider rotation pools, or this run just landed on a")
+        print("      quiet period. Falling back to full unique set so the")
+        print("      AI analysis isn't starved of input.")
+        analysis_input = unique_problems
+    else:
+        analysis_input = new_problems
+
     # Sort by score
-    unique_problems.sort(key=lambda x: x.get('score', 0), reverse=True)
+    analysis_input.sort(key=lambda x: x.get('score', 0), reverse=True)
     
     # ============================================
     # 3. LOCAL ANALYSIS
@@ -89,12 +117,12 @@ def main():
     print("📊 KEYWORD ANALYSIS...")
     print("=" * 50)
     
-    keywords = extract_keywords(unique_problems, top_n=15)
+    keywords = extract_keywords(analysis_input, top_n=15)
     print("\n   Top Keywords:")
     for word, count in keywords[:10]:
         print(f"      {word}: {count}")
     
-    categories = categorize_problems(unique_problems)
+    categories = categorize_problems(analysis_input)
     print("\n   Categories:")
     for cat, items in sorted(categories.items(), key=lambda x: -len(x[1]))[:5]:
         print(f"      {cat}: {len(items)}")
@@ -103,7 +131,7 @@ def main():
     # 4. AI ANALYSIS
     # ============================================
     
-    ai_analysis = analyze_with_groq(unique_problems)
+    ai_analysis = analyze_with_groq(analysis_input)
     
     # ============================================
     # 5. FEASIBILITY ANALYSIS
@@ -153,7 +181,18 @@ def main():
     
     for name, path in saved.items():
         print(f"   📁 {name}: {path}")
-    
+
+    # ============================================
+    # 6b. UPDATE SEEN-ID TRACKER
+    # ============================================
+    # Mark everything from this run as seen, so future runs' dedup filter
+    # knows about it - this is what makes the rotation/dedup actually
+    # compound over time instead of resetting on every run.
+
+    updated_seen_ids = seen_ids | {p.get('unique_id') for p in unique_problems if p.get('unique_id')}
+    save_seen_ids(updated_seen_ids)
+    print(f"   🧠 Seen-ID tracker: {len(seen_ids)} -> {len(updated_seen_ids)}")
+
     # ============================================
     # 7. SUMMARY
     # ============================================

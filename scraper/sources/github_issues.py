@@ -14,30 +14,32 @@ def scrape_github_issues():
     
     problems = []
     
-    # Diversified across categories — the old list was ~4 note-taking apps
-    # out of 6 repos, which is why the dataset kept skewing toward
-    # Notion/Obsidian-style feature requests every run.
-    repos = [
-        # Productivity / notes (kept, but no longer the majority)
-        "toeverything/AFFiNE",
-        "AppFlowy-IO/AppFlowy",
+    # Large pool spanning many categories - each run only hits a rotating
+    # SLICE of this (see below), so the dataset doesn't permanently skew
+    # toward whichever 6-12 repos happened to be hardcoded.
+    repo_pool = [
+        # Productivity / notes
+        "toeverything/AFFiNE", "AppFlowy-IO/AppFlowy", "logseq/logseq",
+        "siyuan-note/siyuan",
         # Fintech / budgeting
-        "actualbudget/actual",
-        "maybe-finance/maybe",
-        "formance/ledger",
+        "actualbudget/actual", "maybe-finance/maybe", "formance/ledger",
+        "firefly-iii/firefly-iii",
         # Scheduling / CRM / business tools
-        "calcom/cal.com",
-        "twentyhq/twenty",
+        "calcom/cal.com", "twentyhq/twenty", "chatwoot/chatwoot",
+        "erpnext/erpnext",
         # E-commerce
-        "medusajs/medusa",
-        "saleor/saleor",
+        "medusajs/medusa", "saleor/saleor", "vendure-ecommerce/vendure",
         # Logistics / delivery / mapping
-        "valhalla/valhalla",
-        "graphhopper/graphhopper",
+        "valhalla/valhalla", "graphhopper/graphhopper",
         # Education / LMS
-        "moodle/moodle",
-        "BuildTract/buildtract",
+        "moodle/moodle", "BuildTract/buildtract",
+        # Dev tools / infra (frequent source of "I wish X existed" issues)
+        "n8n-io/n8n", "directus/directus", "appwrite/appwrite",
+        "supabase/supabase",
     ]
+
+    from scraper.utils.state_tracker import get_rotation_slice
+    repos = get_rotation_slice(repo_pool, chunk_size=8, state_key="github_repos")
 
     headers = {
         "Accept": "application/vnd.github.v3+json",

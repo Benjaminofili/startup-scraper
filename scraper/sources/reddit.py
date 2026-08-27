@@ -29,15 +29,18 @@ def scrape_reddit_search():
         "User-Agent": "StartupScraper/1.0 (by /u/your_reddit_username)"
     }
 
-    subreddit_groups = {
+    subreddit_pool = {
         "startup": ["entrepreneur", "startups", "SaaS", "indiehackers"],
         "small_biz": ["smallbusiness", "ecommerce", "Shopify"],
         "africa": ["Nigeria", "Africa", "Kenya"],
         "money": ["personalfinance", "povertyfinance"],
         "side_hustle": ["sidehustle", "beermoney", "freelance"],
+        "tech_frustration": ["mildlyinfuriating", "assholedesign", "software"],
+        "consumer": ["ShouldIbuythisgame", "BuyItForLife", "consumeradvice"],
+        "productivity": ["productivity", "getdisciplined", "organization"],
     }
 
-    queries = [
+    query_pool = [
         "frustrated",
         "I hate",
         "looking for alternative",
@@ -45,11 +48,22 @@ def scrape_reddit_search():
         "struggling with",
         "waste of money",
         "terrible",
+        "wish there was",
+        "does this exist",
+        "switched from",
     ]
 
-    for category, subreddits in subreddit_groups.items():
-        for subreddit in subreddits:
-            for query in queries[:4]:  # Limit queries per sub
+    from scraper.utils.state_tracker import get_rotation_slice
+
+    # Flatten the subreddit pool into (category, subreddit) pairs and take
+    # a rotating slice, so successive scheduled runs sample different
+    # subreddits instead of hitting the same 15 every single time.
+    flat_subs = [(cat, sub) for cat, subs in subreddit_pool.items() for sub in subs]
+    rotated_subs = get_rotation_slice(flat_subs, chunk_size=10, state_key="reddit_subs")
+    queries = get_rotation_slice(query_pool, chunk_size=4, state_key="reddit_queries")
+
+    for category, subreddit in rotated_subs:
+        for query in queries:
                 try:
                     params = {
                         "q": query,

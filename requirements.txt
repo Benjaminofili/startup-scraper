@@ -10,14 +10,9 @@ lxml>=5.0.0
 
 # Google Play Store Scraper
 google-play-scraper>=1.2.4
-app-store-scraper
 
 # AI Analysis
 groq>=0.4.0
-google-generativeai>=0.3.0
-
-# Trend Analysis
-pytrends>=4.9.2
 
 # Data Processing
 pandas>=2.0.0
@@ -27,8 +22,16 @@ python-dotenv>=1.0.0
 
 # ======================
 # REMOVED (Conflict/Unnecessary):
-# - app-store-scraper (conflicts with requests, iOS not needed for Nigeria)
-# - selenium (heavy, not needed for our sources)
-# - webdriver-manager (only needed with selenium)
-# - praw (Reddit API too strict now, using PullPush instead)
+# - app-store-scraper: unmaintained, hard-pins requests==2.23.0 which
+#   conflicts with everything else here. Replaced with direct requests
+#   calls to Apple's public iTunes RSS reviews endpoint in appstore.py -
+#   no package needed.
+# - pytrends: archived upstream (April 2025), trending_searches() 404s.
+#   Replaced with the public Google Trends RSS feed via requests in
+#   trends.py - no package needed.
+# - google-generativeai: not used anywhere in this codebase (ai_analyzer.py
+#   uses Groq only). Remove unless you're planning to add it.
+# - selenium / webdriver-manager: heavy, not needed for current sources.
+# - praw: Reddit's official API now requires stricter auth; reddit.py
+#   uses the public search.json endpoint directly instead.
 # ======================

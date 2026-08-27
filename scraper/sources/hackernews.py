@@ -72,10 +72,10 @@ def scrape_hackernews():
     # Also use Algolia search API for specific queries
     search_url = "https://hn.algolia.com/api/v1/search"
 
-    # Wide, rotating set of pain/opportunity phrases across different angles
-    # (not just "frustrating"/"alternative to" every time) so repeated runs
-    # don't just re-surface the same all-time highest-scored posts.
-    search_queries = [
+    # Large pool - each run only uses a rotating SLICE of this (see below),
+    # so successive scheduled runs actually cover different ground instead
+    # of hitting the same handful of queries every single time.
+    query_pool = [
         "startup idea", "I built", "frustrating", "alternative to",
         "looking for a tool", "does anyone know a tool",
         "why is there no", "wish there was an app",
@@ -83,7 +83,17 @@ def scrape_hackernews():
         "side project revenue", "indie hacker",
         "built this because", "solo founder",
         "underrated problem", "nobody has solved",
+        "show hn i made", "ask hn recommend",
+        "switched away from", "cancelled my subscription",
+        "manual process", "spreadsheet hell",
+        "small business owner", "freelancer struggling",
+        "open source alternative", "self-hosted",
+        "burned out on", "too expensive for what it does",
+        "customer support nightmare", "onboarding was confusing",
     ]
+
+    from scraper.utils.state_tracker import get_rotation_slice
+    search_queries = get_rotation_slice(query_pool, chunk_size=8, state_key="hn_queries")
 
     # Only look at posts from roughly the last 6 months, so every run
     # surfaces fresh discussion instead of the same 2020-era classics.
