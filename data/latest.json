@@ -1,0 +1,1729 @@
+{
+  "metadata": {
+    "timestamp": "20260827_2041",
+    "total_problems": 150,
+    "sources": {
+      "PlayStore": 287,
+      "HackerNews": 109,
+      "GitHub": 89,
+      "Nairaland": 0,
+      "Trends": 20,
+      "Reddit": 13
+    },
+    "top_keywords": [
+      [
+        "account",
+        92
+      ],
+      [
+        "time",
+        87
+      ],
+      [
+        "money",
+        85
+      ],
+      [
+        "can't",
+        72
+      ],
+      [
+        "it's",
+        71
+      ],
+      [
+        "update",
+        70
+      ],
+      [
+        "show",
+        63
+      ],
+      [
+        "feature",
+        63
+      ],
+      [
+        "uber",
+        57
+      ],
+      [
+        "out",
+        56
+      ],
+      [
+        "i'm",
+        54
+      ],
+      [
+        "one",
+        49
+      ],
+      [
+        "description",
+        49
+      ],
+      [
+        "don't",
+        48
+      ],
+      [
+        "first",
+        47
+      ]
+    ],
+    "feasibility_ideas": []
+  },
+  "ai_analysis": null,
+  "problems": [
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Docs – Open source alternative to Notion or Outline",
+      "content": "Docs – Open source alternative to Notion or Outline",
+      "score": 1952,
+      "comments": 454,
+      "url": "https://news.ycombinator.com/item?id=43378239",
+      "unique_id": "hns_43378239"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "Nvidia agrees to acquire Hugging Face for $13B",
+      "content": "Nvidia agrees to acquire Hugging Face for $13B\n\n<a href=\"https:&#x2F;&#x2F;www.theinformation.com&#x2F;articles&#x2F;nvidia-agrees-buy-open-source-model-repository-hugging-face-12-9-billion?utm_campaign=article_email&amp;utm_content=article-17723\" rel=\"nofollow\">https:&#x2F;&#x2F;www.theinformation.com&#x2F;articles&#x2F;nvidia-agrees-buy-op...</a> (paywalled)<p><a href=\"https:&#x2F;&#x2F;techcrunch.com&#x2F;2026&#x2F;08&#x2F;24&#x2F;hugging-face-reportedly-in-talks-to-be-acquired-for-13b&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;techcrunch.com&#x2F;2026&#x2F;08&#x2F;24&#x2F;hugging-face-reporte",
+      "score": 1780,
+      "comments": 831,
+      "url": "https://www.businessinsider.com/nvidia-in-talks-to-buy-hugging-face-13-billion-dollars-2026-8",
+      "unique_id": "hn_49458161"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "I built Timeframe, our family e-paper dashboard",
+      "content": "I built Timeframe, our family e-paper dashboard",
+      "score": 1616,
+      "comments": 369,
+      "url": "https://news.ycombinator.com/item?id=47113728",
+      "unique_id": "hns_47113728"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Show HN: I'm an airline pilot – I built interactive graphs/globes of my flights",
+      "content": "Show HN: I'm an airline pilot – I built interactive graphs/globes of my flights",
+      "score": 1539,
+      "comments": 197,
+      "url": "https://news.ycombinator.com/item?id=44396518",
+      "unique_id": "hns_44396518"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "I've built my first successful side project, and I hate it",
+      "content": "I've built my first successful side project, and I hate it",
+      "score": 1492,
+      "comments": 419,
+      "url": "https://news.ycombinator.com/item?id=41308599",
+      "unique_id": "hns_41308599"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Show HN: Can’t afford Bloomberg Terminal? No prob, I built the next best thing",
+      "content": "Show HN: Can’t afford Bloomberg Terminal? No prob, I built the next best thing",
+      "score": 1422,
+      "comments": 289,
+      "url": "https://news.ycombinator.com/item?id=26258773",
+      "unique_id": "hns_26258773"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Show HN: I built a Rotten Tomatoes-style platform for durable products",
+      "content": "Show HN: I built a Rotten Tomatoes-style platform for durable products",
+      "score": 1392,
+      "comments": 398,
+      "url": "https://news.ycombinator.com/item?id=24707407",
+      "unique_id": "hns_24707407"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Firefox is the alternative to a Chrome hegemony",
+      "content": "Firefox is the alternative to a Chrome hegemony",
+      "score": 1360,
+      "comments": 651,
+      "url": "https://news.ycombinator.com/item?id=29378307",
+      "unique_id": "hns_29378307"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "My toddler loves planes, so I built her a radar",
+      "content": "My toddler loves planes, so I built her a radar",
+      "score": 1304,
+      "comments": 245,
+      "url": "https://news.ycombinator.com/item?id=38435908",
+      "unique_id": "hns_38435908"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Show HN: I built a synth for my daughter",
+      "content": "Show HN: I built a synth for my daughter",
+      "score": 1278,
+      "comments": 209,
+      "url": "https://news.ycombinator.com/item?id=45900425",
+      "unique_id": "hns_45900425"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "LibreTaxi – A free and open source alternative to Uber and Lyft",
+      "content": "LibreTaxi – A free and open source alternative to Uber and Lyft",
+      "score": 1275,
+      "comments": 382,
+      "url": "https://news.ycombinator.com/item?id=13529213",
+      "unique_id": "hns_13529213"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Startup idea checklist",
+      "content": "Startup idea checklist",
+      "score": 1251,
+      "comments": 194,
+      "url": "https://news.ycombinator.com/item?id=20254057",
+      "unique_id": "hns_20254057"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Show HN: I built an app to stop me doomscrolling by touching grass",
+      "content": "Show HN: I built an app to stop me doomscrolling by touching grass",
+      "score": 1203,
+      "comments": 268,
+      "url": "https://news.ycombinator.com/item?id=43158660",
+      "unique_id": "hns_43158660"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "I built an ROV to solve missing person cases",
+      "content": "I built an ROV to solve missing person cases",
+      "score": 1183,
+      "comments": 162,
+      "url": "https://news.ycombinator.com/item?id=40623864",
+      "unique_id": "hns_40623864"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Show HN: We built an end-to-end encrypted alternative to Google Photos",
+      "content": "Show HN: We built an end-to-end encrypted alternative to Google Photos",
+      "score": 1180,
+      "comments": 405,
+      "url": "https://news.ycombinator.com/item?id=28347439",
+      "unique_id": "hns_28347439"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Alternatives to Google Products",
+      "content": "Alternatives to Google Products",
+      "score": 1169,
+      "comments": 504,
+      "url": "https://news.ycombinator.com/item?id=17280558",
+      "unique_id": "hns_17280558"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Show HN: I built a(nother) house optimized for LAN parties",
+      "content": "Show HN: I built a(nother) house optimized for LAN parties",
+      "score": 1117,
+      "comments": 381,
+      "url": "https://news.ycombinator.com/item?id=42156977",
+      "unique_id": "hns_42156977"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Show HN: Open Hunt – an open and community-run alternative to Product Hunt",
+      "content": "Show HN: Open Hunt – an open and community-run alternative to Product Hunt",
+      "score": 1093,
+      "comments": 180,
+      "url": "https://news.ycombinator.com/item?id=10759879",
+      "unique_id": "hns_10759879"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Frighteningly Ambitious Startup Ideas",
+      "content": "Frighteningly Ambitious Startup Ideas",
+      "score": 1032,
+      "comments": 430,
+      "url": "https://news.ycombinator.com/item?id=3686840",
+      "unique_id": "hns_3686840"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Show HN: I built a hardware processor that runs Python",
+      "content": "Show HN: I built a hardware processor that runs Python",
+      "score": 983,
+      "comments": 265,
+      "url": "https://news.ycombinator.com/item?id=43820228",
+      "unique_id": "hns_43820228"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "I’ve built a virtual museum with nearly every operating system you can think of",
+      "content": "I’ve built a virtual museum with nearly every operating system you can think of",
+      "score": 974,
+      "comments": 224,
+      "url": "https://news.ycombinator.com/item?id=48195009",
+      "unique_id": "hns_48195009"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Show HN: I built an AI that turns GitHub codebases into easy tutorials",
+      "content": "Show HN: I built an AI that turns GitHub codebases into easy tutorials",
+      "score": 923,
+      "comments": 172,
+      "url": "https://news.ycombinator.com/item?id=43739456",
+      "unique_id": "hns_43739456"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Localsend: An open-source cross-platform alternative to AirDrop",
+      "content": "Localsend: An open-source cross-platform alternative to AirDrop",
+      "score": 923,
+      "comments": 275,
+      "url": "https://news.ycombinator.com/item?id=47933208",
+      "unique_id": "hns_47933208"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Show HN: I built a tiny LLM to demystify how language models work",
+      "content": "Show HN: I built a tiny LLM to demystify how language models work",
+      "score": 915,
+      "comments": 134,
+      "url": "https://news.ycombinator.com/item?id=47655408",
+      "unique_id": "hns_47655408"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "How to Get Startup Ideas",
+      "content": "How to Get Startup Ideas",
+      "score": 914,
+      "comments": 231,
+      "url": "https://news.ycombinator.com/item?id=4806852",
+      "unique_id": "hns_4806852"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Launch HN: Promise (YC W18) – Cost-effective, more humane alternative to jail",
+      "content": "Launch HN: Promise (YC W18) – Cost-effective, more humane alternative to jail",
+      "score": 912,
+      "comments": 410,
+      "url": "https://news.ycombinator.com/item?id=16630971",
+      "unique_id": "hns_16630971"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Jitsi Meet: An open source alternative to Zoom",
+      "content": "Jitsi Meet: An open source alternative to Zoom",
+      "score": 897,
+      "comments": 285,
+      "url": "https://news.ycombinator.com/item?id=22669968",
+      "unique_id": "hns_22669968"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Show HN: I built an After Effects for dummies",
+      "content": "Show HN: I built an After Effects for dummies",
+      "score": 868,
+      "comments": 291,
+      "url": "https://news.ycombinator.com/item?id=24054382",
+      "unique_id": "hns_24054382"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Ask HN: Best alternative to Gmail?",
+      "content": "Ask HN: Best alternative to Gmail?",
+      "score": 867,
+      "comments": 568,
+      "url": "https://news.ycombinator.com/item?id=18054574",
+      "unique_id": "hns_18054574"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Radicle: A peer-to-peer alternative to GitHub",
+      "content": "Radicle: A peer-to-peer alternative to GitHub",
+      "score": 864,
+      "comments": 255,
+      "url": "https://news.ycombinator.com/item?id=25313010",
+      "unique_id": "hns_25313010"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "I wasted $40k on a fantastic startup idea",
+      "content": "I wasted $40k on a fantastic startup idea",
+      "score": 851,
+      "comments": 385,
+      "url": "https://news.ycombinator.com/item?id=25825917",
+      "unique_id": "hns_25825917"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Podman Desktop: A Free OSS Alternative to Docker Desktop",
+      "content": "Podman Desktop: A Free OSS Alternative to Docker Desktop",
+      "score": 830,
+      "comments": 191,
+      "url": "https://news.ycombinator.com/item?id=33536978",
+      "unique_id": "hns_33536978"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Teenager Finds Classical Alternative to Quantum Recommendation Algorithm",
+      "content": "Teenager Finds Classical Alternative to Quantum Recommendation Algorithm",
+      "score": 824,
+      "comments": 216,
+      "url": "https://news.ycombinator.com/item?id=17654220",
+      "unique_id": "hns_17654220"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Umami: Self-hosted open-source alternative to Google Analytics",
+      "content": "Umami: Self-hosted open-source alternative to Google Analytics",
+      "score": 820,
+      "comments": 227,
+      "url": "https://news.ycombinator.com/item?id=24198329",
+      "unique_id": "hns_24198329"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "LibreLingo – FOSS Alternative to Duolingo",
+      "content": "LibreLingo – FOSS Alternative to Duolingo",
+      "score": 804,
+      "comments": 363,
+      "url": "https://news.ycombinator.com/item?id=43829035",
+      "unique_id": "hns_43829035"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Startup Ideas",
+      "content": "Startup Ideas",
+      "score": 614,
+      "comments": 453,
+      "url": "https://news.ycombinator.com/item?id=15714318",
+      "unique_id": "hns_15714318"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "How to Kill a Startup Idea with Google Keyword Planner and AdWords: A Case Study",
+      "content": "How to Kill a Startup Idea with Google Keyword Planner and AdWords: A Case Study",
+      "score": 568,
+      "comments": 188,
+      "url": "https://news.ycombinator.com/item?id=22110004",
+      "unique_id": "hns_22110004"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Startup Ideas We'd Like to Fund",
+      "content": "Startup Ideas We'd Like to Fund",
+      "score": 532,
+      "comments": 381,
+      "url": "https://news.ycombinator.com/item?id=250704",
+      "unique_id": "hns_250704"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "20,000 Startup Ideas",
+      "content": "20,000 Startup Ideas",
+      "score": 461,
+      "comments": 178,
+      "url": "https://news.ycombinator.com/item?id=21112345",
+      "unique_id": "hns_21112345"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "askstories",
+      "title": "Tell HN: PayPal blocks GrapheneOS",
+      "content": "Tell HN: PayPal blocks GrapheneOS\n\nIt seems like the PayPal app now refuses to run on GrapheneOS. I don&#x27;t know if it&#x27;s only because I have enabled the PayPal card for contacless NFC payments, but when opening the app it crashes with the following exception: com.paypal.oslo.app.rasp.RootDetectionSecurityException: Security policy violation: s=root",
+      "score": 422,
+      "comments": 251,
+      "url": "https://news.ycombinator.com/item?id=49462253",
+      "unique_id": "hn_49462253"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Ask HN: Does anyone else find the AWS Lambda developer experience frustrating?",
+      "content": "Ask HN: Does anyone else find the AWS Lambda developer experience frustrating?",
+      "score": 422,
+      "comments": 278,
+      "url": "https://news.ycombinator.com/item?id=26855037",
+      "unique_id": "hns_26855037"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "Microduck",
+      "content": "Microduck\n\n",
+      "score": 407,
+      "comments": 162,
+      "url": "https://pollen-robotics.com/microduck/",
+      "unique_id": "hn_49462763"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "Trade (and Tariffs)",
+      "content": "Trade (and Tariffs)\n\n",
+      "score": 389,
+      "comments": 169,
+      "url": "https://xkcd.com/3290/",
+      "unique_id": "hn_49464896"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "507 Mechanical Movements",
+      "content": "507 Mechanical Movements\n\nBook (1868): <a href=\"https:&#x2F;&#x2F;archive.org&#x2F;details&#x2F;fivehundredseven00browiala\" rel=\"nofollow\">https:&#x2F;&#x2F;archive.org&#x2F;details&#x2F;fivehundredseven00browiala</a>",
+      "score": 378,
+      "comments": 57,
+      "url": "https://507movements.com/",
+      "unique_id": "hn_49465169"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "How to pick startup ideas (2015)",
+      "content": "How to pick startup ideas (2015)",
+      "score": 373,
+      "comments": 103,
+      "url": "https://news.ycombinator.com/item?id=12894897",
+      "unique_id": "hns_12894897"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Startup Ideas 2020",
+      "content": "Startup Ideas 2020",
+      "score": 359,
+      "comments": 165,
+      "url": "https://news.ycombinator.com/item?id=22076787",
+      "unique_id": "hns_22076787"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Tell HN: Interview take home assessments without feedback are frustrating",
+      "content": "Tell HN: Interview take home assessments without feedback are frustrating",
+      "score": 338,
+      "comments": 479,
+      "url": "https://news.ycombinator.com/item?id=36446770",
+      "unique_id": "hns_36446770"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "“Is your startup idea taken?” and why we love X for Y startups",
+      "content": "“Is your startup idea taken?” and why we love X for Y startups",
+      "score": 317,
+      "comments": 223,
+      "url": "https://news.ycombinator.com/item?id=21464971",
+      "unique_id": "hns_21464971"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Startup Ideas Every Nerd Has (That Never Work)",
+      "content": "Startup Ideas Every Nerd Has (That Never Work)",
+      "score": 313,
+      "comments": 209,
+      "url": "https://news.ycombinator.com/item?id=1954852",
+      "unique_id": "hns_1954852"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "How to find startup ideas that make money",
+      "content": "How to find startup ideas that make money",
+      "score": 305,
+      "comments": 44,
+      "url": "https://news.ycombinator.com/item?id=2405829",
+      "unique_id": "hns_2405829"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Rust can be difficult to learn and frustrating, but it's also very exciting",
+      "content": "Rust can be difficult to learn and frustrating, but it's also very exciting",
+      "score": 287,
+      "comments": 274,
+      "url": "https://news.ycombinator.com/item?id=18277450",
+      "unique_id": "hns_18277450"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "Saving 100 terabytes of memory by optimizing 1.1.1.1's DNS cache",
+      "content": "Saving 100 terabytes of memory by optimizing 1.1.1.1's DNS cache\n\n",
+      "score": 282,
+      "comments": 79,
+      "url": "https://blog.cloudflare.com/dns-cache-memory-optimization-1111/",
+      "unique_id": "hn_49468083"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "Zohran and the Short Link",
+      "content": "Zohran and the Short Link\n\n",
+      "score": 282,
+      "comments": 174,
+      "url": "https://iamwillwang.com/notes/zohran-and-the-short-link/",
+      "unique_id": "hn_49457512"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "Small Models Have Arrived",
+      "content": "Small Models Have Arrived\n\n",
+      "score": 267,
+      "comments": 121,
+      "url": "https://calv.info/small-models-have-arrived",
+      "unique_id": "hn_49466917"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "A Lufthansa A350's frustrating Oakland diversion",
+      "content": "A Lufthansa A350's frustrating Oakland diversion",
+      "score": 248,
+      "comments": 398,
+      "url": "https://news.ycombinator.com/item?id=38699343",
+      "unique_id": "hns_38699343"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "showstories",
+      "title": "Show HN: The load-bearing vocabulary of Claude",
+      "content": "Show HN: The load-bearing vocabulary of Claude\n\n",
+      "score": 220,
+      "comments": 110,
+      "url": "https://louisabraham.github.io/load-bearing/",
+      "unique_id": "hn_49461817"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Ask HN: As a CTO, what is your most frustrating problem with technical debt?",
+      "content": "Ask HN: As a CTO, what is your most frustrating problem with technical debt?",
+      "score": 212,
+      "comments": 221,
+      "url": "https://news.ycombinator.com/item?id=17600503",
+      "unique_id": "hns_17600503"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Enterprise, IT architecture and strategy is getting more and more frustrating",
+      "content": "Enterprise, IT architecture and strategy is getting more and more frustrating",
+      "score": 195,
+      "comments": 131,
+      "url": "https://news.ycombinator.com/item?id=28016754",
+      "unique_id": "hns_28016754"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Testing is a separate skill and that’s why it can be frustrating",
+      "content": "Testing is a separate skill and that’s why it can be frustrating",
+      "score": 167,
+      "comments": 78,
+      "url": "https://news.ycombinator.com/item?id=13837860",
+      "unique_id": "hns_13837860"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Why I find IEEE 754 frustrating",
+      "content": "Why I find IEEE 754 frustrating",
+      "score": 140,
+      "comments": 58,
+      "url": "https://news.ycombinator.com/item?id=8576837",
+      "unique_id": "hns_8576837"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Why interruptions are frustrating to developers",
+      "content": "Why interruptions are frustrating to developers",
+      "score": 138,
+      "comments": 164,
+      "url": "https://news.ycombinator.com/item?id=27315383",
+      "unique_id": "hns_27315383"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "Two German airport workers die of malaria after 'mosquito arrives on plane'",
+      "content": "Two German airport workers die of malaria after 'mosquito arrives on plane'\n\n",
+      "score": 136,
+      "comments": 80,
+      "url": "https://www.bbc.com/news/articles/cz6zwgg9y8go",
+      "unique_id": "hn_49468315"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "Emacs 31: An unofficial guide to Markdown-ts-mode",
+      "content": "Emacs 31: An unofficial guide to Markdown-ts-mode\n\n",
+      "score": 128,
+      "comments": 52,
+      "url": "https://rahuljuliato.com/posts/markdown-ts-mode-emacs-31",
+      "unique_id": "hn_49464543"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "Gemini Omni 1.1 Flash",
+      "content": "Gemini Omni 1.1 Flash\n\n",
+      "score": 124,
+      "comments": 68,
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-omni-1-1-flash/",
+      "unique_id": "hn_49467922"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "The turbulent AI era is here",
+      "content": "The turbulent AI era is here\n\n",
+      "score": 123,
+      "comments": 389,
+      "url": "https://www.gatesnotes.com/work/make-ai-work-for-everyone/reader/a-turbulent-ai-era-and-critical-choices-to-make?WT.mc_id=20260826_ai-overture-2026-med-med",
+      "unique_id": "hn_49447057"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "CoMaps integration with the wider FLOSS ecosystem",
+      "content": "CoMaps integration with the wider FLOSS ecosystem\n\n",
+      "score": 123,
+      "comments": 22,
+      "url": "https://www.comaps.app/news/2026-08-23/comaps-integration-with-the-wider-floss-ecosystem/",
+      "unique_id": "hn_49464637"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "Suica, Japan's First IC Transit Card",
+      "content": "Suica, Japan's First IC Transit Card\n\n",
+      "score": 122,
+      "comments": 96,
+      "url": "https://www.tokyodev.com/articles/the-story-of-suica",
+      "unique_id": "hn_49466894"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "Decompiling a Nintendo 64 game in 84 days",
+      "content": "Decompiling a Nintendo 64 game in 84 days\n\n",
+      "score": 121,
+      "comments": 55,
+      "url": "https://blog.chrislewis.au/decompiling-a-nintendo-64-game-in-84-days/",
+      "unique_id": "hn_49466006"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "Flock CEO gets his house blurred out on Google Maps and Zillow",
+      "content": "Flock CEO gets his house blurred out on Google Maps and Zillow\n\n",
+      "score": 114,
+      "comments": 34,
+      "url": "https://twitter.com/LocumRex/status/2092993787605717176",
+      "unique_id": "hn_49467750"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Google Analytics 4 was frustrating, so we built our own analytics service",
+      "content": "Google Analytics 4 was frustrating, so we built our own analytics service",
+      "score": 103,
+      "comments": 99,
+      "url": "https://news.ycombinator.com/item?id=35978445",
+      "unique_id": "hns_35978445"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "The rich, weird, and frustrating world of Depression-era travel guides",
+      "content": "The rich, weird, and frustrating world of Depression-era travel guides",
+      "score": 101,
+      "comments": 26,
+      "url": "https://news.ycombinator.com/item?id=27603228",
+      "unique_id": "hns_27603228"
+    },
+    {
+      "source": "GoogleTrends",
+      "subsource": "Nigeria",
+      "title": "getafe",
+      "content": "getafe | Search volume signal: 200+ | Related news: Pronóstico FK Partizan vs Getafe: Victoria para avanzar | ",
+      "score": 100,
+      "url": "https://trends.google.com/trends/explore?q=getafe",
+      "unique_id": "gt_ng_0_getafe"
+    },
+    {
+      "source": "GoogleTrends",
+      "subsource": "Global",
+      "title": "weather orlando",
+      "content": "weather orlando | Search volume signal: 2000+ | Related news: Storms expected to reach 70% coverage this afternoon | ",
+      "score": 100,
+      "url": "https://trends.google.com/trends/explore?q=weather+orlando",
+      "unique_id": "gt_us_0_weather orlando"
+    },
+    {
+      "source": "GoogleTrends",
+      "subsource": "Nigeria",
+      "title": "austria wien vs braga",
+      "content": "austria wien vs braga | Search volume signal: 100+ | Related news: Austria Vienna vs Braga Prediction, Betting Tips, Lineups & Odds | 27 Aug 2026 | ",
+      "score": 97,
+      "url": "https://trends.google.com/trends/explore?q=austria+wien+vs+braga",
+      "unique_id": "gt_ng_1_austria wien vs brag"
+    },
+    {
+      "source": "GoogleTrends",
+      "subsource": "Global",
+      "title": "byron allen late night ratings",
+      "content": "byron allen late night ratings | Search volume signal: 500+ | Related news: Byron Allen’s 'Comics Unleashed' Tops Kimmel, Fallon in Key Ratings Demo | ",
+      "score": 97,
+      "url": "https://trends.google.com/trends/explore?q=byron+allen+late+night+ratings",
+      "unique_id": "gt_us_1_byron allen late nig"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "Ask HN: What's the best 'non-frustrating' search/directory UI/UX you've seen?",
+      "content": "Ask HN: What's the best 'non-frustrating' search/directory UI/UX you've seen?",
+      "score": 96,
+      "comments": 48,
+      "url": "https://news.ycombinator.com/item?id=12713604",
+      "unique_id": "hns_12713604"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "A curmudgeon tries a language server",
+      "content": "A curmudgeon tries a language server\n\n",
+      "score": 95,
+      "comments": 62,
+      "url": "https://entropicthoughts.com/curmudgeon-tries-language-server",
+      "unique_id": "hn_49448150"
+    },
+    {
+      "source": "GoogleTrends",
+      "subsource": "Nigeria",
+      "title": "israel",
+      "content": "israel | Search volume signal: 100+ | Related news: Israel’s Ethiopian asylum seekers fight deportation efforts | ",
+      "score": 94,
+      "url": "https://trends.google.com/trends/explore?q=israel",
+      "unique_id": "gt_ng_2_israel"
+    },
+    {
+      "source": "GoogleTrends",
+      "subsource": "Global",
+      "title": "cómo va el barcelona",
+      "content": "cómo va el barcelona | Search volume signal: 200+ | Related news: “Nos repugna la falsedad, falta de ética... No se negocia con el Barça” | ",
+      "score": 94,
+      "url": "https://trends.google.com/trends/explore?q=cómo+va+el+barcelona",
+      "unique_id": "gt_us_2_cómo va el barcelona"
+    },
+    {
+      "source": "GoogleTrends",
+      "subsource": "Nigeria",
+      "title": "chelsea live score",
+      "content": "chelsea live score | Search volume signal: 500+ | Related news: Chelsea agree £7.5m fee for Villa's Martinez | ",
+      "score": 91,
+      "url": "https://trends.google.com/trends/explore?q=chelsea+live+score",
+      "unique_id": "gt_ng_3_chelsea live score"
+    },
+    {
+      "source": "GoogleTrends",
+      "subsource": "Global",
+      "title": "josh jacobs news",
+      "content": "josh jacobs news | Search volume signal: 5000+ | Related news: Packers star RB Josh Jacobs charged with two misdemeanors | ",
+      "score": 91,
+      "url": "https://trends.google.com/trends/explore?q=josh+jacobs+news",
+      "unique_id": "gt_us_3_josh jacobs news"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "GDPR Hasn’t Shown Its Teeth, Frustrating Advocates",
+      "content": "GDPR Hasn’t Shown Its Teeth, Frustrating Advocates",
+      "score": 88,
+      "comments": 144,
+      "url": "https://news.ycombinator.com/item?id=22994670",
+      "unique_id": "hns_22994670"
+    },
+    {
+      "source": "GoogleTrends",
+      "subsource": "Nigeria",
+      "title": "live scores today",
+      "content": "live scores today | Search volume signal: 200+ | Related news: Dinusha's defiant 133* earns Sri Lanka epic draw in Colombo | ",
+      "score": 88,
+      "url": "https://trends.google.com/trends/explore?q=live+scores+today",
+      "unique_id": "gt_ng_4_live scores today"
+    },
+    {
+      "source": "GoogleTrends",
+      "subsource": "Global",
+      "title": "mrvl earnings",
+      "content": "mrvl earnings | Search volume signal: 5000+ | Related news: Marvell Technology, Inc. Reports Second Quarter of Fiscal Year 2027 Financial Results | ",
+      "score": 88,
+      "url": "https://trends.google.com/trends/explore?q=mrvl+earnings",
+      "unique_id": "gt_us_4_mrvl earnings"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "The Lack of Historic Knowledge Is Frustrating",
+      "content": "The Lack of Historic Knowledge Is Frustrating",
+      "score": 87,
+      "comments": 76,
+      "url": "https://news.ycombinator.com/item?id=10415460",
+      "unique_id": "hns_10415460"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "MIT's Ad Hoc Committee on AI Use in Teaching, Learning, and Research Training",
+      "content": "MIT's Ad Hoc Committee on AI Use in Teaching, Learning, and Research Training\n\n",
+      "score": 85,
+      "comments": 66,
+      "url": "https://aiandeducation.mit.edu/report/",
+      "unique_id": "hn_49464314"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "search",
+      "title": "The long, complicated, and extremely frustrating history of Medium",
+      "content": "The long, complicated, and extremely frustrating history of Medium",
+      "score": 85,
+      "comments": 31,
+      "url": "https://news.ycombinator.com/item?id=19485779",
+      "unique_id": "hns_19485779"
+    },
+    {
+      "source": "GoogleTrends",
+      "subsource": "Nigeria",
+      "title": "nico williams",
+      "content": "nico williams | Search volume signal: 100+ | Related news: Esta es la resolución íntegra de Apelación sobre la sanción a Yuri | ",
+      "score": 85,
+      "url": "https://trends.google.com/trends/explore?q=nico+williams",
+      "unique_id": "gt_ng_5_nico williams"
+    },
+    {
+      "source": "GoogleTrends",
+      "subsource": "Global",
+      "title": "iren earnings",
+      "content": "iren earnings | Search volume signal: 2000+ | Related news: JPMorgan Flags Big Risk Ahead of IREN Earnings | ",
+      "score": 85,
+      "url": "https://trends.google.com/trends/explore?q=iren+earnings",
+      "unique_id": "gt_us_5_iren earnings"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "We found a division by zero bug in FFmpeg with a vibecoded fuzzer",
+      "content": "We found a division by zero bug in FFmpeg with a vibecoded fuzzer\n\n",
+      "score": 84,
+      "comments": 55,
+      "url": "https://code.ffmpeg.org/FFmpeg/FFmpeg/issues/24290",
+      "unique_id": "hn_49468642"
+    },
+    {
+      "source": "GoogleTrends",
+      "subsource": "Nigeria",
+      "title": "livescore",
+      "content": "livescore | Search volume signal: 10000+ | Related news: LiveScore Bet Sign-Up Offer | Bet £10 & Get £30 in Free Bets | ",
+      "score": 82,
+      "url": "https://trends.google.com/trends/explore?q=livescore",
+      "unique_id": "gt_ng_6_livescore"
+    },
+    {
+      "source": "GoogleTrends",
+      "subsource": "Global",
+      "title": "college football",
+      "content": "college football | Search volume signal: 5000+ | Related news: Week 1 What to Watch: UNC looks for revenge against TCU, NC State-Virginia open with ACC matchup | ",
+      "score": 82,
+      "url": "https://trends.google.com/trends/explore?q=college+football",
+      "unique_id": "gt_us_6_college football"
+    },
+    {
+      "source": "GoogleTrends",
+      "subsource": "Nigeria",
+      "title": "flash score",
+      "content": "flash score | Search volume signal: 500+ | Related news: Duplantis clears 6.21m, Karalis 6.16m in historic pole vault contest in Lausanne | REPORTS | ",
+      "score": 79,
+      "url": "https://trends.google.com/trends/explore?q=flash+score",
+      "unique_id": "gt_ng_7_flash score"
+    },
+    {
+      "source": "GoogleTrends",
+      "subsource": "Global",
+      "title": "thunderstorm",
+      "content": "thunderstorm | Search volume signal: 2000+ | Related news: Philadelphia weather: Flood warning issued ahead of scattered storms | ",
+      "score": 79,
+      "url": "https://trends.google.com/trends/explore?q=thunderstorm",
+      "unique_id": "gt_us_7_thunderstorm"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "Aphantasia Beginner's Guide",
+      "content": "Aphantasia Beginner's Guide\n\n",
+      "score": 78,
+      "comments": 203,
+      "url": "https://aphantasia.com/guide",
+      "unique_id": "hn_49464414"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "Launching Route 53 Files",
+      "content": "Launching Route 53 Files\n\n",
+      "score": 76,
+      "comments": 27,
+      "url": "https://www.daemonology.net/blog/2026-08-27-Launching-Route-53-Files.html",
+      "unique_id": "hn_49465732"
+    },
+    {
+      "source": "GoogleTrends",
+      "subsource": "Global",
+      "title": "housing prices",
+      "content": "housing prices | Search volume signal: 500+ | Related news: Is this the worst time to buy a house in California? Why timing really is everything | ",
+      "score": 76,
+      "url": "https://trends.google.com/trends/explore?q=housing+prices",
+      "unique_id": "gt_us_8_housing prices"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "askstories",
+      "title": "Ask HN: Those making $500/month on side projects in 2026 – Show and tell",
+      "content": "Ask HN: Those making $500/month on side projects in 2026 – Show and tell\n\nThere was another one of these a couple of months ago and it did not get any traction. Lets hope this one does better. I myself am at $0&#x2F;mo from my side projects and am really hoping side projects still have a future.<p>So, those of you making $500&#x2F;month or more on side projects in 2026, what are you doing these days?<p>https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=39110194 (2024)<p>https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=34482433 (2023)<p>https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=29",
+      "score": 74,
+      "comments": 96,
+      "url": "https://news.ycombinator.com/item?id=49417766",
+      "unique_id": "hn_49417766"
+    },
+    {
+      "source": "GoogleTrends",
+      "subsource": "Nigeria",
+      "title": "jack wilshere",
+      "content": "jack wilshere | Search volume signal: 100+ | Related news: Wilshere believes Man United’s award-winning midfielder can fire Luton back into the Championship | ",
+      "score": 73,
+      "url": "https://trends.google.com/trends/explore?q=jack+wilshere",
+      "unique_id": "gt_ng_9_jack wilshere"
+    },
+    {
+      "source": "GoogleTrends",
+      "subsource": "Global",
+      "title": "outlander prequel season 2 trailer",
+      "content": "outlander prequel season 2 trailer | Search volume signal: 500+ | Related news: ‘Outlander: Blood of My Blood’ Season 2 Trailer: Scottish Uprising Threatens ‘Outlander’ Prequel | ",
+      "score": 73,
+      "url": "https://trends.google.com/trends/explore?q=outlander+prequel+season+2+trailer",
+      "unique_id": "gt_us_9_outlander prequel se"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "Nvidia Starts Pac as AI Chip Maker Builds DC Influence Force",
+      "content": "Nvidia Starts Pac as AI Chip Maker Builds DC Influence Force\n\n",
+      "score": 60,
+      "comments": 24,
+      "url": "https://news.bgov.com/bloomberg-government-news/nvidia-starts-a-pac-as-ai-chip-maker-buids-influence-force-in-dc",
+      "unique_id": "hn_49469249"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "askstories",
+      "title": "Amazon now hides all customer reviews on products",
+      "content": "Amazon now hides all customer reviews on products\n\nAmazon now hides nearly all product reviews . Filtering and ordering are disabled . Only the top 5-10 are shown . To opt out, a 5 day email request is required<p>Here is an example of the UI for members of the experiment<p>https:&#x2F;&#x2F;x.com&#x2F;stillmisanthro1&#x2F;status&#x2F;2092441592242028986",
+      "score": 56,
+      "comments": 24,
+      "url": "https://news.ycombinator.com/item?id=49466512",
+      "unique_id": "hn_49466512"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "Humanity has the debate about AI consciousness backwards",
+      "content": "Humanity has the debate about AI consciousness backwards\n\n<a href=\"https:&#x2F;&#x2F;archive.ph&#x2F;uLYYU\" rel=\"nofollow\">https:&#x2F;&#x2F;archive.ph&#x2F;uLYYU</a><p>Related: <i>Don’t mistake chatbot intelligence for consciousness</i> - <a href=\"https:&#x2F;&#x2F;www.economist.com&#x2F;by-invitation&#x2F;2026&#x2F;08&#x2F;20&#x2F;dont-mistake-chatbot-intelligence-for-consciousness\" rel=\"nofollow\">https:&#x2F;&#x2F;www.economist.com&#x2F;by-invitation&#x2F;2026&#x2F;08&#x2F;20&#x2F;dont-mist...</a>, <a href=\"https:&#x2F;&#x2F;archive.ph&#x2F;IeSZg\" rel=\"nofollow\">https:&#x2F;&#x2F;archive.ph",
+      "score": 55,
+      "comments": 196,
+      "url": "https://economist.com/by-invitation/2026/08/20/humanity-has-the-debate-about-ai-consciousness-backwards",
+      "unique_id": "hn_49458875"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "showstories",
+      "title": "Show HN: My Claude quota ran out in 10 minutes, so I made a tool to find out why",
+      "content": "Show HN: My Claude quota ran out in 10 minutes, so I made a tool to find out why\n\n",
+      "score": 54,
+      "comments": 41,
+      "url": "https://github.com/kelviq/tare",
+      "unique_id": "hn_49467551"
+    },
+    {
+      "source": "GitHub",
+      "subsource": "AFFiNE",
+      "title": "Make columns like Notion's columns",
+      "content": "Make columns like Notion's columns\n\n### Description\r\n\r\nI'm new in the app, i loved the app! it's really good, i suffered to find an app that it's a Notion open-source alternative, and Affine was the perfect sollution for me.\r\n\r\nI have a feature idea for the app, can you guys make a column-like display, like what the Notion has, with 2, 3, 4 and 5 columns. I like this feature from Notion, but i want to do a collaborative project with a friend and Notion it's very limited and we can't afford the payment plans. \r\n\r\nWe would like to put an image aside of a text, like a lot of websites do.  Me and ",
+      "score": 54,
+      "comments": 44,
+      "url": "https://github.com/toeverything/AFFiNE/issues/7479",
+      "unique_id": "gh_2404382640",
+      "labels": [
+        "story"
+      ]
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "showstories",
+      "title": "Show HN: Build your own theme park",
+      "content": "Show HN: Build your own theme park\n\nI built an agent that helps you build Rollercoaster Tycoon-influenced theme parks. You can prompt something like “Build me a cool theme park” and it’ll build a cohesive theme park with multiple worlds and connected with paths and rides.<p>The weird part is that I built it using the same ideas we use to make AI-generated websites follow a company’s design system.<p>I work as an engineer at Magic Patterns, focused on building our Design System Agent, aimed to use your existing brand, components, and conventions instead of producing something that looks like ge",
+      "score": 51,
+      "comments": 22,
+      "url": "https://www.magicpatterns.com/theme-park",
+      "unique_id": "hn_49452037"
+    },
+    {
+      "source": "GitHub",
+      "subsource": "AppFlowy",
+      "title": "[FR] Bulk export all md files",
+      "content": "[FR] Bulk export all md files\n\n### Description\n\nJust the note content itself not Kanban, Calendar etc. \r\nI'd like to export it all as markdown and use it with something else (like Obsidian).\r\nBasically the Share button that's in the AppBar for all notes.\n\n### Impact\n\nMass exporting to use with other apps\r\nMost apps can't read this db file appflowy uses.\r\nI use Obsidian and AppFlowy interchangeably.\n\n### Additional Context\n\n_No response_",
+      "score": 47,
+      "comments": 13,
+      "url": "https://github.com/AppFlowy-IO/AppFlowy/issues/3334",
+      "unique_id": "gh_1880430130",
+      "labels": [
+        "new feature",
+        "data migration",
+        "2025",
+        "q1 25"
+      ]
+    },
+    {
+      "source": "GitHub",
+      "subsource": "AppFlowy",
+      "title": "[FR] Formula support in Grids",
+      "content": "[FR] Formula support in Grids\n\n### Description\r\n\r\nI think it'd be a great feature to have a formula property for grids. Maybe this is somehow possible with the already implemented KateX plugin.\r\nWith a formula you can for example calculate the time between two dates in a row and use the grid for time tracking.\r\n\r\n### Impact\r\n\r\nUsers how use appflowy for work and time tracking jobs\r\n\r\n### Additional Context\r\n\r\n_No response_",
+      "score": 43,
+      "comments": 17,
+      "url": "https://github.com/AppFlowy-IO/AppFlowy/issues/3878",
+      "unique_id": "gh_1978491724",
+      "labels": [
+        "new feature",
+        "formula",
+        "2026"
+      ]
+    },
+    {
+      "source": "GitHub",
+      "subsource": "AppFlowy",
+      "title": "[FR] Caldav Support",
+      "content": "[FR] Caldav Support\n\nI think caldav support would be amazing to have for tasks and eventually calendars. The ability to connect project tasks in appflowy to an already feature rich external calendar or task management application would make it an amazing project management application.",
+      "score": 36,
+      "comments": 11,
+      "url": "https://github.com/AppFlowy-IO/AppFlowy/issues/487",
+      "unique_id": "gh_1226534049",
+      "labels": [
+        "new feature",
+        "calendar",
+        "2024"
+      ]
+    },
+    {
+      "source": "GitHub",
+      "subsource": "AppFlowy",
+      "title": "[FR] add n8n Integrations",
+      "content": "[FR] add n8n Integrations\n\n**Provide n8n Integrations as the notion does**\r\nhttps://n8n.io/integrations/\r\n",
+      "score": 35,
+      "comments": 18,
+      "url": "https://github.com/AppFlowy-IO/AppFlowy/issues/731",
+      "unique_id": "gh_1320171037",
+      "labels": [
+        "new feature",
+        "integrations"
+      ]
+    },
+    {
+      "source": "GitHub",
+      "subsource": "AppFlowy",
+      "title": "[FR] MCP server",
+      "content": "[FR] MCP server\n\n### Description\n\nI am investigating an AI-first note taking app and AppFlowy really impressed, but it will be awesome if there is any way to integrate AppFlowy with Cursor/Cline by using AppFlowy as the MCP server\n\n### Impact\n\nAny developer or MCP client\n\n### Additional Context\n\nI noticed AppFlowy has implemented a MCP client, seems like allowing AppFlowy to connect other MCP servers, in this issue I would like to see if it is possible to use AppFlowy as a MCP server",
+      "score": 33,
+      "comments": 5,
+      "url": "https://github.com/AppFlowy-IO/AppFlowy/issues/8043",
+      "unique_id": "gh_3127263948",
+      "labels": [
+        "new feature",
+        "ai",
+        "integrations",
+        "2026"
+      ]
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "showstories",
+      "title": "Show HN: Voronoi Go",
+      "content": "Show HN: Voronoi Go\n\nI posted once before but wanted to share again because a lot has changed. There&#x27;s now a fairly strong bot to play against (contributed by a community member) and also correspondence games. The combination of these things helps a bit in finding people to play against.",
+      "score": 32,
+      "comments": 7,
+      "url": "https://voronoigo.com/",
+      "unique_id": "hn_49468816"
+    },
+    {
+      "source": "GitHub",
+      "subsource": "AppFlowy",
+      "title": "[FR] Gantt board support",
+      "content": "[FR] Gantt board support\n\n### Description\n\ni have not see this anywhere in issues or roadmap so ther is =)\n\n### Impact\n\nallow to manage project\n\n### Additional Context\n\n_No response_",
+      "score": 32,
+      "comments": 13,
+      "url": "https://github.com/AppFlowy-IO/AppFlowy/issues/3392",
+      "unique_id": "gh_1894071664",
+      "labels": [
+        "new feature",
+        "2024"
+      ]
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "askstories",
+      "title": "Ask HN: Good large format (>20 inches) touchscreen E-Paper display options?",
+      "content": "Ask HN: Good large format (>20 inches) touchscreen E-Paper display options?\n\nLooking for options that might work for a low power touchscreen for a calendar project.",
+      "score": 30,
+      "comments": 9,
+      "url": "https://news.ycombinator.com/item?id=49428842",
+      "unique_id": "hn_49428842"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "topstories",
+      "title": "Launch HN: Salem Robotics (YC S26) – Software for industrial inspection robots",
+      "content": "Launch HN: Salem Robotics (YC S26) – Software for industrial inspection robots\n\nHi HN, we&#x27;re the founders of Salem Robotics (<a href=\"https:&#x2F;&#x2F;salemroboticsinc.com\">https:&#x2F;&#x2F;salemroboticsinc.com</a>). We give existing mobile robots the task-specific intelligence to carry out surveys and physically interactive inspections in hazardous industrial facilities.<p>Here&#x27;s a video of it running on real robot hardware with a few words from us:\n<a href=\"https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=U_228h3NE7c\" rel=\"nofollow\">https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=U_",
+      "score": 30,
+      "comments": 18,
+      "url": "https://news.ycombinator.com/item?id=49466715",
+      "unique_id": "hn_49466715"
+    },
+    {
+      "source": "GitHub",
+      "subsource": "AppFlowy",
+      "title": "[FR] iPad version of the app",
+      "content": "[FR] iPad version of the app\n\n### Description\n\nRight now, I noticed that testflight only works as a scaled version of the iOS version. A dedicated iPadOS version would be extremely nice to use.\n\n### Impact\n\nIt will enable the iPad version to actually function. Right now, it won't even let me sign in on my iPad, even in the scaled version.\n\n### Additional Context\n\n_No response_",
+      "score": 29,
+      "comments": 7,
+      "url": "https://github.com/AppFlowy-IO/AppFlowy/issues/4250",
+      "unique_id": "gh_2060268080",
+      "labels": [
+        "new feature",
+        "tablet"
+      ]
+    },
+    {
+      "source": "GitHub",
+      "subsource": "cal.com",
+      "title": "User specified local language (i18n)",
+      "content": "User specified local language (i18n)\n\n### Is your proposal related to a problem?\r\n\r\n> Hello....  I was curious if there was a way to manually specify the locale on the booking page? Something like https://cal.com/user-name?language=es  I noticed many of my users have their browser set to English even when they don't speak English due to a variety of reasons.  Thanks!\r\n\r\nThis is from this conversation: https://app.slack.com/client/T01N4FWPGPP/C01NXDSRY9W/thread/C01NXDSRY9W-1684148685.254869\r\n\r\n\r\n### Describe the solution you'd like\r\n\r\nBesides the option in the link, I think it would be great to",
+      "score": 28,
+      "comments": 19,
+      "url": "https://github.com/calcom/cal.diy/issues/8904",
+      "unique_id": "gh_1710097562",
+      "labels": [
+        "✨ feature",
+        "low priority",
+        "i18n"
+      ]
+    },
+    {
+      "source": "GitHub",
+      "subsource": "AppFlowy",
+      "title": "[FR] Import/Export Notes",
+      "content": "[FR] Import/Export Notes\n\n### Description\r\n\r\nA setting to import and export notes to/from a single file.\r\n\r\n### Impact\r\n\r\nAllows users to backup and restore notes\r\n\r\n### Additional Context\r\n\r\nhttps://forum.appflowy.io/t/import-export-notes/938",
+      "score": 26,
+      "comments": 5,
+      "url": "https://github.com/AppFlowy-IO/AppFlowy/issues/5715",
+      "unique_id": "gh_2399752863",
+      "labels": [
+        "new feature",
+        "data migration",
+        "2024",
+        "q4 24"
+      ]
+    },
+    {
+      "source": "GitHub",
+      "subsource": "AppFlowy",
+      "title": "[FR] Custom URL for OpenAI API",
+      "content": "[FR] Custom URL for OpenAI API\n\n### Description\n\nHello,\r\n\r\nwould it be a big issue to implement an option to set a custom URL for the OpenAI API?\r\n\r\nThere are many local LLM backends that are compatible with the OpenAI API Specs and this would enable users to run their own (local and private) LLMs.\r\n\r\nWould be a BIG PLUS imo.\n\n### Impact\n\nuncertain\n\n### Additional Context\n\n_No response_",
+      "score": 26,
+      "comments": 5,
+      "url": "https://github.com/AppFlowy-IO/AppFlowy/issues/5379",
+      "unique_id": "gh_2307264388",
+      "labels": [
+        "new feature",
+        "ai",
+        "self-hosted",
+        "2025"
+      ]
+    },
+    {
+      "source": "GitHub",
+      "subsource": "AppFlowy",
+      "title": "[FR] Support for Mutliple Users and Groups (and then LDAP support) - to use AppFlowy within a Team for Knowledge sharing and Project Management",
+      "content": "[FR] Support for Mutliple Users and Groups (and then LDAP support) - to use AppFlowy within a Team for Knowledge sharing and Project Management\n\n### Description\n\nThe ability to have Users and Groups sharing the same AppFlowy Instance so that this tool can be used in a team environment.\r\n\r\nHave AppFlowy also Authenticate against an LDAP server, specifically FreeIPA so that it can be used in professional organizations\n\n### Impact\n\nUsers that work in Startups, Small, Medium and Enterprise Companies.\n\n### Additional Context\n\n_No response_",
+      "score": 26,
+      "comments": 2,
+      "url": "https://github.com/AppFlowy-IO/AppFlowy/issues/2960",
+      "unique_id": "gh_1795831147",
+      "labels": [
+        "collaboration",
+        "2026",
+        "q3 26"
+      ]
+    },
+    {
+      "source": "GitHub",
+      "subsource": "AFFiNE",
+      "title": "Encryption for local storage​",
+      "content": "Encryption for local storage​\n\n### Description\n\nMe and some teams I know are currently with Joplin, of which natively implemented the end-to-end encryption for the local storage, as well as data sync between different Joplin notes.\r\n\r\nSeeing that AFFiNE is cloud-connected but local-first, I would want to suggest the ability to encrypt the local storage, as it is the privacy-preserving feature that allows us to have protected notes application.\r\n\r\nI would like to suggest:\r\n- Master password for all workspaces\r\n- Per-workspace keypairs (and passwords for each keypair)\r\n- Asymmetric encryption fo",
+      "score": 24,
+      "comments": 1,
+      "url": "https://github.com/toeverything/AFFiNE/issues/5491",
+      "unique_id": "gh_2061961112",
+      "labels": [
+        "story"
+      ]
+    },
+    {
+      "source": "GitHub",
+      "subsource": "AppFlowy",
+      "title": "[FR] Enable auto spell checks in AppFlowy",
+      "content": "[FR] Enable auto spell checks in AppFlowy\n\n### Description\n\nmisspelled and typos can be underlined in red automatically\r\n<img width=\"105\" alt=\"image\" src=\"https://github.com/AppFlowy-IO/AppFlowy/assets/12026239/ec9d6970-80c8-4d91-ad29-2b73d245d78d\">\r\n\n\n### Impact\n\nDocument users\n\n### Additional Context\n\n_No response_",
+      "score": 24,
+      "comments": 5,
+      "url": "https://github.com/AppFlowy-IO/AppFlowy/issues/3405",
+      "unique_id": "gh_1896456288",
+      "labels": [
+        "new feature",
+        "editor",
+        "2025"
+      ]
+    },
+    {
+      "source": "GitHub",
+      "subsource": "cal.com",
+      "title": "Enable limit settings on an individual member basis in round-robin events",
+      "content": "Enable limit settings on an individual member basis in round-robin events\n\n**The problem:**\nCurrently, event limit settings can only be set on an event-wide basis, and apply to all members of a round-robin event. But this is limiting because no buffer setting or interval setting etc. can ever serve all of the members of a big group. I speak from experience in saying that with 100+ members in our main round robin event, we have constant challenges trying to align the common (and changing) needs of everyone in the group.\n\n**The need:**\nRound robin members each have different needs for event limi",
+      "score": 23,
+      "comments": 2,
+      "url": "https://github.com/calcom/cal.diy/issues/27401",
+      "unique_id": "gh_3872321710",
+      "labels": [
+        "✨ feature",
+        "high priority",
+        "consumer"
+      ]
+    },
+    {
+      "source": "GitHub",
+      "subsource": "AppFlowy",
+      "title": "[FR] Support OpenAI baseurl/proxies in some form",
+      "content": "[FR] Support OpenAI baseurl/proxies in some form\n\n### Description\n\nCurrently the openai api points are hardcoded into the code (api.openai.com ...).\r\n\r\nThis prevents usage over proxies where the normal site may be blocked, or usage with compatible apis such as azure's openai or localai.\r\n\r\nI suggest adding a baseurl option along with the openai key option, that will default to the openai endpoint but will let users choose.\n\n### Impact\n\nUsers that can't use the normal openai endpoint can still benefit from the AI features in appflowy.\n\n### Additional Context\n\n_No response_",
+      "score": 22,
+      "comments": 5,
+      "url": "https://github.com/AppFlowy-IO/AppFlowy/issues/3855",
+      "unique_id": "gh_1971956182",
+      "labels": [
+        "improvements",
+        "ai",
+        "self-hosted",
+        "2025"
+      ]
+    },
+    {
+      "source": "GitHub",
+      "subsource": "AppFlowy",
+      "title": "[FR] Integration with Google Calendar",
+      "content": "[FR] Integration with Google Calendar\n\n### Discussed in https://github.com/AppFlowy-IO/AppFlowy/discussions/329\r\n\r\n<div type='discussions-op-text'>\r\n\r\n<sup>Originally posted by **aaqsr** February 14, 2022</sup>\r\nHey you all, I just discovered this project and really love what you guys are doing here. And I wanted to request a feature if you don't mind.\r\n\r\nI would love to see an integration with google calendar, where if I have reminders in the app, they show up on my calendar. This is the one main gripe I have with notion: it doesn't sync to a google calendar, so you can't use notion note remi",
+      "score": 22,
+      "comments": 2,
+      "url": "https://github.com/AppFlowy-IO/AppFlowy/issues/339",
+      "unique_id": "gh_1139509851",
+      "labels": [
+        "new feature",
+        "integrations",
+        "2026"
+      ]
+    },
+    {
+      "source": "GitHub",
+      "subsource": "AppFlowy",
+      "title": "[FR] Bidirectional Links Like Obsidian",
+      "content": "[FR] Bidirectional Links Like Obsidian\n\n- navigate from and to different documents through links\r\n- maybe use the same syntax as Obsidian so one could import/export from/to Obsidian\r\n- a graph which visualizes the connections between the linked documents\r\n\r\n[Links in Obsidian](https://help.obsidian.md/How+to/Internal+link)\r\n",
+      "score": 22,
+      "comments": 7,
+      "url": "https://github.com/AppFlowy-IO/AppFlowy/issues/27",
+      "unique_id": "gh_1057546042",
+      "labels": [
+        "new feature",
+        "organization",
+        "2025"
+      ]
+    },
+    {
+      "source": "GitHub",
+      "subsource": "AFFiNE",
+      "title": "​RTL Text Direction Support",
+      "content": "​RTL Text Direction Support\n\n### What happened?\r\n\r\nAFFINE does not currently support RTL text direction. This makes it difficult to use for applications that need to display RTL text, such as Arabic, and Persian.\r\n\r\n### Distribution version\r\n\r\nmacOS x64 (Intel)\r\n\r\n### What browsers are you seeing the problem on if you're using web version?\r\n\r\n_No response_\r\n\r\n### Are you self-hosting?\r\n\r\n- [ ] Yes\r\n\r\n### Relevant log output\r\n\r\n_No response_\r\n\r\n### Anything else?\r\n\r\nI wanted to highlight that, according to W3C data, approximately **2.3 billion people** around the world use Right-to-Left (RTL) l",
+      "score": 21,
+      "comments": 3,
+      "url": "https://github.com/toeverything/AFFiNE/issues/8966",
+      "unique_id": "gh_2704031532",
+      "labels": []
+    },
+    {
+      "source": "GitHub",
+      "subsource": "AppFlowy",
+      "title": "[FR] Search across all data",
+      "content": "[FR] Search across all data\n\n### Description\n\nHi,\nThere is no full text search across the names and contents of all appflowy data. \nIt is not available in main page of kanban and also not available in kanban items and wokrs only for page names. So sometimes I could create duplicate items and duplicate contents\nThank you very much\n\n\n\n### Impact\n\nI think all users would benefit from a this function\n\n\n### Additional Context\n\n_No response_",
+      "score": 21,
+      "comments": 3,
+      "url": "https://github.com/AppFlowy-IO/AppFlowy/issues/6683",
+      "unique_id": "gh_2626248854",
+      "labels": [
+        "new feature",
+        "ir",
+        "database",
+        "2025",
+        "q4 25"
+      ]
+    },
+    {
+      "source": "GitHub",
+      "subsource": "AFFiNE",
+      "title": "​Request for supporting Math input and mermaid graph",
+      "content": "​Request for supporting Math input and mermaid graph\n\n### Description\n\nI think without math input Affine is not full, also with mermaid graph support.\n\n### Use case\n\n_No response_\n\n### Anything else?\n\nno.I will keep using affine.\n\n### Are you willing to submit a PR?\n\n- [ ] Yes I'd like to help by submitting a PR!",
+      "score": 20,
+      "comments": 11,
+      "url": "https://github.com/toeverything/AFFiNE/issues/7450",
+      "unique_id": "gh_2395804516",
+      "labels": [
+        "story"
+      ]
+    },
+    {
+      "source": "GitHub",
+      "subsource": "AppFlowy",
+      "title": "[Bug] No GL implementation is available with AppImage on Arch Linux/EndeavourOS with Wayland",
+      "content": "[Bug] No GL implementation is available with AppImage on Arch Linux/EndeavourOS with Wayland\n\n### Bug Description\n\nCan not launch app through AppImage on Arch Linux/EndeavourOS with Wayland.\r\n\r\nOperating System: EndeavourOS \r\nKDE Plasma Version: 6.1.3\r\nKDE Frameworks Version: 6.4.0\r\nQt Version: 6.7.2\r\nKernel Version: 6.9.10-arch1-1 (64-bit)\r\nGraphics Platform: Wayland\n\n### How to Reproduce\n\nDownload AppImage from website, and then fix it by utilizing https://github.com/AppFlowy-IO/AppFlowy/issues/3836#issuecomment-1855700903 or https://github.com/AppFlowy-IO/AppFlowy/issues/3836#issuecomment-2",
+      "score": 20,
+      "comments": 7,
+      "url": "https://github.com/AppFlowy-IO/AppFlowy/issues/5998",
+      "unique_id": "gh_2471548618",
+      "labels": [
+        "bug",
+        "platform-linux"
+      ]
+    },
+    {
+      "source": "GitHub",
+      "subsource": "actual",
+      "title": "[Feedback] Rule action templating",
+      "content": "[Feedback] Rule action templating\n\nRule action templating allows rules to dynamically set fields based on transaction data.\n\nTo enable the feature - head over to experimental features and toggle the rule action templating feature flag. Next, go to the \"rules\" page and set up a new rule.\n\nTo use it, click the icon on the right hand side of the input box to toggle from \"text\" to \"template\" mode:\nText mode:\n![image](https://github.com/user-attachments/assets/e97e241e-945f-4a75-9d03-ce8927f09262)\nTemplate mode:\n![image](https://github.com/user-attachments/assets/03bf8625-f582-4267-80af-dbe59886ea1",
+      "score": 20,
+      "comments": 67,
+      "url": "https://github.com/actualbudget/actual/issues/3606",
+      "unique_id": "gh_2573643670",
+      "labels": [
+        "rules",
+        "experimental feature"
+      ]
+    },
+    {
+      "source": "GitHub",
+      "subsource": "AFFiNE",
+      "title": "[Feature Request]: Embedding drawio attachments",
+      "content": "[Feature Request]: Embedding drawio attachments\n\n### Description\n\nI like the edgeless mode of the document. It allows you to make very handy document boards. However, it is not suitable for complex diagrams (UML for example). At least in its current form.\n\nThe implementation of drawio diagrams in view mode in docs is sorely lacking. Drawio is a very powerful toolkit for diagrams, it even supports mermaid, it has a large number of implemented frameworks (Archmate for example), it supports layers, it can control the bending of arrows and so on.\n\nIs it possible to build a simple drawio file integ",
+      "score": 19,
+      "comments": 12,
+      "url": "https://github.com/toeverything/AFFiNE/issues/12785",
+      "unique_id": "gh_3135686789",
+      "labels": [
+        "story"
+      ]
+    },
+    {
+      "source": "GitHub",
+      "subsource": "cal.com",
+      "title": "Clearer visual indicators of which time slots are AM and which are PM",
+      "content": "Clearer visual indicators of which time slots are AM and which are PM\n\n**The problem:**\nBig round-robins with many members across different time zones result in many available time slots throughout the AM and PM, sometimes not obvious for attendees to distinguish at quick glance at the time slots list when booking (specifically on the the default booking page, not referring to the redesigned booking page with the detailed calendar view).\n\nThe problem is that users (in general) often don't read things thoroughly, and in the case of booking calls on an event booking page, this often results in a",
+      "score": 19,
+      "comments": 4,
+      "url": "https://github.com/calcom/cal.diy/issues/28086",
+      "unique_id": "gh_3965529908",
+      "labels": [
+        "✨ feature",
+        "high priority",
+        "consumer"
+      ]
+    },
+    {
+      "source": "PlayStore",
+      "subsource": "Todoist",
+      "title": "Yesterday I mentioned that a task disappeared twice (after I recreated it). Can't find it in complet",
+      "content": "Yesterday I mentioned that a task disappeared twice (after I recreated it). Can't find it in completed tasks also. And, of course, Todoist doesn't have a trash bin for deleted tasks. UPD The problem was that Todoist Web can't find tasks by substring",
+      "score": 18,
+      "rating": 1,
+      "url": "https://play.google.com/store/apps/details?id=com.todoist",
+      "unique_id": "ps_aa395a6b-07b5-422e-960e-e1317436b2ac",
+      "app_id": "com.todoist",
+      "date": "2026-06-16"
+    },
+    {
+      "source": "GitHub",
+      "subsource": "AppFlowy",
+      "title": "[FR] Support OpenAI compatible API endpoint for local AI inference",
+      "content": "[FR] Support OpenAI compatible API endpoint for local AI inference\n\n### Description\n\nI suggest adding support for OpenAI compatible API endpoint for local AI inference. Main reasoning is, that while Ollama support is useful for some users, majority of the target audience of local AI users will likely already have a local AI inference API running for usage with other apps, and unless they were Ollama users since the beginning, their local API will be OAI compatible endpoint, as it is the most widespread AI API type. I think incompatibility with most common AI API type is a major obstacle slowin",
+      "score": 18,
+      "comments": 0,
+      "url": "https://github.com/AppFlowy-IO/AppFlowy/issues/7686",
+      "unique_id": "gh_2973340044",
+      "labels": [
+        "new feature",
+        "improvements",
+        "ai",
+        "integrations"
+      ]
+    },
+    {
+      "source": "PlayStore",
+      "subsource": "Todoist",
+      "title": "either I can't find it or the feature is missing to undo task, you can hit undo within a few secs bu",
+      "content": "either I can't find it or the feature is missing to undo task, you can hit undo within a few secs but after that you can't undo actions. also no ability to view history of the completed tasks. a log of what was done would be nice",
+      "score": 17,
+      "rating": 2,
+      "url": "https://play.google.com/store/apps/details?id=com.todoist",
+      "unique_id": "ps_7d4a0b43-7771-47ba-bced-89fdb5c2d6ea",
+      "app_id": "com.todoist",
+      "date": "2026-05-13"
+    },
+    {
+      "source": "GitHub",
+      "subsource": "AppFlowy",
+      "title": "[FR] Support backlinks v0.1",
+      "content": "[FR] Support backlinks v0.1\n\n### Description\n\nEvery time there is a link in `PageA` to `PageB`, automatically create a backlink in `PageB` to `PageA`\r\n\r\nThe link should be at the block level.\r\nThe page title name should automatically get updated in the backlink.\r\nThe link should have a type property, representing the relationship type or the weight of the link between two connected objects. This will not be used in v0.1.\r\n\r\nThis feature should be implemented as an editor plugin (auto-shown on a page that has a backlink), allowing future improvements on its functionality or creating alternative",
+      "score": 16,
+      "comments": 3,
+      "url": "https://github.com/AppFlowy-IO/AppFlowy/issues/2214",
+      "unique_id": "gh_1658406392",
+      "labels": [
+        "new feature",
+        "editor",
+        "organization",
+        "2026"
+      ]
+    },
+    {
+      "source": "PlayStore",
+      "subsource": "Todoist",
+      "title": "Sign you up for spam without informing! I didn't sign up for newsletters and such! Also, important o",
+      "content": "Sign you up for spam without informing! I didn't sign up for newsletters and such! Also, important options like reminders are behind a paywall. (Only 1 reminder allowed in the free version).",
+      "score": 15,
+      "rating": 2,
+      "url": "https://play.google.com/store/apps/details?id=com.todoist",
+      "unique_id": "ps_9ef2776c-8c86-4f7c-88d3-ab2cf90449e4",
+      "app_id": "com.todoist",
+      "date": "2026-04-27"
+    },
+    {
+      "source": "GitHub",
+      "subsource": "AFFiNE",
+      "title": "[Feature Request]: Public doc share with edit permissions",
+      "content": "[Feature Request]: Public doc share with edit permissions\n\n### Description\n\n<img width=\"431\" height=\"131\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/2276469a-f863-419f-b34e-67d054954619\" />\n\nUntil now, you can only share a document in a read-only mode.\nIt would be awesome to add an option like \"Editor\" – so that others can edit single documents, even if they are not part of the entire workspace.\n\nThis would make collaboration with external partners, clients, or temporary contributors much easier without granting full workspace access.\n\n### Use case\n\nI am organizing a garden pa",
+      "score": 15,
+      "comments": 9,
+      "url": "https://github.com/toeverything/AFFiNE/issues/13517",
+      "unique_id": "gh_3335060416",
+      "labels": [
+        "story"
+      ]
+    },
+    {
+      "source": "PlayStore",
+      "subsource": "Todoist",
+      "title": "Cannot increase the font size. New fonts are horrible. Increasing the fonts at the system level impa",
+      "content": "Cannot increase the font size. New fonts are horrible. Increasing the fonts at the system level impacts all the apps, and the issue is with this one after the change. This issue has been present for a long time, since fonts were changed without in-app option to change them.",
+      "score": 14,
+      "rating": 1,
+      "url": "https://play.google.com/store/apps/details?id=com.todoist",
+      "unique_id": "ps_5ce9c87c-e834-48ef-959c-80ef67ae48e1",
+      "app_id": "com.todoist",
+      "date": "2026-05-14"
+    },
+    {
+      "source": "PlayStore",
+      "subsource": "Todoist",
+      "title": "I need to see a one month calendar and scroll to the next month and the next month. I travel extensi",
+      "content": "I need to see a one month calendar and scroll to the next month and the next month. I travel extensively and need to set date and figure things out a see a monthly calendar is a must have so I can plan!",
+      "score": 14,
+      "rating": 2,
+      "url": "https://play.google.com/store/apps/details?id=com.todoist",
+      "unique_id": "ps_04b856aa-4135-4811-8ace-1cec25cb8dc4",
+      "app_id": "com.todoist",
+      "date": "2026-05-17"
+    },
+    {
+      "source": "HackerNews",
+      "subsource": "askstories",
+      "title": "Ask HN: Why do tools like customer.io abandon self-serve after their Series A?",
+      "content": "Ask HN: Why do tools like customer.io abandon self-serve after their Series A?\n\nWhy can startups never hold true to the principles that they started with?<p>When I first discovered customer.io I was the most excited person ever. I had finally found an email marketing system that felt designed for the data-savvy marketer. With a good analytics plan you could create amazing workflows. Building, editing, and previewing emails felt straightforward and intuitive. Signing up was easy and there was no need to talk to anyone. In two weeks the whole system was fully operational.<p>Pricing wasn&#x27;t c",
+      "score": 14,
+      "comments": 5,
+      "url": "https://news.ycombinator.com/item?id=49455036",
+      "unique_id": "hn_49455036"
+    },
+    {
+      "source": "GitHub",
+      "subsource": "AFFiNE",
+      "title": "Proper iPad pencil support",
+      "content": "Proper iPad pencil support\n\n### Description\n\nHello! First of all - amazing job. Have been lurking for years waiting for mobile app, when it launched - immediately set up self hosted instance and Github sponsor (sadly have to pause it for few months now due to financial difficulty). Since I set it up, have been using it daily. As self-employed working in very complex, large project, I find Affine to be absolutely amazing - great job on design and principles.\n\nAnyway, I wanted to request support for proper iPad pencil support. Often I need to sketch and do markups on screenshots, iPad makes it e",
+      "score": 14,
+      "comments": 5,
+      "url": "https://github.com/toeverything/AFFiNE/issues/13782",
+      "unique_id": "gh_3531417188",
+      "labels": [
+        "story"
+      ]
+    },
+    {
+      "source": "GitHub",
+      "subsource": "AFFiNE",
+      "title": "[Feature Request]: task reminder functionality for pages and databases",
+      "content": "[Feature Request]: task reminder functionality for pages and databases\n\n### Description\n\nA built-in reminder feature that works in both pages and databases. This feature would allow users:\n\n- Insert a date and time in a page or database record and mark it as a reminder.\n- Tag another user when creating a reminder (for example, “`@Dahyun` `@remind next Tuesday 9 AM to review report`”).\n- See reminders turn red when they are due today or past due.\n- Receive a visual indicator (a badge or icon) next to an “Inbox” or “Notifications” section.\n- Get push notifications in the desktop and mobile apps ",
+      "score": 14,
+      "comments": 8,
+      "url": "https://github.com/toeverything/AFFiNE/issues/12708",
+      "unique_id": "gh_3119350124",
+      "labels": [
+        "story"
+      ]
+    },
+    {
+      "source": "GitHub",
+      "subsource": "AFFiNE",
+      "title": "[Bug]: Edgeless Export Frames as Image (PNG/SVG)",
+      "content": "[Bug]: Edgeless Export Frames as Image (PNG/SVG)\n\n### Description\n\nA dedicated “Export as Image” action in Edgeless mode (whiteboard) that lets users download their canvas as **PNG** or **SVG**. It should offer:\n\n- Export **entire canvas**, a **specific frame**, or **custom selection**\n- Choice of **transparent** or **white background**\n- High‑resolution output that preserves vector clarity and exact frame boundaries\n\nThis solves the unreliable “Copy as image” workaround (cropped UI elements, context menus, low quality) and brings AFFiNE’s Edgeless experience in line with tools like Excalidraw",
+      "score": 14,
+      "comments": 5,
+      "url": "https://github.com/toeverything/AFFiNE/issues/12128",
+      "unique_id": "gh_3038375593",
+      "labels": [
+        "story",
+        "bug"
+      ]
+    },
+    {
+      "source": "PlayStore",
+      "subsource": "Todoist",
+      "title": "EDIT: I reached out to support as advised in the response but they were not willing to do anything. ",
+      "content": "EDIT: I reached out to support as advised in the response but they were not willing to do anything. I have used Todoist since 2010 but will have to look for another app. I paid for pro for many of those years but $60/year has become way too much. Some of us do not use the AI features, and just need reminders and more than 5 projects. For those basic needs, the new pricing makes it not worth it. Maybe come up with subscription tiers?",
+      "score": 13,
+      "rating": 2,
+      "url": "https://play.google.com/store/apps/details?id=com.todoist",
+      "unique_id": "ps_515ec419-cce5-41da-aaff-5779f2031805",
+      "app_id": "com.todoist",
+      "date": "2026-06-16"
+    },
+    {
+      "source": "GitHub",
+      "subsource": "AppFlowy",
+      "title": "[FR] Nextcloud integration",
+      "content": "[FR] Nextcloud integration\n\n### Description\n\nI currently self-host a Nextcloud server for my personal files and documents. It's a pretty convenient option to have services integrate with Nextcloud and use it as a storage bucket instead of relying on a bespoke server that I need to configure and self-host alongside my current solutions.\r\n\r\nIntegrating Appflowy to use Nextcloud as its storage provider would allow me to utilise my server without any configuration or maintenance that a second server would necessitate, even if it came at the cost of performance or certain features.\n\n### Impact\n\nApp",
+      "score": 13,
+      "comments": 2,
+      "url": "https://github.com/AppFlowy-IO/AppFlowy/issues/4429",
+      "unique_id": "gh_2092090466",
+      "labels": [
+        "new feature",
+        "integrations",
+        "self-hosted"
+      ]
+    },
+    {
+      "source": "GitHub",
+      "subsource": "AppFlowy",
+      "title": "[FR][Web] Web clipper for appflowy",
+      "content": "[FR][Web] Web clipper for appflowy\n\nPlease add web clipper feature to appflowy like notion, Evernote with Firefox and Chrome extensions.",
+      "score": 13,
+      "comments": 9,
+      "url": "https://github.com/AppFlowy-IO/AppFlowy/issues/3507",
+      "unique_id": "gh_1909654560",
+      "labels": [
+        "new feature",
+        "web",
+        "2025",
+        "q1 25"
+      ]
+    },
+    {
+      "source": "GitHub",
+      "subsource": "actual",
+      "title": "Add Note and Category to Scheduled Transactions",
+      "content": "Add Note and Category to Scheduled Transactions\n\n### Verified feature request does not already exist?\n\n- [x] I have searched and found no existing issue\n\n### 💻\n\n- [ ] Would you like to implement this feature?\n\n### Pitch: what problem are you trying to solve?\n\nI'm encountering an issue with scheduled transactions where there are multiple scheduled payments for the same payee, but I want to distinguish them in the ledger with a note denoting which particular one it's for.\n\nI originally tried to fix the issue by editing the schedule as a rule and applying a Note and Category, but I noticed this i",
+      "score": 13,
+      "comments": 4,
+      "url": "https://github.com/actualbudget/actual/issues/5296",
+      "unique_id": "gh_3205900189",
+      "labels": [
+        "schedules"
+      ]
+    },
+    {
+      "source": "PlayStore",
+      "subsource": "Todoist",
+      "title": "March 2026: Terrible in markdown writing, web version is much better. May 2026 edit: Why don't you S",
+      "content": "March 2026: Terrible in markdown writing, web version is much better. May 2026 edit: Why don't you STILL fix the markdown formatting in mobile app?? It should be same with the web version. For example, whenever I write \"-\" it automatically turns to a bullet point in web app, but nothing changes during real-time writing in mobile app, and it's really frustrating.",
+      "score": 12,
+      "rating": 1,
+      "url": "https://play.google.com/store/apps/details?id=com.todoist",
+      "unique_id": "ps_97ec2b9b-b22b-4eb0-a317-3bcef9e25ceb",
+      "app_id": "com.todoist",
+      "date": "2026-05-28"
+    }
+  ]
+}
