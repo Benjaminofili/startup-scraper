@@ -2,7 +2,7 @@ name: Startup Scraper
 
 on:
   schedule:
-    - cron: '0 */8 * * *'  # Every 8 hours
+    - cron: '0 6 */2 * *'  # Every 2 days at 06:00 UTC
   workflow_dispatch:  # Manual trigger
 
 permissions:
@@ -34,6 +34,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python -m scraper.main
+          if [ ! -s data/latest_ideas.md ]; then
+            echo "::warning::AI analysis did not run — check GROQ_API_KEY/quota"
+          fi
 
       - name: Commit results
         run: |

@@ -14,31 +14,56 @@ def scrape_github_issues():
     
     problems = []
     
-    # Popular repos where people request features
+    # Diversified across categories — the old list was ~4 note-taking apps
+    # out of 6 repos, which is why the dataset kept skewing toward
+    # Notion/Obsidian-style feature requests every run.
     repos = [
+        # Productivity / notes (kept, but no longer the majority)
         "toeverything/AFFiNE",
         "AppFlowy-IO/AppFlowy",
+        # Fintech / budgeting
         "actualbudget/actual",
         "maybe-finance/maybe",
+        "formance/ledger",
+        # Scheduling / CRM / business tools
         "calcom/cal.com",
         "twentyhq/twenty",
+        # E-commerce
+        "medusajs/medusa",
+        "saleor/saleor",
+        # Logistics / delivery / mapping
+        "valhalla/valhalla",
+        "graphhopper/graphhopper",
+        # Education / LMS
+        "moodle/moodle",
+        "BuildTract/buildtract",
     ]
-    
+
     headers = {
         "Accept": "application/vnd.github.v3+json",
         "User-Agent": "StartupScraper/1.0"
     }
-    
+
     # Use token if available for higher rate limits
     github_token = os.environ.get('GITHUB_TOKEN')
     if github_token:
         headers["Authorization"] = f"token {github_token}"
         print("   🔑 Using GitHub token")
-    
+
+    # Only issues updated in the last ~120 days, so repeated runs surface
+    # fresh discussion instead of the same old highly-reacted issues.
+    from datetime import datetime, timedelta
+    since_date = (datetime.utcnow() - timedelta(days=120)).strftime('%Y-%m-%dT%H:%M:%SZ')
+
     for repo in repos:
         try:
             url = f"https://api.github.com/repos/{repo}/issues"
-            params = {"state": "open", "per_page": 25, "sort": "reactions"}
+            params = {
+                "state": "open",
+                "per_page": 25,
+                "sort": "reactions",
+                "since": since_date,
+            }
             
             response = requests.get(url, headers=headers, params=params, timeout=10)
             

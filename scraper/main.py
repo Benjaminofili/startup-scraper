@@ -9,11 +9,13 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Import sources
 from scraper.sources.playstore import scrape_playstore_reviews
+from scraper.sources.appstore import scrape_appstore_reviews
 from scraper.sources.reddit import scrape_reddit_all
 from scraper.sources.hackernews import scrape_hackernews
 from scraper.sources.github_issues import scrape_github_issues
 from scraper.sources.nairaland import scrape_nairaland
 from scraper.sources.trends import scrape_all_trends
+from scraper.sources.nigerian_tech_blogs import scrape_nigerian_tech_blogs
 
 # Import utilities
 from scraper.utils.deduplicator import deduplicate_problems
@@ -46,11 +48,13 @@ def main():
     
     scrapers = [
         ("PlayStore", scrape_playstore_reviews),
+        ("AppStore", scrape_appstore_reviews),
         ("HackerNews", scrape_hackernews),
         ("GitHub", scrape_github_issues),
         ("Nairaland", scrape_nairaland),
         ("Trends", scrape_all_trends),
         ("Reddit", scrape_reddit_all),
+        ("NigerianTechBlogs", scrape_nigerian_tech_blogs),
     ]
     
     for name, scraper_func in scrapers:
