@@ -21,3 +21,8 @@ Thumbs.db
 # Project specific
 *.log
 .env.local
+
+# Problem Radar experiment output - regenerate locally with
+# python -m problem_radar.fetch / .cluster / .review, not tracked in git
+problem_radar/data/*
+!problem_radar/data/.gitkeep
