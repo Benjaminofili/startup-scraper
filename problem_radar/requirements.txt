@@ -6,6 +6,8 @@
 # Install with: pip install -r problem_radar/requirements.txt
 
 requests>=2.31.0
+beautifulsoup4>=4.12.0
+lxml>=5.0.0        # RSS (Atom/XML) parsing for the Reddit fetcher
 fastembed>=0.4.0   # embeddings (ONNX, no torch); falls back to TF-IDF if unavailable
 scikit-learn>=1.3  # HDBSCAN clustering + TF-IDF fallback
 numpy>=1.24

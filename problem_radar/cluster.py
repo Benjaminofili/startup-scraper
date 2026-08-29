@@ -25,14 +25,15 @@ clustering on raw, unnormalized vectors lets magnitude differences
 dominate and tends to produce a couple of giant, incoherent "everything
 is vaguely tech" blobs rather than tight problem-specific groups.
 
-min_cluster_size / min_samples scale with corpus size (see
-MIN_CLUSTER_FRACTION / MIN_SAMPLES_FRACTION below) instead of being a
-fixed small constant - a fixed min_cluster_size=4 with default
-min_samples on a few hundred docs is permissive enough that HDBSCAN
-chains loosely-related documents into a couple of huge clusters instead
-of many small coherent ones. Raising min_samples in particular makes
-the density estimate more conservative (more docs land in noise, but
-clusters that do form are cluster because they're really similar).
+min_cluster_size scales with corpus size (see MIN_CLUSTER_FRACTION
+below) instead of being a fixed small constant - a fixed
+min_cluster_size=4 with default min_samples on a few hundred docs is
+permissive enough that HDBSCAN chains loosely-related documents into a
+couple of huge clusters instead of many small coherent ones (seen in
+practice: run #1 produced 2 clusters covering 440/491 docs). min_samples
+is kept below min_cluster_size (the standard relationship - min_samples
+> min_cluster_size was tried and made the density estimate so
+conservative it found zero clusters at all: run #2, 0/490).
 
 Usage:
     python -m problem_radar.cluster
@@ -47,10 +48,10 @@ DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
 CORPUS_PATH = os.path.join(DATA_DIR, "corpus.json")
 CLUSTERS_PATH = os.path.join(DATA_DIR, "clusters.json")
 
-MIN_CLUSTER_SIZE_FLOOR = 4
-MIN_CLUSTER_FRACTION = 0.015   # ~7-8 for a 500-doc corpus
-MIN_SAMPLES_FLOOR = 5
-MIN_SAMPLES_FRACTION = 0.02    # ~10 for a 500-doc corpus
+MIN_CLUSTER_SIZE_FLOOR = 5
+MIN_CLUSTER_FRACTION = 0.012   # ~6 for a 500-doc corpus
+MIN_SAMPLES_FLOOR = 3
+MIN_SAMPLES_RATIO = 0.5        # min_samples = min_cluster_size * this (kept < min_cluster_size)
 
 
 def load_corpus():
@@ -95,7 +96,7 @@ def cluster(vectors):
 
     n = len(vectors)
     min_cluster_size = max(MIN_CLUSTER_SIZE_FLOOR, round(n * MIN_CLUSTER_FRACTION))
-    min_samples = max(MIN_SAMPLES_FLOOR, round(n * MIN_SAMPLES_FRACTION))
+    min_samples = max(MIN_SAMPLES_FLOOR, round(min_cluster_size * MIN_SAMPLES_RATIO))
     print(f"HDBSCAN: min_cluster_size={min_cluster_size}, min_samples={min_samples}")
 
     model = HDBSCAN(
