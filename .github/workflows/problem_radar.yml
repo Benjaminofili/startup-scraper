@@ -1,0 +1,50 @@
+name: Problem Radar (manual experiment)
+
+# Manual only - this is a one-shot research run, not part of the
+# scheduled scrape pipeline (see scrape.yml). Triggered by hand from the
+# Actions tab, or via the API, whenever someone wants a fresh corpus +
+# cluster review without committing any of it to the repo.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r problem_radar/requirements.txt
+
+      - name: Fetch corpus
+        run: python -m problem_radar.fetch
+
+      - name: Cluster
+        run: python -m problem_radar.cluster
+
+      - name: Generate review sheet
+        run: python -m problem_radar.review
+
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: problem-radar-results
+          path: |
+            problem_radar/data/corpus.json
+            problem_radar/data/clusters.json
+            problem_radar/data/review.md
+          retention-days: 14
