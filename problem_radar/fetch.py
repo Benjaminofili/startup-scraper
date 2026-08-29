@@ -47,22 +47,46 @@ SUBREDDITS = [
     "productivity", "getdisciplined",
 ]
 
+# Run #3 result: 524 docs across 30 queries produced one 156-doc "generic
+# startup/AI-culture chatter" blob (indie hacker + solo founder + startup
+# idea + AI tooling talk are all semantically adjacent, so HDBSCAN merged
+# them) and one 8-doc cluster that was really just an echo of the literal
+# phrase "self-hosted ... alternative". Cut to queries that name a
+# specific pain (a cost, a broken process, a switch away from something)
+# rather than startup-culture commentary, so what's left in the corpus is
+# actually differentiated problems instead of one topic with many voices.
 HN_QUERIES = [
-    "startup idea", "I built", "frustrating", "alternative to",
-    "looking for a tool", "does anyone know a tool",
-    "why is there no", "wish there was an app",
-    "I wasted money on", "hate paying for",
-    "side project revenue", "indie hacker",
-    "built this because", "solo founder",
-    "underrated problem", "nobody has solved",
-    "show hn i made", "ask hn recommend",
+    "does anyone know a tool", "why is there no",
+    "wish there was an app", "I wasted money on", "hate paying for",
     "switched away from", "cancelled my subscription",
     "manual process", "spreadsheet hell",
-    "small business owner", "freelancer struggling",
-    "open source alternative", "self-hosted",
-    "burned out on", "too expensive for what it does",
+    "freelancer struggling", "too expensive for what it does",
     "customer support nightmare", "onboarding was confusing",
+    "looking for a tool", "built this because",
 ]
+
+
+def _get_with_backoff(url, headers, timeout, status_counts, label):
+    """
+    GET with one retry on 429, honoring Retry-After when present.
+
+    Run #3 showed old.reddit.com/www.reddit.com rate-limits GitHub
+    Actions runners almost immediately (1 request succeeded, the next 39
+    all got 429 within the same second) - a fixed short sleep between
+    requests wasn't enough to avoid it. This won't make Reddit reliable
+    from a shared-IP runner, but backing off on the actual signal (429 +
+    Retry-After) rather than a guessed constant gives it a real chance
+    instead of guaranteed-failing every request after the first.
+    """
+    resp = requests.get(url, headers=headers, timeout=timeout)
+    status_counts[resp.status_code] = status_counts.get(resp.status_code, 0) + 1
+    if resp.status_code == 429:
+        wait = min(float(resp.headers.get("Retry-After", 10)), 20.0)
+        print(f"  {label}: 429, backing off {wait:.0f}s")
+        time.sleep(wait)
+        resp = requests.get(url, headers=headers, timeout=timeout)
+        status_counts[resp.status_code] = status_counts.get(resp.status_code, 0) + 1
+    return resp
 
 
 def fetch_reddit():
@@ -73,11 +97,11 @@ def fetch_reddit():
     for subreddit in SUBREDDITS:
         for sort_path in ("top/.rss?t=year&limit=40", "new/.rss?limit=25"):
             feed_url = f"https://www.reddit.com/r/{subreddit}/{sort_path}"
+            label = f"r/{subreddit} ({sort_path.split('/')[0]})"
             try:
-                resp = requests.get(feed_url, headers=REDDIT_HEADERS, timeout=15)
-                status_counts[resp.status_code] = status_counts.get(resp.status_code, 0) + 1
+                resp = _get_with_backoff(feed_url, REDDIT_HEADERS, 15, status_counts, label)
                 if resp.status_code != 200:
-                    print(f"  r/{subreddit} ({sort_path.split('/')[0]}): HTTP {resp.status_code}")
+                    print(f"  {label}: HTTP {resp.status_code}")
                     continue
 
                 soup = BeautifulSoup(resp.text, "lxml-xml")
@@ -131,7 +155,7 @@ def fetch_hackernews():
             params = {
                 "query": query,
                 "tags": "story",
-                "hitsPerPage": 20,
+                "hitsPerPage": 30,
                 "numericFilters": f"created_at_i>{six_months_ago}",
             }
             resp = requests.get(search_url, params=params, timeout=10)
