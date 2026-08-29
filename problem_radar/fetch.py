@@ -23,7 +23,10 @@ import requests
 
 OUT_PATH = os.path.join(os.path.dirname(__file__), "data", "corpus.json")
 
-REDDIT_HEADERS = {"User-Agent": "ProblemRadarExperiment/0.1 (research script)"}
+# Matches scraper/sources/reddit.py's proven-working User-Agent. Reddit is
+# picky about generic/unfamiliar UA strings (silently 403s/429s), so this
+# isn't a place to improvise a new one.
+REDDIT_HEADERS = {"User-Agent": "StartupScraper/1.0 (by /u/your_reddit_username)"}
 
 # Same subreddit pool the live Reddit source draws from, but every entry
 # gets queried here instead of a rotated slice - this run is meant to be
@@ -65,6 +68,7 @@ HN_QUERIES = [
 def fetch_reddit():
     print("Fetching Reddit...")
     docs = []
+    status_counts = {}
     base_url = "https://old.reddit.com/r/{subreddit}/search.json"
 
     for subreddit in SUBREDDITS:
@@ -75,11 +79,13 @@ def fetch_reddit():
                     base_url.format(subreddit=subreddit),
                     headers=REDDIT_HEADERS, params=params, timeout=15,
                 )
+                status_counts[resp.status_code] = status_counts.get(resp.status_code, 0) + 1
                 if resp.status_code == 429:
                     print(f"  rate limited on r/{subreddit}, backing off")
                     time.sleep(5)
                     continue
                 if resp.status_code != 200:
+                    print(f"  r/{subreddit} '{query}': HTTP {resp.status_code}")
                     continue
 
                 for post in resp.json().get("data", {}).get("children", []):
@@ -105,7 +111,7 @@ def fetch_reddit():
                 print(f"  r/{subreddit} '{query}': {type(e).__name__}: {e}")
                 continue
 
-    print(f"  Reddit: {len(docs)} raw docs")
+    print(f"  Reddit: {len(docs)} raw docs (status codes: {status_counts})")
     return docs
 
 

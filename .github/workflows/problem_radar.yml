@@ -39,6 +39,12 @@ jobs:
       - name: Generate review sheet
         run: python -m problem_radar.review
 
+      - name: Print review sheet to logs
+        # Lets us read the actual output from the Actions log when the
+        # artifact download (blob storage) isn't reachable from wherever
+        # we're inspecting the run from.
+        run: cat problem_radar/data/review.md
+
       - name: Upload results
         uses: actions/upload-artifact@v4
         with:

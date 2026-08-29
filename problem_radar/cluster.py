@@ -19,7 +19,20 @@ Embedding backend:
 
 Clustering: sklearn's HDBSCAN (density-based, no need to pick a cluster
 count up front, and it explicitly labels sparse/one-off documents as
-noise instead of forcing them into a nearest cluster).
+noise instead of forcing them into a nearest cluster) on L2-normalized
+embeddings, so euclidean distance behaves like cosine similarity -
+clustering on raw, unnormalized vectors lets magnitude differences
+dominate and tends to produce a couple of giant, incoherent "everything
+is vaguely tech" blobs rather than tight problem-specific groups.
+
+min_cluster_size / min_samples scale with corpus size (see
+MIN_CLUSTER_FRACTION / MIN_SAMPLES_FRACTION below) instead of being a
+fixed small constant - a fixed min_cluster_size=4 with default
+min_samples on a few hundred docs is permissive enough that HDBSCAN
+chains loosely-related documents into a couple of huge clusters instead
+of many small coherent ones. Raising min_samples in particular makes
+the density estimate more conservative (more docs land in noise, but
+clusters that do form are cluster because they're really similar).
 
 Usage:
     python -m problem_radar.cluster
@@ -34,7 +47,10 @@ DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
 CORPUS_PATH = os.path.join(DATA_DIR, "corpus.json")
 CLUSTERS_PATH = os.path.join(DATA_DIR, "clusters.json")
 
-MIN_CLUSTER_SIZE = 4
+MIN_CLUSTER_SIZE_FLOOR = 4
+MIN_CLUSTER_FRACTION = 0.015   # ~7-8 for a 500-doc corpus
+MIN_SAMPLES_FLOOR = 5
+MIN_SAMPLES_FRACTION = 0.02    # ~10 for a 500-doc corpus
 
 
 def load_corpus():
@@ -64,27 +80,39 @@ def embed_tfidf(texts):
 
 def embed(texts):
     try:
-        return embed_fastembed(texts)
+        vectors, backend = embed_fastembed(texts)
     except Exception as e:
         print(f"fastembed unavailable ({type(e).__name__}: {e}); falling back to TF-IDF")
-        return embed_tfidf(texts)
+        vectors, backend = embed_tfidf(texts)
+
+    norms = np.linalg.norm(vectors, axis=1, keepdims=True)
+    norms[norms == 0] = 1.0
+    return vectors / norms, backend
 
 
 def cluster(vectors):
     from sklearn.cluster import HDBSCAN
 
-    model = HDBSCAN(min_cluster_size=MIN_CLUSTER_SIZE, metric="euclidean")
+    n = len(vectors)
+    min_cluster_size = max(MIN_CLUSTER_SIZE_FLOOR, round(n * MIN_CLUSTER_FRACTION))
+    min_samples = max(MIN_SAMPLES_FLOOR, round(n * MIN_SAMPLES_FRACTION))
+    print(f"HDBSCAN: min_cluster_size={min_cluster_size}, min_samples={min_samples}")
+
+    model = HDBSCAN(
+        min_cluster_size=min_cluster_size,
+        min_samples=min_samples,
+        metric="euclidean",
+    )
     labels = model.fit_predict(vectors)
-    return labels
+    return labels, min_cluster_size, min_samples
 
 
 def main():
     corpus = load_corpus()
     docs = corpus["docs"]
-    if len(docs) < MIN_CLUSTER_SIZE * 2:
+    if len(docs) < MIN_CLUSTER_SIZE_FLOOR * 2:
         raise SystemExit(
-            f"Only {len(docs)} docs in corpus.json - run `python -m problem_radar.fetch` "
-            "first, or lower MIN_CLUSTER_SIZE for a tiny test run."
+            f"Only {len(docs)} docs in corpus.json - run `python -m problem_radar.fetch` first."
         )
 
     texts = [f"{d['title']}\n{d['content']}" for d in docs]
@@ -92,7 +120,7 @@ def main():
     vectors, backend = embed(texts)
 
     print("Clustering...")
-    labels = cluster(vectors)
+    labels, min_cluster_size, min_samples = cluster(vectors)
 
     clusters = {}
     noise = []
@@ -118,7 +146,8 @@ def main():
 
     out = {
         "embedding_backend": backend,
-        "min_cluster_size": MIN_CLUSTER_SIZE,
+        "min_cluster_size": min_cluster_size,
+        "min_samples": min_samples,
         "total_docs": len(docs),
         "num_clusters": len(cluster_list),
         "num_noise": len(noise),
