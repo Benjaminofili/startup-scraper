@@ -4,31 +4,112 @@ import re
 from typing import Dict, List, Optional, Tuple
 
 
+# The AI prompt asks for each idea as a block of numbered fields 1..10,
+# where field 1 is the idea name and field 10 is "FEASIBILITY SCORES".
+# Because the field list itself is numbered (1., 2., ... 10.), the old
+# "split on any '<n>. **'" approach shattered every idea into ~10 fake
+# "ideas" titled PROBLEM / SOLUTION / FEASIBILITY SCORES, which is why
+# every historical feasible_ideas.md just repeats "## 1. FEASIBILITY
+# SCORES". We now anchor on the one-per-idea scores block instead.
+
+_SCORE_MARKER = re.compile(r'(?im)^\s*#{0,4}\s*[*_]{0,2}\s*(?:\d+[.)]\s*)?[*_]{0,2}\s*FEASIBILITY\s+SCORES\b')
+
+# Field labels that are NOT idea names - used to reject them when we walk
+# backwards from a scores block looking for the idea's title.
+_FIELD_LABELS = {
+    'idea name', 'problem', 'solution', 'who pays', 'price',
+    'existing competitors', 'monetization fit', 'first week', 'why now',
+    'feasibility scores', 'feasibility score', 'scores',
+}
+
+# A heading / bolded line that could carry an idea name, e.g.
+#   "1. **SchoolFeePay**"   "### 2. Mechanic Finder"   "**FarmLink**"
+_TITLE_LINE = re.compile(
+    r'(?m)^\s*#{0,4}\s*[*_]{0,2}\s*(?:(?:idea\s*)?\d+[.):]\s*)?[*_]{0,2}\s*'
+    r'(?:\[)?([A-Za-z0-9][^\n*_\]]{1,60}?)(?:\])?[*_]{0,2}\s*(?:\(.*)?$'
+)
+
+_SCORE_PATTERNS = {
+    'investment_score': r'Investment(?:\s+Score)?[:\-]?\s*(\d+)\s*(?:/\s*10)?',
+    'passive_income_score': r'Passive\s+Income(?:\s+Score)?[:\-]?\s*(\d+)\s*(?:/\s*10)?',
+    'team_size_score': r'Team(?:\s+Size)?(?:\s+Score)?[:\-]?\s*(\d+)\s*(?:/\s*10)?',
+    'time_to_market_score': r'Time\s+to\s+Market(?:\s+Score)?[:\-]?\s*(\d+)\s*(?:/\s*10)?',
+    'competition_score': r'Competition(?:\s+Score)?[:\-]?\s*(\d+)\s*(?:/\s*10)?',
+    'monetization_fit_score': r'Monetization\s+Fit(?:\s+Score)?[:\-]?\s*(\d+)\s*(?:/\s*10)?',
+    'regulatory_risk_score': r'Regulatory\s+Risk(?:\s+Score)?[:\-]?\s*(\d+)\s*(?:/\s*10)?',
+}
+
+
+def _clean_title(raw: str) -> str:
+    """Strip markdown/list cruft and any trailing parenthetical from a title."""
+    t = raw.strip().strip('*_#[] ').strip()
+    # Drop a leading "N. " / "N) " / "Idea N: " that slipped through.
+    t = re.sub(r'^(?:idea\s*)?\d+\s*[.):\-]\s*', '', t, flags=re.IGNORECASE).strip()
+    # Drop a trailing parenthetical description.
+    t = re.sub(r'\s*\(.*$', '', t).strip()
+    return t
+
+
+def _find_title_before(text: str, end: int, start: int = 0) -> str:
+    """
+    Walk backwards from `end` over the lines in text[start:end] (the region
+    between the previous idea's scores block and this one) and return the
+    nearest line that reads like an idea name: a heading or bolded line
+    that isn't one of the known numbered field labels. Field lines (2..9 in
+    the prompt) and long prose lines are skipped, so the idea's own name -
+    usually field 1, many lines up - is what we land on.
+    """
+    lines = text[start:end].splitlines()
+    for line in reversed(lines):
+        stripped = line.strip()
+        if not stripped:
+            continue
+        m = _TITLE_LINE.match(line)
+        if not m:
+            continue
+        candidate = _clean_title(m.group(1))
+        if not candidate or len(candidate) < 2:
+            continue
+        if candidate.lower() in _FIELD_LABELS:
+            continue
+        # Skip lines that are clearly prose rather than a name.
+        if len(candidate.split()) > 8:
+            continue
+        return candidate
+    return ''
+
+
 def parse_feasibility_metrics(ai_analysis: str) -> List[Dict]:
     """
-    Parse feasibility metrics from AI-generated analysis
-    
-    Expected format in AI output:
-    - Investment: X/10
-    - Passive Income: X/10
-    - Team Size: X/10
-    - Time to Market: X/10
+    Parse per-idea feasibility metrics out of the AI analysis.
+
+    Anchors on each "FEASIBILITY SCORES" block (one per idea), reads the
+    seven 0-10 scores that follow it, and attaches the idea name found on
+    the nearest preceding heading/bold line.
     """
-    ideas = []
-    
+    ideas: List[Dict] = []
+
     if not ai_analysis:
         return ideas
-    
-    # Split by numbered ideas (1., 2., 3., etc.)
-    idea_sections = re.split(r'\n(?=\d+\.\s+\*\*)', ai_analysis)
-    
-    for section in idea_sections:
-        if not section.strip():
-            continue
-        
+
+    markers = list(_SCORE_MARKER.finditer(ai_analysis))
+    if not markers:
+        return ideas
+
+    for i, marker in enumerate(markers):
+        # The scores for this idea run from the marker to the next marker
+        # (or end of text). Confine score parsing to this window so one
+        # idea's numbers can't bleed into another's.
+        scores_start = marker.end()
+        scores_end = markers[i + 1].start() if i + 1 < len(markers) else len(ai_analysis)
+        scores_text = ai_analysis[scores_start:scores_end]
+
+        search_start = markers[i - 1].end() if i > 0 else 0
+        title = _find_title_before(ai_analysis, marker.start(), search_start)
+
         idea = {
-            'raw_text': section,
-            'title': '',
+            'raw_text': ai_analysis[marker.start():scores_end].strip(),
+            'title': title or f'Idea {i + 1}',
             'investment_score': 5,
             'passive_income_score': 5,
             'team_size_score': 5,
@@ -36,33 +117,14 @@ def parse_feasibility_metrics(ai_analysis: str) -> List[Dict]:
             'competition_score': 5,
             'monetization_fit_score': 5,
             'regulatory_risk_score': 5,
-            'feasibility_score': 5.0
+            'feasibility_score': 5.0,
         }
-        
-        # Extract title (first line after number)
-        title_match = re.search(r'\d+\.\s+\*\*(.+?)\*\*', section)
-        if title_match:
-            idea['title'] = title_match.group(1).strip()
-        
-        # Extract scores (look for patterns like "Investment: 8/10" or "Investment Score: 8")
-        patterns = {
-            'investment_score': r'Investment(?:\s+Score)?:\s*(\d+)(?:/10)?',
-            'passive_income_score': r'Passive\s+Income(?:\s+Score)?:\s*(\d+)(?:/10)?',
-            'team_size_score': r'Team(?:\s+Size)?(?:\s+Score)?:\s*(\d+)(?:/10)?',
-            'time_to_market_score': r'Time\s+to\s+Market(?:\s+Score)?:\s*(\d+)(?:/10)?',
-            'competition_score': r'Competition(?:\s+Score)?:\s*(\d+)(?:/10)?',
-            'monetization_fit_score': r'Monetization\s+Fit(?:\s+Score)?:\s*(\d+)(?:/10)?',
-            'regulatory_risk_score': r'Regulatory\s+Risk(?:\s+Score)?:\s*(\d+)(?:/10)?',
-        }
-        
-        for key, pattern in patterns.items():
-            match = re.search(pattern, section, re.IGNORECASE)
+
+        for key, pattern in _SCORE_PATTERNS.items():
+            match = re.search(pattern, scores_text, re.IGNORECASE)
             if match:
-                score = int(match.group(1))
-                # Normalize to 0-10 if needed
-                idea[key] = min(10, max(0, score))
-        
-        # Calculate overall feasibility score
+                idea[key] = min(10, max(0, int(match.group(1))))
+
         idea['feasibility_score'] = calculate_feasibility_score(
             idea['investment_score'],
             idea['passive_income_score'],
@@ -70,12 +132,11 @@ def parse_feasibility_metrics(ai_analysis: str) -> List[Dict]:
             idea['time_to_market_score'],
             idea['competition_score'],
             idea['monetization_fit_score'],
-            idea['regulatory_risk_score']
+            idea['regulatory_risk_score'],
         )
-        
-        if idea['title']:  # Only add if we found a title
-            ideas.append(idea)
-    
+
+        ideas.append(idea)
+
     return ideas
 
 
