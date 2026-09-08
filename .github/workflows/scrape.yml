@@ -29,19 +29,28 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run scraper
+        id: scrape
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GROQ_MODEL: ${{ secrets.GROQ_MODEL }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          python -m scraper.main
-          if [ ! -s data/latest_ideas.md ]; then
-            echo "::warning::AI analysis did not run — check GROQ_API_KEY/quota"
-          fi
+        run: python -m scraper.main
 
+      # Always commit whatever data was scraped, even if the AI stage failed
+      # and the previous step exited non-zero.
       - name: Commit results
+        if: always()
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add data/
           git diff --staged --quiet || git commit -m "🤖 Scrape $(date +'%Y-%m-%d %H:%M')"
           git push
+
+      # Re-surface the scraper's exit status so the run goes red (with the
+      # Groq ::error:: annotation attached) when AI analysis produced nothing.
+      - name: Fail if AI analysis did not run
+        if: always() && steps.scrape.outcome == 'failure'
+        run: |
+          echo "::error::AI analysis stage produced no output this run — see the 'Run scraper' step log for the actual Groq error."
+          exit 1

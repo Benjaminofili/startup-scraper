@@ -209,12 +209,23 @@ def main():
     
     if ai_analysis:
         print("\n   💡 Check data/latest_ideas.md for opportunities!")
-    
+
     if feasibility_report:
         print("   🎯 Check data/feasible_ideas.md for top feasible ideas!")
-    
-    return unique_problems
+
+    # The scraped data is already saved above, so a green run still needs
+    # to fail loudly when the AI stage produced nothing - otherwise the
+    # pipeline silently degrades to "just a scraper" for weeks (which is
+    # exactly what happened when Groq decommissioned the old model).
+    ai_ok = ai_analysis is not None
+    if not ai_ok:
+        print("\n" + "!" * 70)
+        print("❌ AI ANALYSIS DID NOT PRODUCE OUTPUT - see the Groq error above.")
+        print("!" * 70)
+
+    return ai_ok
 
 
 if __name__ == "__main__":
-    main()
+    ok = main()
+    sys.exit(0 if ok else 1)
