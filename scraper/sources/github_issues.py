@@ -3,17 +3,18 @@
 import requests
 import time
 import os
+from scraper.utils import health
 
 
 def scrape_github_issues():
     """Scrape GitHub issues for feature requests"""
-    
+  
     print("\n" + "=" * 50)
     print("🐙 SCRAPING GITHUB ISSUES...")
     print("=" * 50)
-    
+  
     problems = []
-    
+  
     # Large pool spanning many categories - each run only hits a rotating
     # SLICE of this (see below), so the dataset doesn't permanently skew
     # toward whichever 6-12 repos happened to be hardcoded.
@@ -22,7 +23,7 @@ def scrape_github_issues():
         "toeverything/AFFiNE", "AppFlowy-IO/AppFlowy", "logseq/logseq",
         "siyuan-note/siyuan",
         # Fintech / budgeting
-        "actualbudget/actual", "maybe-finance/maybe", "formance/ledger",
+        "actualbudget/actual", "maybe-finance/maybe", 
         "firefly-iii/firefly-iii",
         # Scheduling / CRM / business tools
         "calcom/cal.com", "twentyhq/twenty", "chatwoot/chatwoot",
@@ -57,8 +58,12 @@ def scrape_github_issues():
     from datetime import datetime, timedelta
     since_date = (datetime.utcnow() - timedelta(days=120)).strftime('%Y-%m-%dT%H:%M:%SZ')
 
+    failed_repos = []
+    attempts = errors = 0
+
     for repo in repos:
         try:
+            attempts += 1
             url = f"https://api.github.com/repos/{repo}/issues"
             params = {
                 "state": "open",
@@ -66,33 +71,35 @@ def scrape_github_issues():
                 "sort": "updated",  # API only allows created/updated/comments
                 "since": since_date,
             }
-            
+          
             response = requests.get(url, headers=headers, params=params, timeout=10)
-            
+          
             if response.status_code != 200:
                 print(f"   ❌ {repo}: HTTP {response.status_code}: {response.text[:200]}")
+                errors += 1
+                failed_repos.append(f"{repo}={response.status_code}")
             if response.status_code == 200:
                 issues = response.json()
                 issues.sort(key=lambda i: i.get('reactions', {}).get('total_count', 0), reverse=True)
-                
+              
                 repo_name = repo.split('/')[1]
-                
+              
                 for issue in issues:
                     # Skip pull requests
                     if 'pull_request' in issue:
                         continue
-                    
+                  
                     title = issue.get('title', '')
                     body = issue.get('body', '') or ''
-                    
+                  
                     labels = [l.get('name', '').lower() for l in issue.get('labels', [])]
-                    
+                  
                     # Look for feature requests
                     is_feature = any(l in ['enhancement', 'feature', 'feature-request', 'help wanted']
                                      for l in labels)
-                    
+                  
                     reactions = issue.get('reactions', {}).get('total_count', 0)
-                    
+                  
                     if is_feature or reactions > 3:
                         problems.append({
                             "source": "GitHub",
@@ -105,14 +112,15 @@ def scrape_github_issues():
                             "unique_id": f"gh_{issue.get('id', '')}",
                             "labels": labels,
                         })
-                
+              
                 print(f"   📌 {repo_name}: {len(issues)} issues")
-                
+              
             time.sleep(0.5)
-            
+          
         except Exception as e:
             print(f"   ❌ {repo}: {e}")
             continue
-    
+  
+    health.record('github', len(problems), attempts, errors, ', '.join(failed_repos) or None)
     print(f"\n   ✅ GitHub Total: {len(problems)}")
     return problems

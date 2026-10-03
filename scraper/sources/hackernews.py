@@ -2,6 +2,7 @@
 
 import requests
 import time
+from scraper.utils import health
 
 
 def scrape_hackernews():
@@ -130,5 +131,6 @@ def scrape_hackernews():
         except Exception:
             continue
     
+    health.record('hackernews', len(problems), 1, 0 if problems else 1)
     print(f"\n   ✅ Hacker News Total: {len(problems)}")
     return problems

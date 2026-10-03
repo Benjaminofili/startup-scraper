@@ -4,6 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 import time
 import hashlib
+from scraper.utils import health
 
 
 def _parse_trends_rss(geo: str, subsource: str, max_items: int = 20):
@@ -97,5 +98,6 @@ def scrape_all_trends():
     all_trends = []
     all_trends.extend(scrape_google_trends())
 
+    health.record('trends', len(all_trends), 2, 0 if all_trends else 2)
     print(f"\n   ✅ Trends Total: {len(all_trends)}")
     return all_trends

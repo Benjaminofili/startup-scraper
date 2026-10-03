@@ -3,6 +3,7 @@
 import requests
 import time
 import hashlib
+from scraper.utils import health
 
 # (country, app_id) - app_id is Apple's numeric ID, found in the App Store
 # URL: https://apps.apple.com/<country>/app/<name>/id<APP_ID>
@@ -109,5 +110,6 @@ def scrape_appstore_reviews(apps=None, pages_per_app=2):
             print(f"   ❌ {app_id}: {type(e).__name__}: {e}")
             continue
 
+    health.record('appstore', len(problems), len(apps), 0 if problems else len(apps))
     print(f"\n   ✅ App Store Total: {len(problems)}")
     return problems

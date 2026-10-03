@@ -3,6 +3,7 @@
 import requests
 import time
 import hashlib
+from scraper.utils import health
 from bs4 import BeautifulSoup
 
 
@@ -62,9 +63,13 @@ def scrape_reddit_search():
     rotated_subs = get_rotation_slice(flat_subs, chunk_size=10, state_key="reddit_subs")
     queries = get_rotation_slice(query_pool, chunk_size=4, state_key="reddit_queries")
 
+    attempts = errors = 0
+    last_error = None
+
     for category, subreddit in rotated_subs:
         for query in queries:
                 try:
+                    attempts += 1
                     params = {
                         "q": query,
                         "restrict_sr": 1,
@@ -82,11 +87,15 @@ def scrape_reddit_search():
 
                     if response.status_code == 429:
                         print(f"   ⏳ Rate limited on r/{subreddit}, backing off")
+                        errors += 1
+                        last_error = "HTTP 429"
                         time.sleep(5)
                         continue
 
                     if response.status_code != 200:
                         print(f"   ⚠️ r/{subreddit} '{query}': HTTP {response.status_code}")
+                        errors += 1
+                        last_error = f"HTTP {response.status_code}"
                         continue
 
                     data = response.json()
@@ -115,8 +124,11 @@ def scrape_reddit_search():
 
                 except Exception as e:
                     print(f"   ⚠️ r/{subreddit} '{query}': {type(e).__name__}: {e}")
+                    errors += 1
+                    last_error = type(e).__name__
                     continue
 
+    health.record("reddit_search", len(problems), attempts, errors, last_error)
     print(f"   ✅ Reddit search: {len(problems)} posts")
     return problems
 
@@ -141,10 +153,17 @@ def scrape_reddit_rss():
     problem_keywords = ['help', 'frustrated', 'looking for', 'recommend',
                         'alternative', 'struggling', 'hate', 'issue', 'problem']
     
+    attempts = errors = 0
+    last_error = None
+
     for feed_url in feeds:
         try:
+            attempts += 1
             response = requests.get(feed_url, headers=headers, timeout=10)
             
+            if response.status_code != 200:
+                errors += 1
+                last_error = f"HTTP {response.status_code}"
             if response.status_code == 200:
                 soup = BeautifulSoup(response.text, 'lxml-xml')
                 entries = soup.find_all('entry')
@@ -179,8 +198,11 @@ def scrape_reddit_rss():
             time.sleep(0.5)
             
         except Exception as e:
+            errors += 1
+            last_error = type(e).__name__
             continue
     
+    health.record("reddit_rss", len(problems), attempts, errors, last_error)
     print(f"   ✅ RSS: {len(problems)} posts")
     return problems
 

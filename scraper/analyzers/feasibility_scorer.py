@@ -268,3 +268,70 @@ def format_feasibility_report(ideas: List[Dict], top_n: int = 5) -> str:
         report += "---\n\n"
     
     return report
+
+# ---------------------------------------------------------------------------
+# Structured-output path (Groq strict JSON schema). No regex involved: the
+# model is constrained to the schema, we only validate ranges and compute.
+# ---------------------------------------------------------------------------
+
+_STRUCT_TO_FIELD = {
+    'investment': 'investment_score',
+    'passive_income': 'passive_income_score',
+    'team_size': 'team_size_score',
+    'time_to_market': 'time_to_market_score',
+    'competition': 'competition_score',
+    'monetization_fit': 'monetization_fit_score',
+    'regulatory_risk': 'regulatory_risk_score',
+}
+
+
+def ideas_from_structured(result: Optional[Dict]) -> List[Dict]:
+    """
+    Turn analyze_with_groq()'s structured result into scored idea dicts.
+    An idea is rejected (not defaulted) if any score is missing or outside 0-10.
+    """
+    ideas: List[Dict] = []
+    if not result:
+        return ideas
+
+    for raw in result.get('ideas', []):
+        scores = raw.get('scores') or {}
+        idea = dict(raw)
+        idea['title'] = (raw.get('name') or '').strip()
+        bad = []
+        for key, field in _STRUCT_TO_FIELD.items():
+            v = scores.get(key)
+            if not isinstance(v, int) or isinstance(v, bool) or not 0 <= v <= 10:
+                bad.append(key)
+            else:
+                idea[field] = v
+        if not idea['title'] or bad:
+            print(f"   WARNING: dropping '{idea['title'] or '?'}': invalid scores {bad}")
+            continue
+        idea['feasibility_score'] = calculate_feasibility_score(
+            *(idea[f] for f in _STRUCT_TO_FIELD.values())
+        )
+        ideas.append(idea)
+    return ideas
+
+
+def format_ideas_markdown(ideas: List[Dict]) -> str:
+    """Render validated ideas as the hypothesis-oriented latest_ideas.md."""
+    out = ["# Startup Opportunity Hypotheses\n",
+           "_Observed facts come only from cited evidence ids; everything else is a hypothesis or unknown to validate._\n"]
+
+    def bullets(items):
+        return "\n".join(f"  - {x}" for x in items) if items else "  - (none)"
+
+    for n, i in enumerate(rank_ideas_by_feasibility(ideas), 1):
+        out.append(f"\n---\n\n## {n}. {i['title']}\n")
+        out.append(f"**Observed problem:** {i.get('observed_problem', '')}\n")
+        out.append(f"**Evidence ids:** {', '.join(i.get('evidence_ids', [])) or 'none valid'}\n")
+        out.append(f"**Affected-user hypothesis:** {i.get('affected_user_hypothesis', '')}\n")
+        out.append(f"**Solution hypothesis:** {i.get('solution_hypothesis', '')}\n")
+        out.append(f"**Monetization hypothesis:** {i.get('monetization_hypothesis', '')}\n")
+        out.append(f"**Alternatives to verify:**\n{bullets(i.get('alternatives_to_verify'))}\n")
+        out.append(f"**Unknowns:**\n{bullets(i.get('unknowns'))}\n")
+        out.append(f"**Validation steps:**\n{bullets(i.get('validation_steps'))}\n")
+        out.append(f"**Model-estimated feasibility:** {i['feasibility_score']}/100 (subjective inputs)\n")
+    return "\n".join(out)

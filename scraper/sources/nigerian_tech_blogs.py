@@ -4,6 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 import time
 import hashlib
+from scraper.utils import health
 
 
 def scrape_nigerian_tech_blogs():
@@ -36,6 +37,7 @@ def scrape_nigerian_tech_blogs():
 
             if response.status_code != 200:
                 print(f"   ⚠️ {blog_name}: HTTP {response.status_code}")
+                health.record(f"blog:{blog_name}", 0, 1, 1, f"HTTP {response.status_code}")
                 continue
 
             soup = BeautifulSoup(response.text, 'xml')
@@ -68,11 +70,13 @@ def scrape_nigerian_tech_blogs():
                 })
                 count += 1
 
+            health.record(f"blog:{blog_name}", count, 1, 0)
             print(f"   📌 {blog_name}: {count} articles")
             time.sleep(1)
 
         except Exception as e:
             print(f"   ❌ {blog_name}: {type(e).__name__}: {e}")
+            health.record(f"blog:{blog_name}", 0, 1, 1, type(e).__name__)
             continue
 
     print(f"\n   ✅ Nigerian Tech Blogs Total: {len(problems)}")

@@ -3,6 +3,7 @@
 from google_play_scraper import reviews, Sort, search
 import time
 import hashlib
+from scraper.utils import health
 
 # Nigerian apps to analyze
 NIGERIAN_APPS = [
@@ -54,8 +55,12 @@ def scrape_playstore_reviews(apps=None, country='ng', reviews_per_app=60):
     
     problems = []
     
+    attempts = errors = 0
+    empty_apps = []
     for app_id in apps:
         try:
+            attempts += 1
+            n_before = len(problems)
             # Get 1-star reviews (most frustrated users)
             result_1star, _ = reviews(
                 app_id,
@@ -101,11 +106,17 @@ def scrape_playstore_reviews(apps=None, country='ng', reviews_per_app=60):
                         "date": str(review.get('at', ''))[:10],
                     })
             
+            if len(problems) == n_before:
+                empty_apps.append(app_id)
             time.sleep(1.5)  # Be nice to Google
             
         except Exception as e:
             print(f"   ❌ {app_id}: {type(e).__name__}: {e}")
+            errors += 1
+            empty_apps.append(app_id)
             continue
     
+    health.record('playstore', len(problems), attempts, len(empty_apps),
+                  (f"{len(empty_apps)}/{attempts} apps returned nothing: {', '.join(empty_apps)}" if empty_apps else None))
     print(f"\n   ✅ Play Store Total: {len(problems)}")
     return problems

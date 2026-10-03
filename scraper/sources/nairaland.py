@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 import time
 import random
 import hashlib
+from scraper.utils import health
 
 
 def scrape_nairaland():
@@ -39,6 +40,9 @@ def scrape_nairaland():
         'frustrated', 'bad', 'terrible', 'avoid', 'warning'
     ]
     
+    attempts = errors = 0
+    last_error = None
+
     for section_url, section_name in sections:
         for page in range(3):
             try:
@@ -51,13 +55,18 @@ def scrape_nairaland():
                     "Referer": "https://www.nairaland.com/",
                 }
                 
+                attempts += 1
                 response = requests.get(url, headers=headers, timeout=15)
                 
                 if response.status_code == 403:
                     print(f"   🚫 Blocked on {section_name}")
+                    errors += 1
+                    last_error = "HTTP 403"
                     break
                 
                 if response.status_code != 200:
+                    errors += 1
+                    last_error = f"HTTP {response.status_code}"
                     continue
                 
                 soup = BeautifulSoup(response.text, 'html.parser')
@@ -96,7 +105,12 @@ def scrape_nairaland():
                 
             except Exception as e:
                 print(f"   ❌ {section_name}: {type(e).__name__}")
+                errors += 1
+                last_error = type(e).__name__
                 continue
     
+    if not problems and errors == 0:
+        last_error = 'fetched OK but selectors matched nothing (markup change?)'
+    health.record('nairaland', len(problems), attempts, errors, last_error)
     print(f"\n   ✅ Nairaland Total: {len(problems)}")
     return problems

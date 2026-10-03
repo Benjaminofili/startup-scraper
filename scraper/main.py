@@ -22,12 +22,15 @@ from scraper.utils.deduplicator import deduplicate_problems
 from scraper.utils.storage import save_results
 from scraper.utils.state_tracker import load_seen_ids, save_seen_ids, filter_new
 from scraper.utils.normalize import add_signal, stratified_sample
+from scraper.utils import health
+from collections import Counter
 
 # Import analyzers
 from scraper.analyzers.ai_analyzer import analyze_with_groq
 from scraper.analyzers.keyword_extractor import extract_keywords, categorize_problems
 from scraper.analyzers.feasibility_scorer import (
-    parse_feasibility_metrics,
+    ideas_from_structured,
+    format_ideas_markdown,
     rank_ideas_by_feasibility,
     format_feasibility_report
 )
@@ -136,7 +139,8 @@ def main():
     # 4. AI ANALYSIS
     # ============================================
     
-    ai_analysis = None if insufficient_new else analyze_with_groq(analysis_input)
+    ai_result = None if insufficient_new else analyze_with_groq(analysis_input)
+    ai_analysis = None  # markdown rendering of validated ideas
     
     # ============================================
     # 5. FEASIBILITY ANALYSIS
@@ -145,12 +149,14 @@ def main():
     feasibility_ideas = []
     feasibility_report = None
     
-    if ai_analysis:
+    if ai_result:
         print("\n" + "=" * 50)
         print("🎯 FEASIBILITY ANALYSIS...")
         print("=" * 50)
         
-        feasibility_ideas = parse_feasibility_metrics(ai_analysis)
+        feasibility_ideas = ideas_from_structured(ai_result)
+        if feasibility_ideas:
+            ai_analysis = format_ideas_markdown(feasibility_ideas)
         
         if feasibility_ideas:
             ranked_ideas = rank_ideas_by_feasibility(feasibility_ideas)
@@ -161,7 +167,7 @@ def main():
             for i, idea in enumerate(ranked_ideas[:3], 1):
                 print(f"      {i}. {idea['title']} - Score: {idea['feasibility_score']}/100")
         else:
-            print("   ⚠️ Could not parse feasibility metrics from AI output")
+            print("   ⚠️ AI returned ideas but none passed score validation")
     
     # ============================================
     # 6. SAVE RESULTS
@@ -171,17 +177,36 @@ def main():
     print("💾 SAVING...")
     print("=" * 50)
     
+    stored_sample = stratified_sample(unique_problems, 150)
+    ai_meta = (ai_result or {}).get("meta", {})
+
     metadata = {
         "sources": source_stats,
-        "counts": {"raw": len(all_problems), "unique": len(unique_problems),
-                   "new": len(new_problems), "analyzed": len(analysis_input) if not insufficient_new else 0,
-                   "run_status": "insufficient_new_evidence" if insufficient_new else "ok"},
+        "source_health": health.snapshot(),
+        # raw/unique/new are pipeline-stage counts; analysis_candidates is
+        # what was eligible for the AI, ai_input is what actually entered
+        # the prompt (capped per source), stored is the saved sample.
+        "counts": {
+            "raw": len(all_problems),
+            "unique": len(unique_problems),
+            "new": len(new_problems),
+            "analysis_candidates": len(analysis_input),
+            "ai_input": ai_meta.get("ai_input", 0),
+            "stored": len(stored_sample),
+            "run_status": "insufficient_new_evidence" if insufficient_new else "ok",
+        },
+        "subsource_counts": {
+            f"{src}/{sub}": n for (src, sub), n in sorted(
+                Counter((p.get("source", "?"), p.get("subsource", "?")) for p in unique_problems).items()
+            )
+        },
+        "ai": ai_meta,
         "top_keywords": keywords[:15],
-        "feasibility_ideas": feasibility_ideas
+        "feasibility_ideas": feasibility_ideas,
     }
-    
+
     saved = save_results(
-        problems=stratified_sample(unique_problems, 150),
+        problems=stored_sample,
         ai_analysis=ai_analysis,
         feasibility_report=feasibility_report,
         metadata=metadata
