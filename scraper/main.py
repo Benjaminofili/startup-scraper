@@ -44,6 +44,7 @@ def main():
     print(f"   {datetime.now().strftime('%Y-%m-%d %H:%M')}")
     print("=" * 70)
     
+    health.reset()
     all_problems = []
     source_stats = {}
     
@@ -159,7 +160,11 @@ def main():
             ai_analysis = format_ideas_markdown(feasibility_ideas)
         
         if feasibility_ideas:
-            ranked_ideas = rank_ideas_by_feasibility(feasibility_ideas)
+            # Only evidence-verified (PASS) ideas get ranked; WEAK ones are
+            # shown in latest_ideas.md flagged, FAIL ones live in metadata.
+            ranked_ideas = rank_ideas_by_feasibility(
+                [i for i in feasibility_ideas if i.get('evidence_status') == 'PASS']
+            ) or rank_ideas_by_feasibility(feasibility_ideas)
             feasibility_report = format_feasibility_report(ranked_ideas, top_n=5)
             
             print(f"\n   📊 Analyzed {len(feasibility_ideas)} ideas")
@@ -201,6 +206,11 @@ def main():
             )
         },
         "ai": ai_meta,
+        "rejected_ideas": [
+            {"name": r.get("name"), "observed_problem": r.get("observed_problem"),
+             "evidence_ids": r.get("evidence_ids"), "evidence_verdicts": r.get("evidence_verdicts")}
+            for r in (ai_result or {}).get("rejected", [])
+        ],
         "top_keywords": keywords[:15],
         "feasibility_ideas": feasibility_ideas,
     }

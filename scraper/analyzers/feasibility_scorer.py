@@ -326,7 +326,12 @@ def format_ideas_markdown(ideas: List[Dict]) -> str:
     for n, i in enumerate(rank_ideas_by_feasibility(ideas), 1):
         out.append(f"\n---\n\n## {n}. {i['title']}\n")
         out.append(f"**Observed problem:** {i.get('observed_problem', '')}\n")
-        out.append(f"**Evidence ids:** {', '.join(i.get('evidence_ids', [])) or 'none valid'}\n")
+        status = i.get('evidence_status', 'UNVERIFIED')
+        out.append(f"**Evidence check:** {status} "
+                   f"({i.get('supporting_evidence', 0)}/{len(i.get('evidence_ids', []))} cited items support the claim)\n")
+        for v in i.get('evidence_verdicts', []):
+            out.append(f"  - `{v['id']}` {v['verdict']}: {v['reason']}")
+        out.append("")
         out.append(f"**Affected-user hypothesis:** {i.get('affected_user_hypothesis', '')}\n")
         out.append(f"**Solution hypothesis:** {i.get('solution_hypothesis', '')}\n")
         out.append(f"**Monetization hypothesis:** {i.get('monetization_hypothesis', '')}\n")

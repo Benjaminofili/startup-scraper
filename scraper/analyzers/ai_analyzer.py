@@ -104,6 +104,99 @@ def _gha_annotation(level, message, title=None):
     print(prefix + safe)
 
 
+VERIFY_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "verdicts": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "idea_index": {"type": "integer"},
+                    "evidence": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": {"type": "string"},
+                                "verdict": {"type": "string",
+                                            "enum": ["supports", "weak", "unrelated"]},
+                                "reason": {"type": "string"},
+                            },
+                            "required": ["id", "verdict", "reason"],
+                            "additionalProperties": False,
+                        },
+                    },
+                },
+                "required": ["idea_index", "evidence"],
+                "additionalProperties": False,
+            },
+        }
+    },
+    "required": ["verdicts"],
+    "additionalProperties": False,
+}
+
+VERIFY_PROMPT = """You are an evidence auditor. For each idea below, judge whether EACH
+cited item's text actually supports the idea's observed_problem claim.
+- supports: the item directly describes that problem
+- weak: only tangentially related
+- unrelated: does not support the claim
+Judge only from the item text shown. Do not give credit for plausibility.
+
+{blocks}"""
+
+
+def _verify_evidence(client, model, ideas, included):
+    """
+    Second-pass entailment check. Returns (accepted, rejected).
+    PASS  = >=2 cited items marked 'supports'  -> accepted
+    WEAK  = exactly 1                           -> accepted, flagged
+    FAIL  = 0 (or <2 citations that exist)      -> rejected
+    """
+    blocks = []
+    for n, idea in enumerate(ideas):
+        lines = [f"IDEA {n}: claim = {idea.get('observed_problem', '')}"]
+        for eid in idea.get("evidence_ids", []):
+            item = included.get(eid, {})
+            text = (item.get("title", "") + " | " + (item.get("content") or ""))[:350]
+            lines.append(f"  [{eid}] {text}")
+        blocks.append("\n".join(lines))
+
+    response = client.chat.completions.create(
+        model=model,
+        messages=[{"role": "user", "content": VERIFY_PROMPT.format(blocks="\n\n".join(blocks))}],
+        temperature=0,
+        max_tokens=6000,
+        response_format={"type": "json_schema",
+                         "json_schema": {"name": "evidence_verdicts",
+                                         "strict": True, "schema": VERIFY_SCHEMA}},
+    )
+    choice = response.choices[0]
+    if getattr(choice, "finish_reason", None) == "length":
+        raise RuntimeError("evidence verification truncated (finish_reason=length)")
+    verdicts = {v["idea_index"]: v["evidence"]
+                for v in json.loads(choice.message.content).get("verdicts", [])}
+
+    accepted, rejected = [], []
+    for n, idea in enumerate(ideas):
+        per = verdicts.get(n, [])
+        cited = set(idea.get("evidence_ids", []))
+        per = [e for e in per if e["id"] in cited]
+        supporting = sum(1 for e in per if e["verdict"] == "supports")
+        if supporting >= 2:
+            status = "PASS"
+        elif supporting == 1:
+            status = "WEAK"
+        else:
+            status = "FAIL"
+        idea["evidence_status"] = status
+        idea["evidence_verdicts"] = per
+        idea["supporting_evidence"] = supporting
+        (rejected if status == "FAIL" else accepted).append(idea)
+    return accepted, rejected
+
+
 def analyze_with_groq(problems, max_items=80):
     """
     Analyze problems using Groq strict structured outputs.
@@ -149,12 +242,14 @@ def analyze_with_groq(problems, max_items=80):
 
         formatted = ""
         valid_ids = set()
+        included = {}
         ai_input = 0
         for source, items in by_source.items():
             formatted += f"\n\n=== {source} ({min(len(items), 15)} items) ===\n"
             for item in items[:15]:
                 uid = item.get('unique_id', '')
                 valid_ids.add(uid)
+                included[uid] = item
                 ai_input += 1
                 formatted += f"- [{uid}] {item['title'][:80]}"
                 if item.get('content'):
@@ -209,13 +304,26 @@ def analyze_with_groq(problems, max_items=80):
         for idea in data["ideas"]:
             idea["evidence_ids"] = [e for e in idea.get("evidence_ids", []) if e in valid_ids]
 
-        print(f"   ✅ AI analysis complete: {len(data['ideas'])} ideas")
+        # A valid id is not enough: check the cited text really supports
+        # the claim (the same id was cited for two unrelated problems).
+        accepted, rejected = _verify_evidence(client, model, data["ideas"], included)
+        if not accepted:
+            msg = (f"all {len(rejected)} ideas failed evidence verification "
+                   f"(no idea had >=2 cited items supporting its observed_problem)")
+            print(f"   ❌ {msg}")
+            _gha_annotation("error", msg, title="Groq")
+            return None
+
+        print(f"   ✅ AI analysis complete: {len(accepted)} accepted, "
+              f"{len(rejected)} rejected on evidence")
         return {
-            "ideas": data["ideas"],
+            "ideas": accepted,
+            "rejected": rejected,
             "meta": {
                 "model": model,
                 "finish_reason": finish_reason,
                 "ai_input": ai_input,
+                "rejected_on_evidence": len(rejected),
                 "completion_tokens": getattr(usage, "completion_tokens", None),
             },
         }

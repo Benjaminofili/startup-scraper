@@ -35,6 +35,20 @@ NIGERIAN_APPS = [
     "ng.gov.firs.tax",
 ]
 
+# Human-readable names for package ids (package id stays as a separate field).
+APP_NAMES = {
+    "com.opay.merchant": "OPay", "com.palmpay.app": "PalmPay",
+    "team.monipoint.pos": "Moniepoint POS", "com.kuda.bank": "Kuda",
+    "com.cowrywise.android": "Cowrywise", "com.piggyvest.piggyvest": "PiggyVest",
+    "com.carbon.android": "Carbon", "com.loanandfund.fairmoney": "FairMoney",
+    "com.bolt.ng": "Bolt", "com.ubercab": "Uber", "ng.max.app": "MAX",
+    "com.jumia.android": "Jumia", "com.konga.buyer": "Konga",
+    "com.sportybet.android.ng": "SportyBet", "com.bet9ja.android": "Bet9ja",
+    "com.buypower.app": "BuyPower", "ng.gov.firs.tax": "FIRS Tax",
+    "com.notion.id": "Notion", "com.todoist": "Todoist",
+    "com.squareup.pos": "Square POS",
+}
+
 # Global apps with common problems
 GLOBAL_APPS = [
     "com.notion.id",
@@ -82,7 +96,7 @@ def scrape_playstore_reviews(apps=None, country='ng', reviews_per_app=60):
             )
             
             all_reviews = result_1star + result_2star
-            app_name = app_id.split('.')[-1].title()
+            app_name = APP_NAMES.get(app_id, app_id.split('.')[-1].title())
             
             print(f"   📌 {app_name}: {len(all_reviews)} reviews")
             
@@ -103,6 +117,10 @@ def scrape_playstore_reviews(apps=None, country='ng', reviews_per_app=60):
                         "url": f"https://play.google.com/store/apps/details?id={app_id}",
                         "unique_id": f"ps_{unique_id}",
                         "app_id": app_id,
+                        "app_name": app_name,
+                        "package_id": app_id,
+                        "market": "GooglePlay",
+                        "country": country,
                         "date": str(review.get('at', ''))[:10],
                     })
             
@@ -116,7 +134,7 @@ def scrape_playstore_reviews(apps=None, country='ng', reviews_per_app=60):
             empty_apps.append(app_id)
             continue
     
-    health.record('playstore', len(problems), attempts, len(empty_apps),
-                  (f"{len(empty_apps)}/{attempts} apps returned nothing: {', '.join(empty_apps)}" if empty_apps else None))
+    health.record('playstore', len(problems), attempts, errors, empty_results=len(empty_apps), error=
+(f"{len(empty_apps)}/{attempts} apps returned nothing: {', '.join(empty_apps)}" if empty_apps else None))
     print(f"\n   ✅ Play Store Total: {len(problems)}")
     return problems
