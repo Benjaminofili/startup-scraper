@@ -27,6 +27,8 @@ SCHEMA = {
     "properties": {
         "ideas": {
             "type": "array",
+            "minItems": 5,
+            "maxItems": 5,
             "items": {
                 "type": "object",
                 "properties": {
@@ -41,7 +43,8 @@ SCHEMA = {
                     "validation_steps": _STR_LIST,
                     "scores": {
                         "type": "object",
-                        "properties": {k: {"type": "integer"} for k in SCORE_KEYS},
+                        "properties": {k: {"type": "integer", "minimum": 0, "maximum": 10}
+                                       for k in SCORE_KEYS},
                         "required": SCORE_KEYS,
                         "additionalProperties": False,
                     },
@@ -90,6 +93,21 @@ Return exactly 5 opportunities. For each:
   regulatory_risk (10 = no licensing or legal exposure, 0 = licenses, safety or
   money transmission). Be conservative.
 Keep every text field to 1-2 short sentences."""
+
+
+def prompt_snippet(item):
+    """
+    The ONE canonical evidence text. The generator and the verifier both see
+    exactly this string, so the verifier can never legitimize a claim with
+    text the generator did not have.
+    """
+    title = (item.get("title") or "").strip().replace("\n", " ")[:120]
+    content = (item.get("content") or "").strip().replace("\n", " ")
+    # Reddit/HN content often starts with the title; don't spend chars twice.
+    if content.lower().startswith(title.lower()[:60]):
+        content = content[len(title):].lstrip(" |:-")
+    content = content[:280]
+    return f"{title} | {content}" if content else title
 
 
 def _gha_annotation(level, message, title=None):
@@ -159,8 +177,7 @@ def _verify_evidence(client, model, ideas, included):
         lines = [f"IDEA {n}: claim = {idea.get('observed_problem', '')}"]
         for eid in idea.get("evidence_ids", []):
             item = included.get(eid, {})
-            text = (item.get("title", "") + " | " + (item.get("content") or ""))[:350]
-            lines.append(f"  [{eid}] {text}")
+            lines.append(f"  [{eid}] {item.get('prompt_snippet') or prompt_snippet(item)}")
         blocks.append("\n".join(lines))
 
     response = client.chat.completions.create(
@@ -180,9 +197,17 @@ def _verify_evidence(client, model, ideas, included):
 
     accepted, rejected = [], []
     for n, idea in enumerate(ideas):
-        per = verdicts.get(n, [])
         cited = set(idea.get("evidence_ids", []))
-        per = [e for e in per if e["id"] in cited]
+        # One verdict per unique cited id; if the verifier repeats an id,
+        # keep the most conservative verdict so duplicates can't inflate support.
+        rank = {"unrelated": 0, "weak": 1, "supports": 2}
+        by_id = {}
+        for e in verdicts.get(n, []):
+            if e["id"] not in cited:
+                continue
+            if e["id"] not in by_id or rank[e["verdict"]] < rank[by_id[e["id"]]["verdict"]]:
+                by_id[e["id"]] = e
+        per = list(by_id.values())
         supporting = sum(1 for e in per if e["verdict"] == "supports")
         if supporting >= 2:
             status = "PASS"
@@ -195,6 +220,16 @@ def _verify_evidence(client, model, ideas, included):
         idea["supporting_evidence"] = supporting
         (rejected if status == "FAIL" else accepted).append(idea)
     return accepted, rejected
+
+
+def _strip_constraints(node):
+    """Copy of a schema without minItems/maxItems/minimum/maximum."""
+    if isinstance(node, dict):
+        return {k: _strip_constraints(v) for k, v in node.items()
+                if k not in ("minItems", "maxItems", "minimum", "maximum")}
+    if isinstance(node, list):
+        return [_strip_constraints(v) for v in node]
+    return node
 
 
 def analyze_with_groq(problems, max_items=80):
@@ -251,10 +286,9 @@ def analyze_with_groq(problems, max_items=80):
                 valid_ids.add(uid)
                 included[uid] = item
                 ai_input += 1
-                formatted += f"- [{uid}] {item['title'][:80]}"
-                if item.get('content'):
-                    formatted += f": {item['content'][:80]}"
-                formatted += "\n"
+                snippet = prompt_snippet(item)
+                item["prompt_snippet"] = snippet
+                formatted += f"- [{uid}] {snippet}\n"
 
         prompt = PROMPT.format(formatted=formatted)
         print(f"   📤 Analyzing {ai_input} items ({len(problems)} candidates)...")
@@ -264,18 +298,34 @@ def analyze_with_groq(problems, max_items=80):
         data = None
         finish_reason = None
         usage = None
+        schema = SCHEMA
         for budget in (8000, 16000):
-            response = client.chat.completions.create(
-                model=model,
-                messages=[{"role": "user", "content": prompt}],
-                temperature=0.4,
-                max_tokens=budget,
-                response_format={
-                    "type": "json_schema",
-                    "json_schema": {"name": "startup_opportunities",
-                                    "strict": True, "schema": SCHEMA},
-                },
-            )
+            def _call(sch):
+                return client.chat.completions.create(
+                    model=model,
+                    messages=[{"role": "user", "content": prompt}],
+                    temperature=0.4,
+                    max_tokens=budget,
+                    response_format={
+                        "type": "json_schema",
+                        "json_schema": {"name": "startup_opportunities",
+                                        "strict": True, "schema": sch},
+                    },
+                )
+            try:
+                response = _call(schema)
+            except Exception as e:
+                # Groq's strict mode may not accept every constraint keyword.
+                # Fall back once to the plain schema (Python re-validates
+                # counts and ranges anyway) and say so loudly.
+                if schema is SCHEMA and getattr(e, "status_code", None) == 400:
+                    print(f"   ⚠️ strict schema with constraints rejected ({e}); "
+                          f"retrying without minItems/maxItems/minimum/maximum")
+                    _gha_annotation("warning", f"Groq rejected constrained schema: {e}", title="Groq")
+                    schema = _strip_constraints(SCHEMA)
+                    response = _call(schema)
+                else:
+                    raise
             choice = response.choices[0]
             finish_reason = getattr(choice, "finish_reason", None)
             usage = getattr(response, "usage", None)

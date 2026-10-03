@@ -131,7 +131,6 @@ def scrape_playstore_reviews(apps=None, country='ng', reviews_per_app=60):
         except Exception as e:
             print(f"   ❌ {app_id}: {type(e).__name__}: {e}")
             errors += 1
-            empty_apps.append(app_id)
             continue
     
     health.record('playstore', len(problems), attempts, errors, empty_results=len(empty_apps), error=

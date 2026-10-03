@@ -93,6 +93,7 @@ def scrape_appstore_reviews(apps=None, pages_per_app=2):
 
     for country, app_id in apps:
         app_problems = 0
+        fetch_failed = False
         app_name = _lookup_app_name(country, app_id, EXPECTED_NAMES.get(app_id, app_id))
         try:
             for page in range(1, pages_per_app + 1):
@@ -100,6 +101,7 @@ def scrape_appstore_reviews(apps=None, pages_per_app=2):
 
                 if not data:
                     errors += 1
+                    fetch_failed = True
                     break
 
                 entries = data.get("feed", {}).get("entry", [])
@@ -142,7 +144,7 @@ def scrape_appstore_reviews(apps=None, pages_per_app=2):
 
                 time.sleep(1)  # be nice to Apple's endpoint
 
-            if app_problems == 0:
+            if app_problems == 0 and not fetch_failed:
                 empty_apps.append(app_name)
             print(f"   📌 App {app_id} ({country}): {app_problems} low-rated reviews")
             time.sleep(1)
