@@ -2,6 +2,7 @@
 
 import json
 import os
+from datetime import datetime, timezone
 
 STATE_DIR = "data"
 SEEN_IDS_PATH = f"{STATE_DIR}/seen_ids.json"
@@ -16,28 +17,46 @@ def _ensure_state_dir():
     os.makedirs(STATE_DIR, exist_ok=True)
 
 
-def load_seen_ids() -> set:
-    """Load the set of unique_ids seen in any previous run."""
+def _load_seen_records() -> dict:
+    """Return {unique_id: last_seen_iso_date}. Accepts the legacy plain-list format."""
     if not os.path.exists(SEEN_IDS_PATH):
-        return set()
+        return {}
     try:
         with open(SEEN_IDS_PATH, "r", encoding="utf-8") as f:
-            return set(json.load(f))
+            data = json.load(f)
     except Exception:
-        return set()
+        return {}
+    if isinstance(data, dict):
+        return data
+    # Legacy format: bare list with no chronology. Stamp as "unknown-old"
+    # so these are the first to be evicted when the cap is hit.
+    return {i: "0000-00-00" for i in data}
+
+
+def load_seen_ids() -> set:
+    """Load the set of unique_ids seen in any previous run."""
+    return set(_load_seen_records())
 
 
 def save_seen_ids(ids: set):
-    """Persist the seen-ID set, trimmed to the most recent MAX_SEEN_IDS."""
+    """
+    Persist seen IDs with a last-seen date. Previously-known IDs keep their
+    stamp; IDs new to this call get today's date. When over MAX_SEEN_IDS the
+    oldest-stamped are evicted (a set has no insertion order, so recency has
+    to be stored explicitly).
+    """
     _ensure_state_dir()
-    ids_list = list(ids)
-    if len(ids_list) > MAX_SEEN_IDS:
-        # Keep the tail (most recently added) - dicts/sets preserve insertion
-        # order in practice here since callers pass in scrape order, but to
-        # be safe just truncate arbitrarily; exact recency isn't critical.
-        ids_list = ids_list[-MAX_SEEN_IDS:]
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    records = _load_seen_records()
+    for i in ids:
+        records[i] = today if i not in records or records[i] == "0000-00-00" else records[i]
+    # Refresh last_seen for IDs observed again this run is done by caller
+    # passing the full union; keep prior stamp otherwise.
+    if len(records) > MAX_SEEN_IDS:
+        keep = sorted(records.items(), key=lambda kv: (kv[1], kv[0]), reverse=True)[:MAX_SEEN_IDS]
+        records = dict(keep)
     with open(SEEN_IDS_PATH, "w", encoding="utf-8") as f:
-        json.dump(ids_list, f)
+        json.dump(records, f, sort_keys=True)
 
 
 def filter_new(problems: list, seen_ids: set) -> list:

@@ -3,6 +3,7 @@
 import requests
 from bs4 import BeautifulSoup
 import time
+import hashlib
 
 
 def _parse_trends_rss(geo: str, subsource: str, max_items: int = 20):
@@ -62,7 +63,8 @@ def _parse_trends_rss(geo: str, subsource: str, max_items: int = 20):
                 "content": " | ".join(content_parts)[:600],
                 "score": max(0, 100 - idx * 3),  # simple recency/rank-based score
                 "url": f"https://trends.google.com/trends/explore?q={title.replace(' ', '+')}",
-                "unique_id": f"gt_{geo.lower()}_{idx}_{title[:20]}",
+                "unique_id": f"gt_{geo.lower()}_{hashlib.md5(title.lower().strip().encode()).hexdigest()[:12]}",
+                "rank": idx + 1,
             })
 
         print(f"   ✅ {subsource} trends: {len(trends)}")
@@ -84,7 +86,7 @@ def scrape_google_trends():
 
     trends.extend(_parse_trends_rss(geo="NG", subsource="Nigeria"))
     time.sleep(1)
-    trends.extend(_parse_trends_rss(geo="US", subsource="Global"))
+    trends.extend(_parse_trends_rss(geo="US", subsource="United States"))
 
     return trends
 

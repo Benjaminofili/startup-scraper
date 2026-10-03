@@ -59,10 +59,13 @@ def deduplicate_problems(problems: List[Dict], threshold: float = 0.85) -> List[
     if not problems:
         return []
     
-    # Sort by score (highest first) to keep best versions
+    # Keep the best version of each duplicate cluster. Rank by the
+    # per-source normalized `signal` (falls back to raw score), never by
+    # raw score across sources - HN points and Play thumbs-up aren't
+    # comparable.
     sorted_problems = sorted(
-        problems, 
-        key=lambda x: x.get('score', 0), 
+        problems,
+        key=lambda x: (x.get('signal', 0), x.get('score', 0)),
         reverse=True
     )
     

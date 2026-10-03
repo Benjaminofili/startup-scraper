@@ -122,7 +122,7 @@ def scrape_hackernews():
                         "score": hit.get('points', 0),
                         "comments": hit.get('num_comments', 0),
                         "url": f"https://news.ycombinator.com/item?id={hit.get('objectID', '')}",
-                        "unique_id": f"hns_{hit.get('objectID', '')}",
+                        "unique_id": f"hn_{hit.get('objectID', '')}",
                     })
 
             time.sleep(0.3)

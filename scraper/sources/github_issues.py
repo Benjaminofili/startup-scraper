@@ -63,14 +63,17 @@ def scrape_github_issues():
             params = {
                 "state": "open",
                 "per_page": 25,
-                "sort": "reactions",
+                "sort": "updated",  # API only allows created/updated/comments
                 "since": since_date,
             }
             
             response = requests.get(url, headers=headers, params=params, timeout=10)
             
+            if response.status_code != 200:
+                print(f"   ❌ {repo}: HTTP {response.status_code}: {response.text[:200]}")
             if response.status_code == 200:
                 issues = response.json()
+                issues.sort(key=lambda i: i.get('reactions', {}).get('total_count', 0), reverse=True)
                 
                 repo_name = repo.split('/')[1]
                 

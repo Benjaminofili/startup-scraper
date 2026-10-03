@@ -21,6 +21,7 @@ from scraper.sources.nigerian_tech_blogs import scrape_nigerian_tech_blogs
 from scraper.utils.deduplicator import deduplicate_problems
 from scraper.utils.storage import save_results
 from scraper.utils.state_tracker import load_seen_ids, save_seen_ids, filter_new
+from scraper.utils.normalize import add_signal, stratified_sample
 
 # Import analyzers
 from scraper.analyzers.ai_analyzer import analyze_with_groq
@@ -76,6 +77,8 @@ def main():
     print("=" * 50)
     
     print(f"   Raw: {len(all_problems)}")
+    # Per-source percentile signal; raw `score` isn't comparable across sources.
+    add_signal(all_problems)
     unique_problems = deduplicate_problems(all_problems)
     print(f"   Unique (this run): {len(unique_problems)}")
 
@@ -97,18 +100,20 @@ def main():
     new_problems = filter_new(unique_problems, seen_ids)
     print(f"   New this run: {len(new_problems)} / {len(unique_problems)}")
 
-    if len(new_problems) < 5:
-        print("   ⚠️ Very little new content this run - sources may need")
-        print("      wider rotation pools, or this run just landed on a")
-        print("      quiet period. Falling back to full unique set so the")
-        print("      AI analysis isn't starved of input.")
-        analysis_input = unique_problems
-    else:
+    insufficient_new = len(new_problems) < 5
+    if insufficient_new:
+        # Do NOT fall back to the stale unique set: re-feeding old evidence
+        # to the AI is what recreated variations of the same old ideas.
+        print("   ⚠️ insufficient_new_evidence: fewer than 5 unseen items.")
+        print("      Skipping AI idea generation this run (data still saved).")
+        if os.getenv("GITHUB_ACTIONS"):
+            print("::warning title=Scraper::insufficient_new_evidence - AI analysis skipped, fewer than 5 unseen items")
         analysis_input = new_problems
+    else:
+        # Stratified across sources by normalized signal - not "highest raw
+        # score wins", which let HN points crowd out Play/App Store reviews.
+        analysis_input = stratified_sample(new_problems, len(new_problems))
 
-    # Sort by score
-    analysis_input.sort(key=lambda x: x.get('score', 0), reverse=True)
-    
     # ============================================
     # 3. LOCAL ANALYSIS
     # ============================================
@@ -131,7 +136,7 @@ def main():
     # 4. AI ANALYSIS
     # ============================================
     
-    ai_analysis = analyze_with_groq(analysis_input)
+    ai_analysis = None if insufficient_new else analyze_with_groq(analysis_input)
     
     # ============================================
     # 5. FEASIBILITY ANALYSIS
@@ -168,12 +173,15 @@ def main():
     
     metadata = {
         "sources": source_stats,
+        "counts": {"raw": len(all_problems), "unique": len(unique_problems),
+                   "new": len(new_problems), "analyzed": len(analysis_input) if not insufficient_new else 0,
+                   "run_status": "insufficient_new_evidence" if insufficient_new else "ok"},
         "top_keywords": keywords[:15],
         "feasibility_ideas": feasibility_ideas
     }
     
     saved = save_results(
-        problems=unique_problems[:150],
+        problems=stratified_sample(unique_problems, 150),
         ai_analysis=ai_analysis,
         feasibility_report=feasibility_report,
         metadata=metadata
@@ -217,7 +225,8 @@ def main():
     # to fail loudly when the AI stage produced nothing - otherwise the
     # pipeline silently degrades to "just a scraper" for weeks (which is
     # exactly what happened when Groq decommissioned the old model).
-    ai_ok = ai_analysis is not None
+    # Skipping for lack of new evidence is not an AI failure.
+    ai_ok = ai_analysis is not None or insufficient_new
     if not ai_ok:
         print("\n" + "!" * 70)
         print("❌ AI ANALYSIS DID NOT PRODUCE OUTPUT - see the Groq error above.")

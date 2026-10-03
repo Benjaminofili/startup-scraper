@@ -29,14 +29,20 @@ _TITLE_LINE = re.compile(
     r'(?:\[)?([A-Za-z0-9][^\n*_\]]{1,60}?)(?:\])?[*_]{0,2}\s*(?:\(.*)?$'
 )
 
+# Tolerant of both prompt-era formats: inline bullets ("- Investment: 8/10")
+# and the markdown table gpt-oss emits ("| **Investment** | **9** - why").
+# After the label we allow a few non-digit separator chars (colon, pipes,
+# asterisks, spaces, dashes) and take the first 1-2 digit number.
+_SEP = r'[^\d\n]{0,15}?(\d{1,2})(?!\d)'
+
 _SCORE_PATTERNS = {
-    'investment_score': r'Investment(?:\s+Score)?[:\-]?\s*(\d+)\s*(?:/\s*10)?',
-    'passive_income_score': r'Passive\s+Income(?:\s+Score)?[:\-]?\s*(\d+)\s*(?:/\s*10)?',
-    'team_size_score': r'Team(?:\s+Size)?(?:\s+Score)?[:\-]?\s*(\d+)\s*(?:/\s*10)?',
-    'time_to_market_score': r'Time\s+to\s+Market(?:\s+Score)?[:\-]?\s*(\d+)\s*(?:/\s*10)?',
-    'competition_score': r'Competition(?:\s+Score)?[:\-]?\s*(\d+)\s*(?:/\s*10)?',
-    'monetization_fit_score': r'Monetization\s+Fit(?:\s+Score)?[:\-]?\s*(\d+)\s*(?:/\s*10)?',
-    'regulatory_risk_score': r'Regulatory\s+Risk(?:\s+Score)?[:\-]?\s*(\d+)\s*(?:/\s*10)?',
+    'investment_score': r'Investment(?:\s+Score)?' + _SEP,
+    'passive_income_score': r'Passive\s+Income(?:\s+Score)?' + _SEP,
+    'team_size_score': r'Team(?:\s+Size)?(?:\s+Score)?' + _SEP,
+    'time_to_market_score': r'Time\s+to\s+Market(?:\s+Score)?' + _SEP,
+    'competition_score': r'Competition(?:\s+Score)?' + _SEP,
+    'monetization_fit_score': r'Monetization\s+Fit(?:\s+Score)?' + _SEP,
+    'regulatory_risk_score': r'Regulatory\s+Risk(?:\s+Score)?' + _SEP,
 }
 
 
@@ -110,20 +116,20 @@ def parse_feasibility_metrics(ai_analysis: str) -> List[Dict]:
         idea = {
             'raw_text': ai_analysis[marker.start():scores_end].strip(),
             'title': title or f'Idea {i + 1}',
-            'investment_score': 5,
-            'passive_income_score': 5,
-            'team_size_score': 5,
-            'time_to_market_score': 5,
-            'competition_score': 5,
-            'monetization_fit_score': 5,
-            'regulatory_risk_score': 5,
-            'feasibility_score': 5.0,
+            'feasibility_score': None,
         }
 
         for key, pattern in _SCORE_PATTERNS.items():
             match = re.search(pattern, scores_text, re.IGNORECASE)
-            if match:
-                idea[key] = min(10, max(0, int(match.group(1))))
+            idea[key] = min(10, max(0, int(match.group(1)))) if match else None
+
+        # Fail closed: a missing metric used to default to 5/10, so a
+        # truncated or reformatted response became a plausible-looking
+        # 50/100 idea. Reject it instead.
+        missing = [k for k in _SCORE_PATTERNS if idea[k] is None]
+        if missing:
+            print(f"   WARNING: dropping '{idea['title']}': could not parse {missing}")
+            continue
 
         idea['feasibility_score'] = calculate_feasibility_score(
             idea['investment_score'],
