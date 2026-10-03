@@ -350,9 +350,22 @@ def analyze_with_groq(problems, max_items=80):
                             title="Groq")
             return None
 
-        # Keep only evidence ids that really exist in the prompt.
-        for idea in data["ideas"]:
-            idea["evidence_ids"] = [e for e in idea.get("evidence_ids", []) if e in valid_ids]
+        # Enforce the count in Python: if Groq rejected minItems/maxItems and
+        # we fell back to the plain schema, this is the only place it is checked.
+        ideas = data.get("ideas", [])
+        if len(ideas) != 5:
+            msg = f"expected exactly 5 ideas, got {len(ideas)}"
+            print(f"   ❌ {msg}")
+            _gha_annotation("error", msg, title="Groq")
+            return None
+        data["ideas"] = ideas
+
+        # Keep only evidence ids that really exist in the prompt, deduplicated
+        # (order preserved) so "2/2 cited items" means two distinct items.
+        for idea in ideas:
+            idea["evidence_ids"] = list(dict.fromkeys(
+                e for e in idea.get("evidence_ids", []) if e in valid_ids
+            ))
 
         # A valid id is not enough: check the cited text really supports
         # the claim (the same id was cited for two unrelated problems).
